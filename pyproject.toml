@@ -1,0 +1,20 @@
+[project]
+name = "daymap2026"
+version = "0.1.0"
+description = "30 Day Map Challenge 2026 - Philippines stories in Python"
+requires-python = ">=3.11"
+dependencies = [
+    "geopandas>=1.0",
+    "osmnx>=2.0",
+    "rioxarray>=0.18",
+    "pystac-client>=0.8",
+    "matplotlib>=3.9",
+    "folium>=0.18",
+    "planetary-computer>=1.0.0",
+    "scipy>=1.17.1",
+    "h5netcdf>=1.8.2",
+    "h5py>=3.16.0",
+    "h3>=4.5.0",
+    "plotly>=7.1.0",
+    "markdown>=3.11.3",
+]

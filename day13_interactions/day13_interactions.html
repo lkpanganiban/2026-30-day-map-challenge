@@ -1,0 +1,3451 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_77fdcd3b603f1f2b9c1b149cae28c25d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+</head>
+<body>
+    
+    
+<div style="position: fixed; top: 14px; left: 54px; z-index: 9999;
+     font-family: 'Avenir Next', Helvetica, sans-serif; color: #f4efe6;">
+  <div style="color:#e63946;font-size:11px;letter-spacing:4px;font-weight:700;">INTERACTIONS</div>
+  <div style="font-size:22px;font-weight:700;margin-top:2px;">Two years of shaking, wind and ash</div>
+  <div style="font-size:11px;opacity:.8;margin-top:4px;">
+    Click a point or line. Toggle layers in the panel.
+  </div>
+</div>
+    
+            <div class="folium-map" id="map_77fdcd3b603f1f2b9c1b149cae28c25d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_77fdcd3b603f1f2b9c1b149cae28c25d = L.map(
+                "map_77fdcd3b603f1f2b9c1b149cae28c25d",
+                {
+                    center: [12.5, 122.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": true,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_77fdcd3b603f1f2b9c1b149cae28c25d);
+
+            
+
+        
+    
+            var tile_layer_0932bec99dfa1f63eff7d7347a5c414e = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Esri, HERE, Garmin, \u00a9 OpenStreetMap contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_0932bec99dfa1f63eff7d7347a5c414e.addTo(map_77fdcd3b603f1f2b9c1b149cae28c25d);
+        
+    
+            var feature_group_2f5dd602d08917e842ea84e979d4d05a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_f5751381a2b83755993b9f8b4217ec8f = L.circleMarker(
+                [5.6079, 125.3054],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.640000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_914248b7a54f7614ffd6bfaa0c39ca07 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_62148de1ee7029250ad0ca530f0daf55 = $(`<div id="html_62148de1ee7029250ad0ca530f0daf55" style="width: 100.0%; height: 100.0%;">M5.2 · 6 km NW of Balangonan, Philippines<br>depth 46 km</div>`)[0];
+                popup_914248b7a54f7614ffd6bfaa0c39ca07.setContent(html_62148de1ee7029250ad0ca530f0daf55);
+            
+        
+
+        circle_marker_f5751381a2b83755993b9f8b4217ec8f.bindPopup(popup_914248b7a54f7614ffd6bfaa0c39ca07)
+        ;
+
+        
+    
+    
+            var circle_marker_f14c11da71805c4bec770e5d9dc521f8 = L.circleMarker(
+                [5.7035, 125.3993],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_3a4d0252c042f93ec8bd1d8a70abeb1c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cd876e8f5be0a7261ecdad6d1a8c9011 = $(`<div id="html_cd876e8f5be0a7261ecdad6d1a8c9011" style="width: 100.0%; height: 100.0%;">M5.1 · 8 km WNW of Sugal, Philippines<br>depth 57 km</div>`)[0];
+                popup_3a4d0252c042f93ec8bd1d8a70abeb1c.setContent(html_cd876e8f5be0a7261ecdad6d1a8c9011);
+            
+        
+
+        circle_marker_f14c11da71805c4bec770e5d9dc521f8.bindPopup(popup_3a4d0252c042f93ec8bd1d8a70abeb1c)
+        ;
+
+        
+    
+    
+            var circle_marker_745e9ef41c2b51f5759c72c79e0d63f5 = L.circleMarker(
+                [5.6177, 125.1838],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.300000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_d051c534322f50b74f1fdfd81c33c95c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9992c7c5d54c3a2ee5544aa265f7d3ce = $(`<div id="html_9992c7c5d54c3a2ee5544aa265f7d3ce" style="width: 100.0%; height: 100.0%;">M5.5 · 13 km SW of Burias, Philippines<br>depth 58 km</div>`)[0];
+                popup_d051c534322f50b74f1fdfd81c33c95c.setContent(html_9992c7c5d54c3a2ee5544aa265f7d3ce);
+            
+        
+
+        circle_marker_745e9ef41c2b51f5759c72c79e0d63f5.bindPopup(popup_d051c534322f50b74f1fdfd81c33c95c)
+        ;
+
+        
+    
+    
+            var circle_marker_63b7ae297411170201185c24126a81c9 = L.circleMarker(
+                [6.0524, 123.8339],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.859999999999999, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_7effb19e5c2284d045512019ec54fe04 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c4166f88bffc77cda3f817a8794137af = $(`<div id="html_c4166f88bffc77cda3f817a8794137af" style="width: 100.0%; height: 100.0%;">M5.3 · 42 km WSW of Palimbang, Philippines<br>depth 10 km</div>`)[0];
+                popup_7effb19e5c2284d045512019ec54fe04.setContent(html_c4166f88bffc77cda3f817a8794137af);
+            
+        
+
+        circle_marker_63b7ae297411170201185c24126a81c9.bindPopup(popup_7effb19e5c2284d045512019ec54fe04)
+        ;
+
+        
+    
+    
+            var circle_marker_38db0b52f00b64f1456a3a9dafd179bd = L.circleMarker(
+                [9.3576, 125.5685],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_7cb3b6b0a7cb7bb0f60b50a9b94b2080 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_669d3ff87d1ccd7ba5afd362cfb0c7a7 = $(`<div id="html_669d3ff87d1ccd7ba5afd362cfb0c7a7" style="width: 100.0%; height: 100.0%;">M5.0 · 5 km NNE of Bangonay, Philippines<br>depth 10 km</div>`)[0];
+                popup_7cb3b6b0a7cb7bb0f60b50a9b94b2080.setContent(html_669d3ff87d1ccd7ba5afd362cfb0c7a7);
+            
+        
+
+        circle_marker_38db0b52f00b64f1456a3a9dafd179bd.bindPopup(popup_7cb3b6b0a7cb7bb0f60b50a9b94b2080)
+        ;
+
+        
+    
+    
+            var circle_marker_7783ba6fc614ea01947ad1918a921146 = L.circleMarker(
+                [9.3881, 125.4217],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_20fe2d88f7f07421ce8e9103e4cf5b00 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_956864346d639ca2d8e35371a8ed03b7 = $(`<div id="html_956864346d639ca2d8e35371a8ed03b7" style="width: 100.0%; height: 100.0%;">M5.1 · 11 km S of Cantapoy, Philippines<br>depth 10 km</div>`)[0];
+                popup_20fe2d88f7f07421ce8e9103e4cf5b00.setContent(html_956864346d639ca2d8e35371a8ed03b7);
+            
+        
+
+        circle_marker_7783ba6fc614ea01947ad1918a921146.bindPopup(popup_20fe2d88f7f07421ce8e9103e4cf5b00)
+        ;
+
+        
+    
+    
+            var circle_marker_522955b92efd36b3d65d6361c6c462b4 = L.circleMarker(
+                [9.3243, 125.3835],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_4cb7bddf46f19eea1ac8afc5d58c651c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fc1e910965ce62998b1e74d14a2df7b7 = $(`<div id="html_fc1e910965ce62998b1e74d14a2df7b7" style="width: 100.0%; height: 100.0%;">M5.1 · 14 km W of Jabonga, Philippines<br>depth 10 km</div>`)[0];
+                popup_4cb7bddf46f19eea1ac8afc5d58c651c.setContent(html_fc1e910965ce62998b1e74d14a2df7b7);
+            
+        
+
+        circle_marker_522955b92efd36b3d65d6361c6c462b4.bindPopup(popup_4cb7bddf46f19eea1ac8afc5d58c651c)
+        ;
+
+        
+    
+    
+            var circle_marker_b04e8ad8a18969071ced04ba42cc1247 = L.circleMarker(
+                [5.2976, 125.4298],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.859999999999999, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_c76942668c0ee5130c01bed285a0d11b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4929d9fe5527f4bc2668623ab5eba334 = $(`<div id="html_4929d9fe5527f4bc2668623ab5eba334" style="width: 100.0%; height: 100.0%;">M5.3 · 12 km SSW of Sarangani, Philippines<br>depth 55 km</div>`)[0];
+                popup_c76942668c0ee5130c01bed285a0d11b.setContent(html_4929d9fe5527f4bc2668623ab5eba334);
+            
+        
+
+        circle_marker_b04e8ad8a18969071ced04ba42cc1247.bindPopup(popup_c76942668c0ee5130c01bed285a0d11b)
+        ;
+
+        
+    
+    
+            var circle_marker_62290dbe6cd613cded496214062a3aae = L.circleMarker(
+                [6.2419, 125.8478],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_e841d738056ea48e0a349adbcc4e8d17 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a97983ec26c8f943a2dc1d4651ddccd7 = $(`<div id="html_a97983ec26c8f943a2dc1d4651ddccd7" style="width: 100.0%; height: 100.0%;">M5.1 · 19 km ENE of Lapuan, Philippines<br>depth 93 km</div>`)[0];
+                popup_e841d738056ea48e0a349adbcc4e8d17.setContent(html_a97983ec26c8f943a2dc1d4651ddccd7);
+            
+        
+
+        circle_marker_62290dbe6cd613cded496214062a3aae.bindPopup(popup_e841d738056ea48e0a349adbcc4e8d17)
+        ;
+
+        
+    
+    
+            var circle_marker_6234c2efbf9eabf96cad7c63335c7e4b = L.circleMarker(
+                [13.2371, 120.6824],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.859999999999999, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_5c9afaffc3f9cbc2ba1edacf3228c3fc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c98ad706e1ffd5729f1c8b7e0e297afb = $(`<div id="html_c98ad706e1ffd5729f1c8b7e0e297afb" style="width: 100.0%; height: 100.0%;">M5.3 · 9 km E of Mamburao, Philippines<br>depth 66 km</div>`)[0];
+                popup_5c9afaffc3f9cbc2ba1edacf3228c3fc.setContent(html_c98ad706e1ffd5729f1c8b7e0e297afb);
+            
+        
+
+        circle_marker_6234c2efbf9eabf96cad7c63335c7e4b.bindPopup(popup_5c9afaffc3f9cbc2ba1edacf3228c3fc)
+        ;
+
+        
+    
+    
+            var circle_marker_2cfc4f8ddbb043e72975b13d2fa04104 = L.circleMarker(
+                [13.1473, 124.665],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_630680cd1ad1034d212608147cc672fd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4d7b56a19a586790372f88398bd8745b = $(`<div id="html_4d7b56a19a586790372f88398bd8745b" style="width: 100.0%; height: 100.0%;">M5.4 · 58 km E of Rapu-Rapu, Philippines<br>depth 10 km</div>`)[0];
+                popup_630680cd1ad1034d212608147cc672fd.setContent(html_4d7b56a19a586790372f88398bd8745b);
+            
+        
+
+        circle_marker_2cfc4f8ddbb043e72975b13d2fa04104.bindPopup(popup_630680cd1ad1034d212608147cc672fd)
+        ;
+
+        
+    
+    
+            var circle_marker_2fdd23ba4c3181b0f03ff203652ef88e = L.circleMarker(
+                [15.3225, 122.8423],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_51be1762012fb581be3736eb0277aae6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6907960466e4e4b87ff6649cc199dcbe = $(`<div id="html_6907960466e4e4b87ff6649cc199dcbe" style="width: 100.0%; height: 100.0%;">M5.1 · 83 km NE of Casuguran, Philippines<br>depth 10 km</div>`)[0];
+                popup_51be1762012fb581be3736eb0277aae6.setContent(html_6907960466e4e4b87ff6649cc199dcbe);
+            
+        
+
+        circle_marker_2fdd23ba4c3181b0f03ff203652ef88e.bindPopup(popup_51be1762012fb581be3736eb0277aae6)
+        ;
+
+        
+    
+    
+            var circle_marker_c7844e9fbd529075359996e1d9656221 = L.circleMarker(
+                [5.3185, 125.0972],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_249011f97dc6b37fe531e0cf33b5d604 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c32cc9acfb233040137df1803ce5a42d = $(`<div id="html_c32cc9acfb233040137df1803ce5a42d" style="width: 100.0%; height: 100.0%;">M5.0 · 40 km SW of Balangonan, Philippines<br>depth 70 km</div>`)[0];
+                popup_249011f97dc6b37fe531e0cf33b5d604.setContent(html_c32cc9acfb233040137df1803ce5a42d);
+            
+        
+
+        circle_marker_c7844e9fbd529075359996e1d9656221.bindPopup(popup_249011f97dc6b37fe531e0cf33b5d604)
+        ;
+
+        
+    
+    
+            var circle_marker_db4a4902c93422d4576735b84adffb10 = L.circleMarker(
+                [5.6147, 125.3758],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_ba6dafaadd4edd8a8d3289b700a4e642 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5b0f2e368436f75330ad7954ba57ac50 = $(`<div id="html_5b0f2e368436f75330ad7954ba57ac50" style="width: 100.0%; height: 100.0%;">M5.0 · 5 km NNE of Balangonan, Philippines<br>depth 61 km</div>`)[0];
+                popup_ba6dafaadd4edd8a8d3289b700a4e642.setContent(html_5b0f2e368436f75330ad7954ba57ac50);
+            
+        
+
+        circle_marker_db4a4902c93422d4576735b84adffb10.bindPopup(popup_ba6dafaadd4edd8a8d3289b700a4e642)
+        ;
+
+        
+    
+    
+            var circle_marker_c7bb31f14a6cb70639dfcb5fbadfa3ae = L.circleMarker(
+                [7.615, 126.7236],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_aec3a8b6e4dc5bb221daec1b9692a764 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_41714b4aad898562def5f3e68ff3bcee = $(`<div id="html_41714b4aad898562def5f3e68ff3bcee" style="width: 100.0%; height: 100.0%;">M5.1 · 18 km ENE of Baganga, Philippines<br>depth 68 km</div>`)[0];
+                popup_aec3a8b6e4dc5bb221daec1b9692a764.setContent(html_41714b4aad898562def5f3e68ff3bcee);
+            
+        
+
+        circle_marker_c7bb31f14a6cb70639dfcb5fbadfa3ae.bindPopup(popup_aec3a8b6e4dc5bb221daec1b9692a764)
+        ;
+
+        
+    
+    
+            var circle_marker_52da264b75c48f1d52f6e3b6fe5568a2 = L.circleMarker(
+                [5.6126, 125.3679],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_3c079044f23937c4cdbce3d1bc44c06c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fa16c2a59b1237f4b67c0d1f0511be72 = $(`<div id="html_fa16c2a59b1237f4b67c0d1f0511be72" style="width: 100.0%; height: 100.0%;">M5.0 · 4 km NNE of Balangonan, Philippines<br>depth 64 km</div>`)[0];
+                popup_3c079044f23937c4cdbce3d1bc44c06c.setContent(html_fa16c2a59b1237f4b67c0d1f0511be72);
+            
+        
+
+        circle_marker_52da264b75c48f1d52f6e3b6fe5568a2.bindPopup(popup_3c079044f23937c4cdbce3d1bc44c06c)
+        ;
+
+        
+    
+    
+            var circle_marker_acbb727f9687fb0fd67fd628889cbb15 = L.circleMarker(
+                [5.7108, 125.422],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_ffe05b13aa1b675f2e675c13127aee0d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_53be2f4a472ddfba4f1892d37e604aec = $(`<div id="html_53be2f4a472ddfba4f1892d37e604aec" style="width: 100.0%; height: 100.0%;">M5.1 · 6 km NW of Sugal, Philippines<br>depth 64 km</div>`)[0];
+                popup_ffe05b13aa1b675f2e675c13127aee0d.setContent(html_53be2f4a472ddfba4f1892d37e604aec);
+            
+        
+
+        circle_marker_acbb727f9687fb0fd67fd628889cbb15.bindPopup(popup_ffe05b13aa1b675f2e675c13127aee0d)
+        ;
+
+        
+    
+    
+            var circle_marker_a62466da7426f5375dea556c938b6570 = L.circleMarker(
+                [5.7105, 125.3384],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.859999999999999, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_eee1ebacb6171d3e559a4bde1c747411 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_132d1871ef20e6474d886b2ce61ac740 = $(`<div id="html_132d1871ef20e6474d886b2ce61ac740" style="width: 100.0%; height: 100.0%;">M5.3 · 6 km E of Pangyan, Philippines<br>depth 70 km</div>`)[0];
+                popup_eee1ebacb6171d3e559a4bde1c747411.setContent(html_132d1871ef20e6474d886b2ce61ac740);
+            
+        
+
+        circle_marker_a62466da7426f5375dea556c938b6570.bindPopup(popup_eee1ebacb6171d3e559a4bde1c747411)
+        ;
+
+        
+    
+    
+            var circle_marker_cdbb0c379b3442bb1be443eb30323e2b = L.circleMarker(
+                [5.3179, 125.1758],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.840000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_ccd7ac40e00d9bfe54cf7f8906eb1d6e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5f75d81408a42777dd15985f06f165b7 = $(`<div id="html_5f75d81408a42777dd15985f06f165b7" style="width: 100.0%; height: 100.0%;">M6.2 · 33 km WSW of Sarangani, Philippines<br>depth 48 km</div>`)[0];
+                popup_ccd7ac40e00d9bfe54cf7f8906eb1d6e.setContent(html_5f75d81408a42777dd15985f06f165b7);
+            
+        
+
+        circle_marker_cdbb0c379b3442bb1be443eb30323e2b.bindPopup(popup_ccd7ac40e00d9bfe54cf7f8906eb1d6e)
+        ;
+
+        
+    
+    
+            var circle_marker_c9d0d02058906a272a8d1579f0fe1b59 = L.circleMarker(
+                [5.674, 125.3732],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.640000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_b089eb7b67d3a1878ed84cb6d27a4568 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8d0622ed60dc67bac0a701a1b649406f = $(`<div id="html_8d0622ed60dc67bac0a701a1b649406f" style="width: 100.0%; height: 100.0%;">M5.2 · 8 km WNW of Nuing, Philippines<br>depth 22 km</div>`)[0];
+                popup_b089eb7b67d3a1878ed84cb6d27a4568.setContent(html_8d0622ed60dc67bac0a701a1b649406f);
+            
+        
+
+        circle_marker_c9d0d02058906a272a8d1579f0fe1b59.bindPopup(popup_b089eb7b67d3a1878ed84cb6d27a4568)
+        ;
+
+        
+    
+    
+            var circle_marker_1418fa7df38ce7be7b0135ce4db90ee1 = L.circleMarker(
+                [12.7993, 123.1542],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.640000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_567f861bbe792a599ac1303925544d71 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8221d9ef9d32a5bc2b5214b8fd9c1a5e = $(`<div id="html_8221d9ef9d32a5bc2b5214b8fd9c1a5e" style="width: 100.0%; height: 100.0%;">M5.2 · 12 km WSW of Mabiton, Philippines<br>depth 10 km</div>`)[0];
+                popup_567f861bbe792a599ac1303925544d71.setContent(html_8221d9ef9d32a5bc2b5214b8fd9c1a5e);
+            
+        
+
+        circle_marker_1418fa7df38ce7be7b0135ce4db90ee1.bindPopup(popup_567f861bbe792a599ac1303925544d71)
+        ;
+
+        
+    
+    
+            var circle_marker_7b6a94294d9cc9cf7a67ae2f0f078224 = L.circleMarker(
+                [5.6455, 125.4074],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_16da203888f9d39321d54974207e8a30 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2a15065d1fc8268e4b48353230402e48 = $(`<div id="html_2a15065d1fc8268e4b48353230402e48" style="width: 100.0%; height: 100.0%;">M5.0 · 3 km WNW of Nuing, Philippines<br>depth 43 km</div>`)[0];
+                popup_16da203888f9d39321d54974207e8a30.setContent(html_2a15065d1fc8268e4b48353230402e48);
+            
+        
+
+        circle_marker_7b6a94294d9cc9cf7a67ae2f0f078224.bindPopup(popup_16da203888f9d39321d54974207e8a30)
+        ;
+
+        
+    
+    
+            var circle_marker_01d65172f0f3bb3f0b018ce1d50d4b66 = L.circleMarker(
+                [12.815, 123.0918],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_868d1e014e351a9528c9e0646c46af9f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f73437cbd90915edad28ec15abc8307f = $(`<div id="html_f73437cbd90915edad28ec15abc8307f" style="width: 100.0%; height: 100.0%;">M5.4 · 18 km W of Mabiton, Philippines<br>depth 10 km</div>`)[0];
+                popup_868d1e014e351a9528c9e0646c46af9f.setContent(html_f73437cbd90915edad28ec15abc8307f);
+            
+        
+
+        circle_marker_01d65172f0f3bb3f0b018ce1d50d4b66.bindPopup(popup_868d1e014e351a9528c9e0646c46af9f)
+        ;
+
+        
+    
+    
+            var circle_marker_32f4e8a550fcb4c1cd857f0d8a197b19 = L.circleMarker(
+                [5.4641, 125.2867],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_9b47c99fa050e7f492184133efdfefa5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_57003d26e78795aa75039a6249477bc6 = $(`<div id="html_57003d26e78795aa75039a6249477bc6" style="width: 100.0%; height: 100.0%;">M5.0 · 14 km SSW of Balangonan, Philippines<br>depth 10 km</div>`)[0];
+                popup_9b47c99fa050e7f492184133efdfefa5.setContent(html_57003d26e78795aa75039a6249477bc6);
+            
+        
+
+        circle_marker_32f4e8a550fcb4c1cd857f0d8a197b19.bindPopup(popup_9b47c99fa050e7f492184133efdfefa5)
+        ;
+
+        
+    
+    
+            var circle_marker_020e403e4df7f5b984d661dea67b243e = L.circleMarker(
+                [5.736, 125.2013],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_dd755216213353cd12a85f31654f681b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_efdc75cb22ae4b56ddaecae919c8d53e = $(`<div id="html_efdc75cb22ae4b56ddaecae919c8d53e" style="width: 100.0%; height: 100.0%;">M5.1 · 3 km WSW of Baliton, Philippines<br>depth 91 km</div>`)[0];
+                popup_dd755216213353cd12a85f31654f681b.setContent(html_efdc75cb22ae4b56ddaecae919c8d53e);
+            
+        
+
+        circle_marker_020e403e4df7f5b984d661dea67b243e.bindPopup(popup_dd755216213353cd12a85f31654f681b)
+        ;
+
+        
+    
+    
+            var circle_marker_c03d96456802f0ab2a756cdefbfb5b6e = L.circleMarker(
+                [5.658, 125.2309],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.300000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_74ca160065f4138144c06e12c797689c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c34d40107eac9b5f69769b6e273cef4c = $(`<div id="html_c34d40107eac9b5f69769b6e273cef4c" style="width: 100.0%; height: 100.0%;">M5.5 · 7 km SSW of Burias, Philippines<br>depth 72 km</div>`)[0];
+                popup_74ca160065f4138144c06e12c797689c.setContent(html_c34d40107eac9b5f69769b6e273cef4c);
+            
+        
+
+        circle_marker_c03d96456802f0ab2a756cdefbfb5b6e.bindPopup(popup_74ca160065f4138144c06e12c797689c)
+        ;
+
+        
+    
+    
+            var circle_marker_c9ee4481d3fa5424ebbe7eb38228af3a = L.circleMarker(
+                [10.2094, 122.1484],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_2e766bf3fc106b191120f7b509fb4e07 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ccf99b3d12c23563449f7c6aaf28f7a8 = $(`<div id="html_ccf99b3d12c23563449f7c6aaf28f7a8" style="width: 100.0%; height: 100.0%;">M5.1 · 30 km SE of Magdalena, Philippines<br>depth 10 km</div>`)[0];
+                popup_2e766bf3fc106b191120f7b509fb4e07.setContent(html_ccf99b3d12c23563449f7c6aaf28f7a8);
+            
+        
+
+        circle_marker_c9ee4481d3fa5424ebbe7eb38228af3a.bindPopup(popup_2e766bf3fc106b191120f7b509fb4e07)
+        ;
+
+        
+    
+    
+            var circle_marker_12d2eea1af0b74aa4247708025b9de80 = L.circleMarker(
+                [5.3582, 125.7016],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_2aa9101ca909aae09d43a364e167fc85 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ae3d079e636c277b7f489fdf7e491a43 = $(`<div id="html_ae3d079e636c277b7f489fdf7e491a43" style="width: 100.0%; height: 100.0%;">M5.1 · 26 km E of Sarangani, Philippines<br>depth 10 km</div>`)[0];
+                popup_2aa9101ca909aae09d43a364e167fc85.setContent(html_ae3d079e636c277b7f489fdf7e491a43);
+            
+        
+
+        circle_marker_12d2eea1af0b74aa4247708025b9de80.bindPopup(popup_2aa9101ca909aae09d43a364e167fc85)
+        ;
+
+        
+    
+    
+            var circle_marker_dd7e84554285f9d4dae66289680eeae6 = L.circleMarker(
+                [5.7233, 125.242],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.640000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_65d656f0170c781cfbb1134c17e1128e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_72e5bf6bc92f18cf7eaeb522d048e5b9 = $(`<div id="html_72e5bf6bc92f18cf7eaeb522d048e5b9" style="width: 100.0%; height: 100.0%;">M5.2 · 1 km WNW of Burias, Philippines<br>depth 71 km</div>`)[0];
+                popup_65d656f0170c781cfbb1134c17e1128e.setContent(html_72e5bf6bc92f18cf7eaeb522d048e5b9);
+            
+        
+
+        circle_marker_dd7e84554285f9d4dae66289680eeae6.bindPopup(popup_65d656f0170c781cfbb1134c17e1128e)
+        ;
+
+        
+    
+    
+            var circle_marker_b0a5e9e7897c867e167237322e6255f6 = L.circleMarker(
+                [5.6831, 125.3682],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_8015682f2cc602f0ce46876d760bd0fb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_75f5db66f0e819132dabbef98321effe = $(`<div id="html_75f5db66f0e819132dabbef98321effe" style="width: 100.0%; height: 100.0%;">M5.1 · 9 km NW of Nuing, Philippines<br>depth 58 km</div>`)[0];
+                popup_8015682f2cc602f0ce46876d760bd0fb.setContent(html_75f5db66f0e819132dabbef98321effe);
+            
+        
+
+        circle_marker_b0a5e9e7897c867e167237322e6255f6.bindPopup(popup_8015682f2cc602f0ce46876d760bd0fb)
+        ;
+
+        
+    
+    
+            var circle_marker_94ad4d3a6f1b294314aa1ef3cc6fd14a = L.circleMarker(
+                [5.6601, 125.2663],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_0f2a542a2841099e227e5fbeff96aee8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9c015ab95d8c05d8cc4a660d502808e2 = $(`<div id="html_9c015ab95d8c05d8cc4a660d502808e2" style="width: 100.0%; height: 100.0%;">M5.0 · 4 km SSW of Pangyan, Philippines<br>depth 86 km</div>`)[0];
+                popup_0f2a542a2841099e227e5fbeff96aee8.setContent(html_9c015ab95d8c05d8cc4a660d502808e2);
+            
+        
+
+        circle_marker_94ad4d3a6f1b294314aa1ef3cc6fd14a.bindPopup(popup_0f2a542a2841099e227e5fbeff96aee8)
+        ;
+
+        
+    
+    
+            var circle_marker_8b0ba7d234c585ca7427d40419e65425 = L.circleMarker(
+                [5.7669, 125.2761],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_37a33ba937accbd6e03cd88555f10d7c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e168ff37ed21b7a3bd7aab61cf6a7afe = $(`<div id="html_e168ff37ed21b7a3bd7aab61cf6a7afe" style="width: 100.0%; height: 100.0%;">M5.1 · 5 km ENE of Baliton, Philippines<br>depth 43 km</div>`)[0];
+                popup_37a33ba937accbd6e03cd88555f10d7c.setContent(html_e168ff37ed21b7a3bd7aab61cf6a7afe);
+            
+        
+
+        circle_marker_8b0ba7d234c585ca7427d40419e65425.bindPopup(popup_37a33ba937accbd6e03cd88555f10d7c)
+        ;
+
+        
+    
+    
+            var circle_marker_2b4305859c38a2179a2197d21f743fe9 = L.circleMarker(
+                [5.5634, 125.3482],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_c17e0be7006d85053d134b32c6da055e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ef45f09caddf51ddb5d91b32604071d5 = $(`<div id="html_ef45f09caddf51ddb5d91b32604071d5" style="width: 100.0%; height: 100.0%;">M5.1 · 1 km SSW of Balangonan, Philippines<br>depth 79 km</div>`)[0];
+                popup_c17e0be7006d85053d134b32c6da055e.setContent(html_ef45f09caddf51ddb5d91b32604071d5);
+            
+        
+
+        circle_marker_2b4305859c38a2179a2197d21f743fe9.bindPopup(popup_c17e0be7006d85053d134b32c6da055e)
+        ;
+
+        
+    
+    
+            var circle_marker_79a4905e65880448d14737a4929ce1eb = L.circleMarker(
+                [5.6937, 124.7105],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.859999999999999, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_036bfac2213b6e51918edf85ea1fdb64 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_59b80c356451eaf00c395c42b844a40f = $(`<div id="html_59b80c356451eaf00c395c42b844a40f" style="width: 100.0%; height: 100.0%;">M5.3 · 25 km SSW of Katubao, Philippines<br>depth 35 km</div>`)[0];
+                popup_036bfac2213b6e51918edf85ea1fdb64.setContent(html_59b80c356451eaf00c395c42b844a40f);
+            
+        
+
+        circle_marker_79a4905e65880448d14737a4929ce1eb.bindPopup(popup_036bfac2213b6e51918edf85ea1fdb64)
+        ;
+
+        
+    
+    
+            var circle_marker_b69c42b9869934c50baec584f800b5e1 = L.circleMarker(
+                [8.6922, 125.7657],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_2299f1b7973c6e69d29e9b4f49064ce1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7f4213252960a1a0a8ae6fc499757420 = $(`<div id="html_7f4213252960a1a0a8ae6fc499757420" style="width: 100.0%; height: 100.0%;">M5.1 · 5 km ESE of Maygatasan, Philippines<br>depth 45 km</div>`)[0];
+                popup_2299f1b7973c6e69d29e9b4f49064ce1.setContent(html_7f4213252960a1a0a8ae6fc499757420);
+            
+        
+
+        circle_marker_b69c42b9869934c50baec584f800b5e1.bindPopup(popup_2299f1b7973c6e69d29e9b4f49064ce1)
+        ;
+
+        
+    
+    
+            var circle_marker_b5866f769a44674da307f545857b11f5 = L.circleMarker(
+                [5.4391, 125.2128],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.640000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_04eec97b417176d49dab4625a2813321 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9a5b6d154f6aba2d23c711350bc62e21 = $(`<div id="html_9a5b6d154f6aba2d23c711350bc62e21" style="width: 100.0%; height: 100.0%;">M5.2 · 21 km SW of Balangonan, Philippines<br>depth 83 km</div>`)[0];
+                popup_04eec97b417176d49dab4625a2813321.setContent(html_9a5b6d154f6aba2d23c711350bc62e21);
+            
+        
+
+        circle_marker_b5866f769a44674da307f545857b11f5.bindPopup(popup_04eec97b417176d49dab4625a2813321)
+        ;
+
+        
+    
+    
+            var circle_marker_d23a7e346ef0898a3161bcb7d2267234 = L.circleMarker(
+                [5.5438, 125.4558],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_fb77426f8b203f1ad68d8ad6e77ba007 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_11f50e4a4ade7908dcaeb7f094c4b028 = $(`<div id="html_11f50e4a4ade7908dcaeb7f094c4b028" style="width: 100.0%; height: 100.0%;">M5.0 · 6 km ESE of Bukid, Philippines<br>depth 55 km</div>`)[0];
+                popup_fb77426f8b203f1ad68d8ad6e77ba007.setContent(html_11f50e4a4ade7908dcaeb7f094c4b028);
+            
+        
+
+        circle_marker_d23a7e346ef0898a3161bcb7d2267234.bindPopup(popup_fb77426f8b203f1ad68d8ad6e77ba007)
+        ;
+
+        
+    
+    
+            var circle_marker_2d3f7c7a207481fb74d499148af18751 = L.circleMarker(
+                [5.7228, 124.8636],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_bb78f6dda2a1c6ccb2f8550d60209dd4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_df09fd938d5082582509719643db6562 = $(`<div id="html_df09fd938d5082582509719643db6562" style="width: 100.0%; height: 100.0%;">M5.4 · 17 km S of Lumatil, Philippines<br>depth 56 km</div>`)[0];
+                popup_bb78f6dda2a1c6ccb2f8550d60209dd4.setContent(html_df09fd938d5082582509719643db6562);
+            
+        
+
+        circle_marker_2d3f7c7a207481fb74d499148af18751.bindPopup(popup_bb78f6dda2a1c6ccb2f8550d60209dd4)
+        ;
+
+        
+    
+    
+            var circle_marker_dee40b19512f02131fcb066bc067057d = L.circleMarker(
+                [5.5916, 125.206],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.300000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_afe080dba3d03feb256b6b41b5643629 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5e6ce88c04327a45418e0f1ca44db563 = $(`<div id="html_5e6ce88c04327a45418e0f1ca44db563" style="width: 100.0%; height: 100.0%;">M5.5 · 14 km SW of Pangyan, Philippines<br>depth 88 km</div>`)[0];
+                popup_afe080dba3d03feb256b6b41b5643629.setContent(html_5e6ce88c04327a45418e0f1ca44db563);
+            
+        
+
+        circle_marker_dee40b19512f02131fcb066bc067057d.bindPopup(popup_afe080dba3d03feb256b6b41b5643629)
+        ;
+
+        
+    
+    
+            var circle_marker_142318c0b0c41834ac61e2b8cacf4eef = L.circleMarker(
+                [5.3895, 125.0661],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.640000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_64406f1c1b87b7f6031335bde9b4d28a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_785653ee843756c38bca7d57c0886fab = $(`<div id="html_785653ee843756c38bca7d57c0886fab" style="width: 100.0%; height: 100.0%;">M5.2 · 37 km WSW of Balangonan, Philippines<br>depth 77 km</div>`)[0];
+                popup_64406f1c1b87b7f6031335bde9b4d28a.setContent(html_785653ee843756c38bca7d57c0886fab);
+            
+        
+
+        circle_marker_142318c0b0c41834ac61e2b8cacf4eef.bindPopup(popup_64406f1c1b87b7f6031335bde9b4d28a)
+        ;
+
+        
+    
+    
+            var circle_marker_808b08e16f02ad55e8b193e83c6afad0 = L.circleMarker(
+                [5.5078, 125.0837],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_4bf33e6ea4c9d6e019af0ebed0f3bdbc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2b37c3576b4bfaac659fd60eb3a22e1b = $(`<div id="html_2b37c3576b4bfaac659fd60eb3a22e1b" style="width: 100.0%; height: 100.0%;">M5.0 · 29 km SW of Burias, Philippines<br>depth 56 km</div>`)[0];
+                popup_4bf33e6ea4c9d6e019af0ebed0f3bdbc.setContent(html_2b37c3576b4bfaac659fd60eb3a22e1b);
+            
+        
+
+        circle_marker_808b08e16f02ad55e8b193e83c6afad0.bindPopup(popup_4bf33e6ea4c9d6e019af0ebed0f3bdbc)
+        ;
+
+        
+    
+    
+            var circle_marker_9d6d8e8d1d16100e1c61caf1f06092c5 = L.circleMarker(
+                [5.3253, 125.2873],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_f50f40b72569006d6095c78f48dae379 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_03b2b1c39807127be2fbae3abc22481d = $(`<div id="html_03b2b1c39807127be2fbae3abc22481d" style="width: 100.0%; height: 100.0%;">M5.1 · 21 km WSW of Sarangani, Philippines<br>depth 80 km</div>`)[0];
+                popup_f50f40b72569006d6095c78f48dae379.setContent(html_03b2b1c39807127be2fbae3abc22481d);
+            
+        
+
+        circle_marker_9d6d8e8d1d16100e1c61caf1f06092c5.bindPopup(popup_f50f40b72569006d6095c78f48dae379)
+        ;
+
+        
+    
+    
+            var circle_marker_0902d46e3beecb771afccafc1e0e591c = L.circleMarker(
+                [5.2936, 125.4095],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.300000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_8f2dbca51fd84c7f0dfecd7a8e75cd0f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5aef7ff3a587ca9b998944b4aa81fbb0 = $(`<div id="html_5aef7ff3a587ca9b998944b4aa81fbb0" style="width: 100.0%; height: 100.0%;">M5.5 · 13 km SSW of Sarangani, Philippines<br>depth 56 km</div>`)[0];
+                popup_8f2dbca51fd84c7f0dfecd7a8e75cd0f.setContent(html_5aef7ff3a587ca9b998944b4aa81fbb0);
+            
+        
+
+        circle_marker_0902d46e3beecb771afccafc1e0e591c.bindPopup(popup_8f2dbca51fd84c7f0dfecd7a8e75cd0f)
+        ;
+
+        
+    
+    
+            var circle_marker_074da61d6dd0ddab9391c3fef7e68060 = L.circleMarker(
+                [5.3624, 125.1299],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_1c643227341925cad982837f46295830 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_df6c18b21c37aa702a9fab2ebdd00b64 = $(`<div id="html_df6c18b21c37aa702a9fab2ebdd00b64" style="width: 100.0%; height: 100.0%;">M5.0 · 34 km SW of Balangonan, Philippines<br>depth 35 km</div>`)[0];
+                popup_1c643227341925cad982837f46295830.setContent(html_df6c18b21c37aa702a9fab2ebdd00b64);
+            
+        
+
+        circle_marker_074da61d6dd0ddab9391c3fef7e68060.bindPopup(popup_1c643227341925cad982837f46295830)
+        ;
+
+        
+    
+    
+            var circle_marker_d60086c35c75463e06ea4359ff1fb0d5 = L.circleMarker(
+                [5.4747, 125.2173],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.5, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_cbed4270a164f688c6aebd68b2227a1a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_572979b8558911d1ea6f047b2d216436 = $(`<div id="html_572979b8558911d1ea6f047b2d216436" style="width: 100.0%; height: 100.0%;">M6.5 · 18 km SW of Balangonan, Philippines<br>depth 75 km</div>`)[0];
+                popup_cbed4270a164f688c6aebd68b2227a1a.setContent(html_572979b8558911d1ea6f047b2d216436);
+            
+        
+
+        circle_marker_d60086c35c75463e06ea4359ff1fb0d5.bindPopup(popup_cbed4270a164f688c6aebd68b2227a1a)
+        ;
+
+        
+    
+    
+            var circle_marker_d0ca6d08033f689447bca7a5c9ced05c = L.circleMarker(
+                [5.3921, 125.3256],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_62982b9cf9eddbeefc875f357ca1f2a5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3e0b5f792509ea06c71c9fa4093bb79b = $(`<div id="html_3e0b5f792509ea06c71c9fa4093bb79b" style="width: 100.0%; height: 100.0%;">M5.0 · 15 km W of Sarangani, Philippines<br>depth 65 km</div>`)[0];
+                popup_62982b9cf9eddbeefc875f357ca1f2a5.setContent(html_3e0b5f792509ea06c71c9fa4093bb79b);
+            
+        
+
+        circle_marker_d0ca6d08033f689447bca7a5c9ced05c.bindPopup(popup_62982b9cf9eddbeefc875f357ca1f2a5)
+        ;
+
+        
+    
+    
+            var circle_marker_ca10f98d73ac8d869642a16ffab00005 = L.circleMarker(
+                [5.4879, 125.181],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.640000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_26cb82a96a88b7fd03f54d99e09add2b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_26fae7b058d20de664f880250a570b4c = $(`<div id="html_26fae7b058d20de664f880250a570b4c" style="width: 100.0%; height: 100.0%;">M5.2 · 21 km WSW of Balangonan, Philippines<br>depth 69 km</div>`)[0];
+                popup_26cb82a96a88b7fd03f54d99e09add2b.setContent(html_26fae7b058d20de664f880250a570b4c);
+            
+        
+
+        circle_marker_ca10f98d73ac8d869642a16ffab00005.bindPopup(popup_26cb82a96a88b7fd03f54d99e09add2b)
+        ;
+
+        
+    
+    
+            var circle_marker_60dcb83b3d60e232e7e05f5a4dad0d9c = L.circleMarker(
+                [5.644, 125.4164],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.74, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_d33406051eefd71c208ca811c44e7cf2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_82f9156b00b3c4d73b84cb085b66e90f = $(`<div id="html_82f9156b00b3c4d73b84cb085b66e90f" style="width: 100.0%; height: 100.0%;">M5.7 · 2 km WNW of Nuing, Philippines<br>depth 70 km</div>`)[0];
+                popup_d33406051eefd71c208ca811c44e7cf2.setContent(html_82f9156b00b3c4d73b84cb085b66e90f);
+            
+        
+
+        circle_marker_60dcb83b3d60e232e7e05f5a4dad0d9c.bindPopup(popup_d33406051eefd71c208ca811c44e7cf2)
+        ;
+
+        
+    
+    
+            var circle_marker_86298533800fc66de234441a318ba353 = L.circleMarker(
+                [5.6563, 125.2554],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.4, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_ea058155d25b301fad42def498eb095e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1c02a00791d7db248ebe2c7cf4e6ba32 = $(`<div id="html_1c02a00791d7db248ebe2c7cf4e6ba32" style="width: 100.0%; height: 100.0%;">M6.0 · 5 km SSW of Pangyan, Philippines<br>depth 35 km</div>`)[0];
+                popup_ea058155d25b301fad42def498eb095e.setContent(html_1c02a00791d7db248ebe2c7cf4e6ba32);
+            
+        
+
+        circle_marker_86298533800fc66de234441a318ba353.bindPopup(popup_ea058155d25b301fad42def498eb095e)
+        ;
+
+        
+    
+    
+            var circle_marker_4b39f6f10b13e86917070831ae8eaa4c = L.circleMarker(
+                [5.4579, 125.2171],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.619999999999999, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_596eae690dfd2628e3c4682b056b493b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_35c95c5602c25d64dc5520ebb2073b3a = $(`<div id="html_35c95c5602c25d64dc5520ebb2073b3a" style="width: 100.0%; height: 100.0%;">M6.1 · 19 km SW of Balangonan, Philippines<br>depth 45 km</div>`)[0];
+                popup_596eae690dfd2628e3c4682b056b493b.setContent(html_35c95c5602c25d64dc5520ebb2073b3a);
+            
+        
+
+        circle_marker_4b39f6f10b13e86917070831ae8eaa4c.bindPopup(popup_596eae690dfd2628e3c4682b056b493b)
+        ;
+
+        
+    
+    
+            var circle_marker_de62b7f84cbf0c24de6b1fb72627c078 = L.circleMarker(
+                [5.5994, 125.056],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.36, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_f64faa52ebbc2f182d06173adcf7a83b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cf34572221d5cce29b5aeebd31815ea9 = $(`<div id="html_cf34572221d5cce29b5aeebd31815ea9" style="width: 100.0%; height: 100.0%;">M7.8 · 25 km SW of Kablalan, Philippines<br>depth 57 km</div>`)[0];
+                popup_f64faa52ebbc2f182d06173adcf7a83b.setContent(html_cf34572221d5cce29b5aeebd31815ea9);
+            
+        
+
+        circle_marker_de62b7f84cbf0c24de6b1fb72627c078.bindPopup(popup_f64faa52ebbc2f182d06173adcf7a83b)
+        ;
+
+        
+    
+    
+            var circle_marker_046d8c4d4e581b6307cc87924906fd20 = L.circleMarker(
+                [13.1472, 123.7745],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.640000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_c12fbc62732a5b1c76d152b729d815bc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b3544819021cde7c09410c78539832d4 = $(`<div id="html_b3544819021cde7c09410c78539832d4" style="width: 100.0%; height: 100.0%;">M5.2 · 2 km ESE of San Roque, Philippines<br>depth 10 km</div>`)[0];
+                popup_c12fbc62732a5b1c76d152b729d815bc.setContent(html_b3544819021cde7c09410c78539832d4);
+            
+        
+
+        circle_marker_046d8c4d4e581b6307cc87924906fd20.bindPopup(popup_c12fbc62732a5b1c76d152b729d815bc)
+        ;
+
+        
+    
+    
+            var circle_marker_8d8e2d37fe566b242d4fdfb7540eb14c = L.circleMarker(
+                [9.2772, 126.2883],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.300000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_ec99d01059efc4a5b18b3c18e25a2f45 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_486b68335a444944e32badf374f010b0 = $(`<div id="html_486b68335a444944e32badf374f010b0" style="width: 100.0%; height: 100.0%;">M5.5 · 10 km E of Cortes, Philippines<br>depth 34 km</div>`)[0];
+                popup_ec99d01059efc4a5b18b3c18e25a2f45.setContent(html_486b68335a444944e32badf374f010b0);
+            
+        
+
+        circle_marker_8d8e2d37fe566b242d4fdfb7540eb14c.bindPopup(popup_ec99d01059efc4a5b18b3c18e25a2f45)
+        ;
+
+        
+    
+    
+            var circle_marker_522374a6d43693a6cd5c152c2ea3e982 = L.circleMarker(
+                [6.8189, 124.695],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_edf0eda1380379c132fdadaeae0d1ea4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a6adedd2349ff9e5b68fe889562ed706 = $(`<div id="html_a6adedd2349ff9e5b68fe889562ed706" style="width: 100.0%; height: 100.0%;">M5.0 · 4 km SW of Badak, Philippines<br>depth 10 km</div>`)[0];
+                popup_edf0eda1380379c132fdadaeae0d1ea4.setContent(html_a6adedd2349ff9e5b68fe889562ed706);
+            
+        
+
+        circle_marker_522374a6d43693a6cd5c152c2ea3e982.bindPopup(popup_edf0eda1380379c132fdadaeae0d1ea4)
+        ;
+
+        
+    
+    
+            var circle_marker_7c506691cc8f7fe4b7edc87f3a8bc1bf = L.circleMarker(
+                [19.0885, 121.233],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.859999999999999, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_38dacd194ddd8bf5e734be1941cf7af8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_76f151f99f45701df0df9d81e6c0a702 = $(`<div id="html_76f151f99f45701df0df9d81e6c0a702" style="width: 100.0%; height: 100.0%;">M5.3 · 53 km N of Namuac, Philippines<br>depth 35 km</div>`)[0];
+                popup_38dacd194ddd8bf5e734be1941cf7af8.setContent(html_76f151f99f45701df0df9d81e6c0a702);
+            
+        
+
+        circle_marker_7c506691cc8f7fe4b7edc87f3a8bc1bf.bindPopup(popup_38dacd194ddd8bf5e734be1941cf7af8)
+        ;
+
+        
+    
+    
+            var circle_marker_f6ddefcceb674029715b58514e7d12ce = L.circleMarker(
+                [7.5271, 126.7728],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.300000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_beee4b7871914ba96833604152c99109 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_51425267393c2e944d4bd13905bffed8 = $(`<div id="html_51425267393c2e944d4bd13905bffed8" style="width: 100.0%; height: 100.0%;">M5.5 · 22 km ENE of Baculin, Philippines<br>depth 29 km</div>`)[0];
+                popup_beee4b7871914ba96833604152c99109.setContent(html_51425267393c2e944d4bd13905bffed8);
+            
+        
+
+        circle_marker_f6ddefcceb674029715b58514e7d12ce.bindPopup(popup_beee4b7871914ba96833604152c99109)
+        ;
+
+        
+    
+    
+            var circle_marker_ab2d4d1073b5c80a578d9b2086b22530 = L.circleMarker(
+                [11.7144, 125.3316],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.4, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_886e96ba6f6f2327bb040f4207299f23 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ffd7a8bc20bfbb8766a49303b41f3652 = $(`<div id="html_ffd7a8bc20bfbb8766a49303b41f3652" style="width: 100.0%; height: 100.0%;">M6.0 · 10 km WSW of Nena, Philippines<br>depth 43 km</div>`)[0];
+                popup_886e96ba6f6f2327bb040f4207299f23.setContent(html_ffd7a8bc20bfbb8766a49303b41f3652);
+            
+        
+
+        circle_marker_ab2d4d1073b5c80a578d9b2086b22530.bindPopup(popup_886e96ba6f6f2327bb040f4207299f23)
+        ;
+
+        
+    
+    
+            var circle_marker_c371796d35124655412cec1036f70770 = L.circleMarker(
+                [8.952, 126.4816],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_e842b8159932b82f23bebb77ca8185c5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1524dbf2444dbdca5c25237246a2141b = $(`<div id="html_1524dbf2444dbdca5c25237246a2141b" style="width: 100.0%; height: 100.0%;">M5.0 · 20 km ENE of Aras-asan, Philippines<br>depth 20 km</div>`)[0];
+                popup_e842b8159932b82f23bebb77ca8185c5.setContent(html_1524dbf2444dbdca5c25237246a2141b);
+            
+        
+
+        circle_marker_c371796d35124655412cec1036f70770.bindPopup(popup_e842b8159932b82f23bebb77ca8185c5)
+        ;
+
+        
+    
+    
+            var circle_marker_eb7a465450fa4025c76418538b4ea1ac = L.circleMarker(
+                [10.8855, 123.9283],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.640000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_2487152913f347aa14461c3af87f3c7f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2f106aeab164a6e9b985016d73f1742c = $(`<div id="html_2f106aeab164a6e9b985016d73f1742c" style="width: 100.0%; height: 100.0%;">M5.2 · 4 km ESE of Maravilla, Philippines<br>depth 10 km</div>`)[0];
+                popup_2487152913f347aa14461c3af87f3c7f.setContent(html_2f106aeab164a6e9b985016d73f1742c);
+            
+        
+
+        circle_marker_eb7a465450fa4025c76418538b4ea1ac.bindPopup(popup_2487152913f347aa14461c3af87f3c7f)
+        ;
+
+        
+    
+    
+            var circle_marker_c2dd4ba232b9d339fbefc437afec8760 = L.circleMarker(
+                [13.8639, 120.7143],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_6fefe1cbe0df07a3f9f8bd9d67e8dd9d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3b98dc922bf2de60ced71ac4c6540206 = $(`<div id="html_3b98dc922bf2de60ced71ac4c6540206" style="width: 100.0%; height: 100.0%;">M5.0 · 2 km NNE of Hukay, Philippines<br>depth 177 km</div>`)[0];
+                popup_6fefe1cbe0df07a3f9f8bd9d67e8dd9d.setContent(html_3b98dc922bf2de60ced71ac4c6540206);
+            
+        
+
+        circle_marker_c2dd4ba232b9d339fbefc437afec8760.bindPopup(popup_6fefe1cbe0df07a3f9f8bd9d67e8dd9d)
+        ;
+
+        
+    
+    
+            var circle_marker_80956879a822bfe01f843a18d93fa91c = L.circleMarker(
+                [12.8917, 124.3914],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_713b02fed85d0cd7e1a78851ebd21505 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4d1aa807d72594276d85973455dec74e = $(`<div id="html_4d1aa807d72594276d85973455dec74e" style="width: 100.0%; height: 100.0%;">M5.0 · 23 km N of Biri, Philippines<br>depth 10 km</div>`)[0];
+                popup_713b02fed85d0cd7e1a78851ebd21505.setContent(html_4d1aa807d72594276d85973455dec74e);
+            
+        
+
+        circle_marker_80956879a822bfe01f843a18d93fa91c.bindPopup(popup_713b02fed85d0cd7e1a78851ebd21505)
+        ;
+
+        
+    
+    
+            var circle_marker_7f16f6a598073e7272e78d2f6d248a62 = L.circleMarker(
+                [9.9608, 125.5946],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_be207d56efcc5b3c103aada6a0eaffd9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6c5a15e83ebd38f7e27c19af04fe231b = $(`<div id="html_6c5a15e83ebd38f7e27c19af04fe231b" style="width: 100.0%; height: 100.0%;">M5.0 · 0 km NNE of Dinagat, Philippines<br>depth 163 km</div>`)[0];
+                popup_be207d56efcc5b3c103aada6a0eaffd9.setContent(html_6c5a15e83ebd38f7e27c19af04fe231b);
+            
+        
+
+        circle_marker_7f16f6a598073e7272e78d2f6d248a62.bindPopup(popup_be207d56efcc5b3c103aada6a0eaffd9)
+        ;
+
+        
+    
+    
+            var circle_marker_2c1c1d06cd5fd50f8701dc0ca8d8b456 = L.circleMarker(
+                [6.4372, 123.9181],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_597adfaa35db05c741be300761d3ed5f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0911bac1798e1428db91b2f9b7e72df4 = $(`<div id="html_0911bac1798e1428db91b2f9b7e72df4" style="width: 100.0%; height: 100.0%;">M5.1 · 14 km W of Sangay, Philippines<br>depth 10 km</div>`)[0];
+                popup_597adfaa35db05c741be300761d3ed5f.setContent(html_0911bac1798e1428db91b2f9b7e72df4);
+            
+        
+
+        circle_marker_2c1c1d06cd5fd50f8701dc0ca8d8b456.bindPopup(popup_597adfaa35db05c741be300761d3ed5f)
+        ;
+
+        
+    
+    
+            var circle_marker_1643a5837ac958ca777b3c56ba5f6c07 = L.circleMarker(
+                [6.2973, 123.8079],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_752afa909af28ed1296ce4dfefdd8a43 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9f1ff039a21cd41b921a6983bd2138d4 = $(`<div id="html_9f1ff039a21cd41b921a6983bd2138d4" style="width: 100.0%; height: 100.0%;">M5.0 · 30 km WSW of Sangay, Philippines<br>depth 10 km</div>`)[0];
+                popup_752afa909af28ed1296ce4dfefdd8a43.setContent(html_9f1ff039a21cd41b921a6983bd2138d4);
+            
+        
+
+        circle_marker_1643a5837ac958ca777b3c56ba5f6c07.bindPopup(popup_752afa909af28ed1296ce4dfefdd8a43)
+        ;
+
+        
+    
+    
+            var circle_marker_3711379db62bc8e4a0119fb51c675639 = L.circleMarker(
+                [6.4524, 123.6886],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_e7e8c998b0b5b863fedcb49e785007f2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_72584d95060f6086cdba8f6e62147572 = $(`<div id="html_72584d95060f6086cdba8f6e62147572" style="width: 100.0%; height: 100.0%;">M5.0 · 39 km WSW of Bantogon, Philippines<br>depth 10 km</div>`)[0];
+                popup_e7e8c998b0b5b863fedcb49e785007f2.setContent(html_72584d95060f6086cdba8f6e62147572);
+            
+        
+
+        circle_marker_3711379db62bc8e4a0119fb51c675639.bindPopup(popup_e7e8c998b0b5b863fedcb49e785007f2)
+        ;
+
+        
+    
+    
+            var circle_marker_f9c3f1ac6b903d9a9f4fbad35697b960 = L.circleMarker(
+                [6.5456, 123.8911],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_8c83436ee37c87b38b34290fea86e8ce = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d65d9022214b741e3eb294ee23ee3097 = $(`<div id="html_d65d9022214b741e3eb294ee23ee3097" style="width: 100.0%; height: 100.0%;">M5.1 · 15 km W of Bantogon, Philippines<br>depth 10 km</div>`)[0];
+                popup_8c83436ee37c87b38b34290fea86e8ce.setContent(html_d65d9022214b741e3eb294ee23ee3097);
+            
+        
+
+        circle_marker_f9c3f1ac6b903d9a9f4fbad35697b960.bindPopup(popup_8c83436ee37c87b38b34290fea86e8ce)
+        ;
+
+        
+    
+    
+            var circle_marker_083ef4e29caaadb8e6f855df2ce70f03 = L.circleMarker(
+                [6.5064, 123.6429],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.52, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_75c604c53200f3c3dcea32308431a463 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6044f9767788ec376574385f8c09fb8e = $(`<div id="html_6044f9767788ec376574385f8c09fb8e" style="width: 100.0%; height: 100.0%;">M5.6 · 43 km W of Bantogon, Philippines<br>depth 10 km</div>`)[0];
+                popup_75c604c53200f3c3dcea32308431a463.setContent(html_6044f9767788ec376574385f8c09fb8e);
+            
+        
+
+        circle_marker_083ef4e29caaadb8e6f855df2ce70f03.bindPopup(popup_75c604c53200f3c3dcea32308431a463)
+        ;
+
+        
+    
+    
+            var circle_marker_f3d1247e065e7975bb1d307c9bec864d = L.circleMarker(
+                [6.3923, 123.6213],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.859999999999999, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_ea1c087282ed8e97f936412e0bffb151 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e33cbf4f176cf17338691335f9e4308a = $(`<div id="html_e33cbf4f176cf17338691335f9e4308a" style="width: 100.0%; height: 100.0%;">M5.3 · 47 km W of Sangay, Philippines<br>depth 10 km</div>`)[0];
+                popup_ea1c087282ed8e97f936412e0bffb151.setContent(html_e33cbf4f176cf17338691335f9e4308a);
+            
+        
+
+        circle_marker_f3d1247e065e7975bb1d307c9bec864d.bindPopup(popup_ea1c087282ed8e97f936412e0bffb151)
+        ;
+
+        
+    
+    
+            var circle_marker_2ec6578b9cf1480045508587d3bf8a1c = L.circleMarker(
+                [6.5076, 123.7366],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_94a1283909eb2d2c6aa7cd86df537452 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_695594860b2ea9e93e2f9ecb384f2f9d = $(`<div id="html_695594860b2ea9e93e2f9ecb384f2f9d" style="width: 100.0%; height: 100.0%;">M5.4 · 32 km W of Bantogon, Philippines<br>depth 10 km</div>`)[0];
+                popup_94a1283909eb2d2c6aa7cd86df537452.setContent(html_695594860b2ea9e93e2f9ecb384f2f9d);
+            
+        
+
+        circle_marker_2ec6578b9cf1480045508587d3bf8a1c.bindPopup(popup_94a1283909eb2d2c6aa7cd86df537452)
+        ;
+
+        
+    
+    
+            var circle_marker_924c3a5524648ca3d854a3ad4684217b = L.circleMarker(
+                [6.5523, 123.5458],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_53f85ec1345bb9c94d7bd5c3b13e78c0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_58b521cd5a548d299e0454aaba771003 = $(`<div id="html_58b521cd5a548d299e0454aaba771003" style="width: 100.0%; height: 100.0%;">M5.0 · 53 km W of Bantogon, Philippines<br>depth 10 km</div>`)[0];
+                popup_53f85ec1345bb9c94d7bd5c3b13e78c0.setContent(html_58b521cd5a548d299e0454aaba771003);
+            
+        
+
+        circle_marker_924c3a5524648ca3d854a3ad4684217b.bindPopup(popup_53f85ec1345bb9c94d7bd5c3b13e78c0)
+        ;
+
+        
+    
+    
+            var circle_marker_3a33024fdd1684f737f993f7817ad2f8 = L.circleMarker(
+                [6.4317, 123.741],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.1800000000000015, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_83dc5ef41e13342cb95d1ab9e120f3c4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bc9b4f67973cc3bc71a92515bed25b83 = $(`<div id="html_bc9b4f67973cc3bc71a92515bed25b83" style="width: 100.0%; height: 100.0%;">M5.9 · 33 km W of Sangay, Philippines<br>depth 16 km</div>`)[0];
+                popup_83dc5ef41e13342cb95d1ab9e120f3c4.setContent(html_bc9b4f67973cc3bc71a92515bed25b83);
+            
+        
+
+        circle_marker_3a33024fdd1684f737f993f7817ad2f8.bindPopup(popup_83dc5ef41e13342cb95d1ab9e120f3c4)
+        ;
+
+        
+    
+    
+            var circle_marker_17d3a873be3f44f42dc71a8c437e69fd = L.circleMarker(
+                [6.3936, 123.7702],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_5d95721da1bc4e3b296fe6fc024b6593 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1502bb4ffcdeb0c54bf3b61e8a063082 = $(`<div id="html_1502bb4ffcdeb0c54bf3b61e8a063082" style="width: 100.0%; height: 100.0%;">M5.1 · 30 km W of Sangay, Philippines<br>depth 10 km</div>`)[0];
+                popup_5d95721da1bc4e3b296fe6fc024b6593.setContent(html_1502bb4ffcdeb0c54bf3b61e8a063082);
+            
+        
+
+        circle_marker_17d3a873be3f44f42dc71a8c437e69fd.bindPopup(popup_5d95721da1bc4e3b296fe6fc024b6593)
+        ;
+
+        
+    
+    
+            var circle_marker_cc7733685270ec18b8991cb90f0346a6 = L.circleMarker(
+                [6.5648, 123.8961],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_00b6609992793fc963852f9376a39935 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_43366b2710e88816beb57a51f235428c = $(`<div id="html_43366b2710e88816beb57a51f235428c" style="width: 100.0%; height: 100.0%;">M5.1 · 15 km WNW of Bantogon, Philippines<br>depth 10 km</div>`)[0];
+                popup_00b6609992793fc963852f9376a39935.setContent(html_43366b2710e88816beb57a51f235428c);
+            
+        
+
+        circle_marker_cc7733685270ec18b8991cb90f0346a6.bindPopup(popup_00b6609992793fc963852f9376a39935)
+        ;
+
+        
+    
+    
+            var circle_marker_12c261cce25304720cc89d559b88bfe2 = L.circleMarker(
+                [6.511, 123.8484],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_e8100777de1862edd32853580b8acfc9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_af94f68739f44c37a45b74b13ea33dd5 = $(`<div id="html_af94f68739f44c37a45b74b13ea33dd5" style="width: 100.0%; height: 100.0%;">M5.4 · 20 km W of Bantogon, Philippines<br>depth 10 km</div>`)[0];
+                popup_e8100777de1862edd32853580b8acfc9.setContent(html_af94f68739f44c37a45b74b13ea33dd5);
+            
+        
+
+        circle_marker_12c261cce25304720cc89d559b88bfe2.bindPopup(popup_e8100777de1862edd32853580b8acfc9)
+        ;
+
+        
+    
+    
+            var circle_marker_6ac324d78cd3c1f49f1966776ded6b7a = L.circleMarker(
+                [6.5222, 123.8098],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_949d512ecde0790a7ec3bdefdc1663c8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_176c49574367ca987e2c1707a21e103e = $(`<div id="html_176c49574367ca987e2c1707a21e103e" style="width: 100.0%; height: 100.0%;">M5.1 · 24 km W of Bantogon, Philippines<br>depth 10 km</div>`)[0];
+                popup_949d512ecde0790a7ec3bdefdc1663c8.setContent(html_176c49574367ca987e2c1707a21e103e);
+            
+        
+
+        circle_marker_6ac324d78cd3c1f49f1966776ded6b7a.bindPopup(popup_949d512ecde0790a7ec3bdefdc1663c8)
+        ;
+
+        
+    
+    
+            var circle_marker_303b475d22bc1be18d3c8dfd2d568b81 = L.circleMarker(
+                [6.4551, 123.7855],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_a5c56a30a46c1dfcf9872164c3b3796f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3575537637ad300189f1b348fe98cd76 = $(`<div id="html_3575537637ad300189f1b348fe98cd76" style="width: 100.0%; height: 100.0%;">M5.0 · 28 km W of Sangay, Philippines<br>depth 10 km</div>`)[0];
+                popup_a5c56a30a46c1dfcf9872164c3b3796f.setContent(html_3575537637ad300189f1b348fe98cd76);
+            
+        
+
+        circle_marker_303b475d22bc1be18d3c8dfd2d568b81.bindPopup(popup_a5c56a30a46c1dfcf9872164c3b3796f)
+        ;
+
+        
+    
+    
+            var circle_marker_7f4f39c2025bb3c73f6c4ef18495581e = L.circleMarker(
+                [6.4232, 123.801],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.640000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_5cbbf319b9890302b457809028bfc5df = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ccd9e3fa36cbfabdcd0a6658a2c8c459 = $(`<div id="html_ccd9e3fa36cbfabdcd0a6658a2c8c459" style="width: 100.0%; height: 100.0%;">M5.2 · 27 km W of Sangay, Philippines<br>depth 10 km</div>`)[0];
+                popup_5cbbf319b9890302b457809028bfc5df.setContent(html_ccd9e3fa36cbfabdcd0a6658a2c8c459);
+            
+        
+
+        circle_marker_7f4f39c2025bb3c73f6c4ef18495581e.bindPopup(popup_5cbbf319b9890302b457809028bfc5df)
+        ;
+
+        
+    
+    
+            var circle_marker_3210c0883f5c1e0fa893433221fc37a5 = L.circleMarker(
+                [6.4883, 123.7403],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_ad73773601358d957b87867a11cda7e3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1c61fe59f20eef531964300763436524 = $(`<div id="html_1c61fe59f20eef531964300763436524" style="width: 100.0%; height: 100.0%;">M5.1 · 32 km W of Bantogon, Philippines<br>depth 10 km</div>`)[0];
+                popup_ad73773601358d957b87867a11cda7e3.setContent(html_1c61fe59f20eef531964300763436524);
+            
+        
+
+        circle_marker_3210c0883f5c1e0fa893433221fc37a5.bindPopup(popup_ad73773601358d957b87867a11cda7e3)
+        ;
+
+        
+    
+    
+            var circle_marker_e8e2a907084de0401beae40b7e72f372 = L.circleMarker(
+                [6.2931, 123.7256],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_550a2ea07b2b0738898996b9936bc499 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c3b1a0a853ee0c0e3b1cb975edeed9b0 = $(`<div id="html_c3b1a0a853ee0c0e3b1cb975edeed9b0" style="width: 100.0%; height: 100.0%;">M5.4 · 39 km WSW of Sangay, Philippines<br>depth 10 km</div>`)[0];
+                popup_550a2ea07b2b0738898996b9936bc499.setContent(html_c3b1a0a853ee0c0e3b1cb975edeed9b0);
+            
+        
+
+        circle_marker_e8e2a907084de0401beae40b7e72f372.bindPopup(popup_550a2ea07b2b0738898996b9936bc499)
+        ;
+
+        
+    
+    
+            var circle_marker_7905cce332b1b3aa736b39e59b4c42c0 = L.circleMarker(
+                [6.3557, 123.7166],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_595d1822e15fc299626e8a9ea43e9630 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_892893fa5f4d728ce4c7ab805e92f369 = $(`<div id="html_892893fa5f4d728ce4c7ab805e92f369" style="width: 100.0%; height: 100.0%;">M5.4 · 37 km WSW of Sangay, Philippines<br>depth 10 km</div>`)[0];
+                popup_595d1822e15fc299626e8a9ea43e9630.setContent(html_892893fa5f4d728ce4c7ab805e92f369);
+            
+        
+
+        circle_marker_7905cce332b1b3aa736b39e59b4c42c0.bindPopup(popup_595d1822e15fc299626e8a9ea43e9630)
+        ;
+
+        
+    
+    
+            var circle_marker_3126c963144f017bdcbbe5330394e113 = L.circleMarker(
+                [6.3406, 126.1995],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_b94507dea15d5c9c4298be5191c1a2de = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a8824fdce7fafc789ca6dbc89632bc61 = $(`<div id="html_a8824fdce7fafc789ca6dbc89632bc61" style="width: 100.0%; height: 100.0%;">M5.4 · 3 km SE of Pondaguitan, Philippines<br>depth 72 km</div>`)[0];
+                popup_b94507dea15d5c9c4298be5191c1a2de.setContent(html_a8824fdce7fafc789ca6dbc89632bc61);
+            
+        
+
+        circle_marker_3126c963144f017bdcbbe5330394e113.bindPopup(popup_b94507dea15d5c9c4298be5191c1a2de)
+        ;
+
+        
+    
+    
+            var circle_marker_79fcfdc4c94d3bbe0b99f19cf005f5bf = L.circleMarker(
+                [9.6799, 122.7895],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.300000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_8f1252587e46683225723d978e0e87e6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_da0b082514a01275f3f912c90c3e4343 = $(`<div id="html_da0b082514a01275f3f912c90c3e4343" style="width: 100.0%; height: 100.0%;">M5.5 · 13 km WSW of Mabinay, Philippines<br>depth 115 km</div>`)[0];
+                popup_8f1252587e46683225723d978e0e87e6.setContent(html_da0b082514a01275f3f912c90c3e4343);
+            
+        
+
+        circle_marker_79fcfdc4c94d3bbe0b99f19cf005f5bf.bindPopup(popup_8f1252587e46683225723d978e0e87e6)
+        ;
+
+        
+    
+    
+            var circle_marker_2841434145474d6f719b66fa03adbca1 = L.circleMarker(
+                [7.9787, 126.6291],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_f4647e42b35c9f2756182641ea877700 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4fd99f01406769677473a0d47ea2bed2 = $(`<div id="html_4fd99f01406769677473a0d47ea2bed2" style="width: 100.0%; height: 100.0%;">M5.0 · 20 km E of Santa Maria, Philippines<br>depth 65 km</div>`)[0];
+                popup_f4647e42b35c9f2756182641ea877700.setContent(html_4fd99f01406769677473a0d47ea2bed2);
+            
+        
+
+        circle_marker_2841434145474d6f719b66fa03adbca1.bindPopup(popup_f4647e42b35c9f2756182641ea877700)
+        ;
+
+        
+    
+    
+            var circle_marker_5d6dd15f7858d19624e50080d1a5cd30 = L.circleMarker(
+                [8.883, 126.4567],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_254a122fea7f5fbb9789becfb5db00fa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fe80999bf96333daec61013983934df8 = $(`<div id="html_fe80999bf96333daec61013983934df8" style="width: 100.0%; height: 100.0%;">M5.4 · 16 km E of Aras-asan, Philippines<br>depth 56 km</div>`)[0];
+                popup_254a122fea7f5fbb9789becfb5db00fa.setContent(html_fe80999bf96333daec61013983934df8);
+            
+        
+
+        circle_marker_5d6dd15f7858d19624e50080d1a5cd30.bindPopup(popup_254a122fea7f5fbb9789becfb5db00fa)
+        ;
+
+        
+    
+    
+            var circle_marker_9dbfd50ce609e4556e4dd3473022b1e3 = L.circleMarker(
+                [18.6615, 120.6453],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_5f60f548b64d3a9400fc719676ba5731 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7d8ea35e67f9612becea6344e33ea66d = $(`<div id="html_7d8ea35e67f9612becea6344e33ea66d" style="width: 100.0%; height: 100.0%;">M5.1 · 18 km NW of Pagudpud, Philippines<br>depth 10 km</div>`)[0];
+                popup_5f60f548b64d3a9400fc719676ba5731.setContent(html_7d8ea35e67f9612becea6344e33ea66d);
+            
+        
+
+        circle_marker_9dbfd50ce609e4556e4dd3473022b1e3.bindPopup(popup_5f60f548b64d3a9400fc719676ba5731)
+        ;
+
+        
+    
+    
+            var circle_marker_a98311fe46cea3cb9962f477ab6a1439 = L.circleMarker(
+                [9.7909, 126.1163],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.4, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_5db8018523b71da44012e960b463f656 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6e1f00c93372d2626893627784c7dbf9 = $(`<div id="html_6e1f00c93372d2626893627784c7dbf9" style="width: 100.0%; height: 100.0%;">M6.0 · 3 km N of Union, Philippines<br>depth 32 km</div>`)[0];
+                popup_5db8018523b71da44012e960b463f656.setContent(html_6e1f00c93372d2626893627784c7dbf9);
+            
+        
+
+        circle_marker_a98311fe46cea3cb9962f477ab6a1439.bindPopup(popup_5db8018523b71da44012e960b463f656)
+        ;
+
+        
+    
+    
+            var circle_marker_46abdf25ffefc0998d2d4cbe1e0d66b0 = L.circleMarker(
+                [10.9522, 123.9606],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.96, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_63870ea9dafd96da9915b81fc7977c61 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_07445892b73c6034c4e0dd80e212c3c0 = $(`<div id="html_07445892b73c6034c4e0dd80e212c3c0" style="width: 100.0%; height: 100.0%;">M5.8 · 4 km ESE of Tambongon, Philippines<br>depth 10 km</div>`)[0];
+                popup_63870ea9dafd96da9915b81fc7977c61.setContent(html_07445892b73c6034c4e0dd80e212c3c0);
+            
+        
+
+        circle_marker_46abdf25ffefc0998d2d4cbe1e0d66b0.bindPopup(popup_63870ea9dafd96da9915b81fc7977c61)
+        ;
+
+        
+    
+    
+            var circle_marker_1791f5f05bdf0d6bbc6bec0f8ba2c702 = L.circleMarker(
+                [8.9231, 126.323],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.4, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_31fb694c42c05e0d677d724ab12643b1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dc9488b4a8ad5539fbeca4b93e5e49e0 = $(`<div id="html_dc9488b4a8ad5539fbeca4b93e5e49e0" style="width: 100.0%; height: 100.0%;">M6.0 · 3 km ESE of Bacolod, Philippines<br>depth 68 km</div>`)[0];
+                popup_31fb694c42c05e0d677d724ab12643b1.setContent(html_dc9488b4a8ad5539fbeca4b93e5e49e0);
+            
+        
+
+        circle_marker_1791f5f05bdf0d6bbc6bec0f8ba2c702.bindPopup(popup_31fb694c42c05e0d677d724ab12643b1)
+        ;
+
+        
+    
+    
+            var circle_marker_2868113d9e1cf35409e9bb24badef26a = L.circleMarker(
+                [15.2256, 120.4215],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_3ba320010fd3b746bee6b2522e8f8693 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_07026722a33aaf21807a6a106188e84a = $(`<div id="html_07026722a33aaf21807a6a106188e84a" style="width: 100.0%; height: 100.0%;">M5.0 · 11 km S of Santa Juliana, Philippines<br>depth 126 km</div>`)[0];
+                popup_3ba320010fd3b746bee6b2522e8f8693.setContent(html_07026722a33aaf21807a6a106188e84a);
+            
+        
+
+        circle_marker_2868113d9e1cf35409e9bb24badef26a.bindPopup(popup_3ba320010fd3b746bee6b2522e8f8693)
+        ;
+
+        
+    
+    
+            var circle_marker_4cb085e315a1940b49abbf5716871da7 = L.circleMarker(
+                [7.2127, 126.6578],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.940000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_addb27eafef58196c16e0f812637d121 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5e2e97c648bb3561637e7a3b95bc20a2 = $(`<div id="html_5e2e97c648bb3561637e7a3b95bc20a2" style="width: 100.0%; height: 100.0%;">M6.7 · 12 km SE of Santiago, Philippines<br>depth 47 km</div>`)[0];
+                popup_addb27eafef58196c16e0f812637d121.setContent(html_5e2e97c648bb3561637e7a3b95bc20a2);
+            
+        
+
+        circle_marker_4cb085e315a1940b49abbf5716871da7.bindPopup(popup_addb27eafef58196c16e0f812637d121)
+        ;
+
+        
+    
+    
+            var circle_marker_d0c0cff95a252648e2be428f591822ec = L.circleMarker(
+                [7.2686, 126.7211],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.859999999999999, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_220a1fc103761ac008be9fd976d76ee9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b312003d6afb7a2bf8aa5a24ff8d5a18 = $(`<div id="html_b312003d6afb7a2bf8aa5a24ff8d5a18" style="width: 100.0%; height: 100.0%;">M5.3 · 16 km E of Santiago, Philippines<br>depth 68 km</div>`)[0];
+                popup_220a1fc103761ac008be9fd976d76ee9.setContent(html_b312003d6afb7a2bf8aa5a24ff8d5a18);
+            
+        
+
+        circle_marker_d0c0cff95a252648e2be428f591822ec.bindPopup(popup_220a1fc103761ac008be9fd976d76ee9)
+        ;
+
+        
+    
+    
+            var circle_marker_5d60be9bfae28007967bc41b37c60d79 = L.circleMarker(
+                [7.2866, 126.6902],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.48, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_ac623e6698e87fe4baa43599138f7649 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b8844bb5dfa629ea5ecc0c2f690cb77c = $(`<div id="html_b8844bb5dfa629ea5ecc0c2f690cb77c" style="width: 100.0%; height: 100.0%;">M7.4 · 12 km E of Santiago, Philippines<br>depth 59 km</div>`)[0];
+                popup_ac623e6698e87fe4baa43599138f7649.setContent(html_b8844bb5dfa629ea5ecc0c2f690cb77c);
+            
+        
+
+        circle_marker_5d60be9bfae28007967bc41b37c60d79.bindPopup(popup_ac623e6698e87fe4baa43599138f7649)
+        ;
+
+        
+    
+    
+            var circle_marker_0fb6795e27f2083b680cde07fcace489 = L.circleMarker(
+                [10.9009, 123.9271],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_7d0ffa5999aae984d3af6eb0d7b25cca = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5d70d0f16ca4c62a6d28cc8b89e0e957 = $(`<div id="html_5d70d0f16ca4c62a6d28cc8b89e0e957" style="width: 100.0%; height: 100.0%;">M5.0 · 3 km E of Maravilla, Philippines<br>depth 10 km</div>`)[0];
+                popup_7d0ffa5999aae984d3af6eb0d7b25cca.setContent(html_5d70d0f16ca4c62a6d28cc8b89e0e957);
+            
+        
+
+        circle_marker_0fb6795e27f2083b680cde07fcace489.bindPopup(popup_7d0ffa5999aae984d3af6eb0d7b25cca)
+        ;
+
+        
+    
+    
+            var circle_marker_0c81bad005ac0766dc9cb35953b835cb = L.circleMarker(
+                [11.0024, 124.2384],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.859999999999999, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_d0d521bb5574b93b066ee9f6d1d9c1d6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fd9f431c12fd2cb49a9de148aa206ba1 = $(`<div id="html_fd9f431c12fd2cb49a9de148aa206ba1" style="width: 100.0%; height: 100.0%;">M5.3 · 16 km WSW of Palompon, Philippines<br>depth 10 km</div>`)[0];
+                popup_d0d521bb5574b93b066ee9f6d1d9c1d6.setContent(html_fd9f431c12fd2cb49a9de148aa206ba1);
+            
+        
+
+        circle_marker_0c81bad005ac0766dc9cb35953b835cb.bindPopup(popup_d0d521bb5574b93b066ee9f6d1d9c1d6)
+        ;
+
+        
+    
+    
+            var circle_marker_2d9eb1342f35931cd9e2dea4638755c1 = L.circleMarker(
+                [10.9333, 124.1065],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_56a2d1f0ad9a6472167091f841849175 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_17b20fa8a658b082a191bc1a8de44ec9 = $(`<div id="html_17b20fa8a658b082a191bc1a8de44ec9" style="width: 100.0%; height: 100.0%;">M5.1 · 10 km SE of Anonang, Philippines<br>depth 10 km</div>`)[0];
+                popup_56a2d1f0ad9a6472167091f841849175.setContent(html_17b20fa8a658b082a191bc1a8de44ec9);
+            
+        
+
+        circle_marker_2d9eb1342f35931cd9e2dea4638755c1.bindPopup(popup_56a2d1f0ad9a6472167091f841849175)
+        ;
+
+        
+    
+    
+            var circle_marker_6c244c9966ae24af2b418325c6ffeb26 = L.circleMarker(
+                [10.9951, 124.0141],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_9827a388996b95680e706bf67909d82f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_552fa4d420615b01fc979db229c83dd5 = $(`<div id="html_552fa4d420615b01fc979db229c83dd5" style="width: 100.0%; height: 100.0%;">M5.0 · 1 km S of Guadalupe, Philippines<br>depth 10 km</div>`)[0];
+                popup_9827a388996b95680e706bf67909d82f.setContent(html_552fa4d420615b01fc979db229c83dd5);
+            
+        
+
+        circle_marker_6c244c9966ae24af2b418325c6ffeb26.bindPopup(popup_9827a388996b95680e706bf67909d82f)
+        ;
+
+        
+    
+    
+            var circle_marker_d7d659ed7d61d4470a31546dcaa662d3 = L.circleMarker(
+                [11.0714, 124.0458],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_c180cc28cb2d0986749640be26a5eba8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e3368ffd7c9f6b50d9f21e5eb537ebad = $(`<div id="html_e3368ffd7c9f6b50d9f21e5eb537ebad" style="width: 100.0%; height: 100.0%;">M5.0 · 2 km NNE of Nailong, Philippines<br>depth 10 km</div>`)[0];
+                popup_c180cc28cb2d0986749640be26a5eba8.setContent(html_e3368ffd7c9f6b50d9f21e5eb537ebad);
+            
+        
+
+        circle_marker_d7d659ed7d61d4470a31546dcaa662d3.bindPopup(popup_c180cc28cb2d0986749640be26a5eba8)
+        ;
+
+        
+    
+    
+            var circle_marker_065589d8130bd58f0fa98724c4f80287 = L.circleMarker(
+                [11.0043, 124.0449],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.640000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_aad163e66acc125be5391c195872f2f5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_999cee1e086b4e221a3a97b247876a3c = $(`<div id="html_999cee1e086b4e221a3a97b247876a3c" style="width: 100.0%; height: 100.0%;">M5.2 · 1 km ENE of Anonang, Philippines<br>depth 10 km</div>`)[0];
+                popup_aad163e66acc125be5391c195872f2f5.setContent(html_999cee1e086b4e221a3a97b247876a3c);
+            
+        
+
+        circle_marker_065589d8130bd58f0fa98724c4f80287.bindPopup(popup_aad163e66acc125be5391c195872f2f5)
+        ;
+
+        
+    
+    
+            var circle_marker_f862d00223f5bed999ee31252872a06d = L.circleMarker(
+                [11.2131, 124.1111],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.640000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_5d91ccafe8d8e149f66f44beb8df8ca0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c3b89238dcd38de5a4f400d6f32f78e8 = $(`<div id="html_c3b89238dcd38de5a4f400d6f32f78e8" style="width: 100.0%; height: 100.0%;">M5.2 · 7 km ESE of Talisay, Philippines<br>depth 10 km</div>`)[0];
+                popup_5d91ccafe8d8e149f66f44beb8df8ca0.setContent(html_c3b89238dcd38de5a4f400d6f32f78e8);
+            
+        
+
+        circle_marker_f862d00223f5bed999ee31252872a06d.bindPopup(popup_5d91ccafe8d8e149f66f44beb8df8ca0)
+        ;
+
+        
+    
+    
+            var circle_marker_19a4d2765ccaa33b4beb1de6bfd74a39 = L.circleMarker(
+                [11.0233, 123.9682],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_ccbac4af282d2f72e5f45ac868bd9b8a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7b3adaacb83337770a593093526ebb3a = $(`<div id="html_7b3adaacb83337770a593093526ebb3a" style="width: 100.0%; height: 100.0%;">M5.1 · 3 km SE of Maño, Philippines<br>depth 10 km</div>`)[0];
+                popup_ccbac4af282d2f72e5f45ac868bd9b8a.setContent(html_7b3adaacb83337770a593093526ebb3a);
+            
+        
+
+        circle_marker_19a4d2765ccaa33b4beb1de6bfd74a39.bindPopup(popup_ccbac4af282d2f72e5f45ac868bd9b8a)
+        ;
+
+        
+    
+    
+            var circle_marker_f9d6edce9a85b528bbe81f7c0deb91c0 = L.circleMarker(
+                [11.1557, 124.111],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.380000000000003, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_8156182f1232aa684f90c0e63aa37907 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f609333ca6815fa4f6230dca659ca1af = $(`<div id="html_f609333ca6815fa4f6230dca659ca1af" style="width: 100.0%; height: 100.0%;">M6.9 · 8 km ESE of Calape, Philippines<br>depth 10 km</div>`)[0];
+                popup_8156182f1232aa684f90c0e63aa37907.setContent(html_f609333ca6815fa4f6230dca659ca1af);
+            
+        
+
+        circle_marker_f9d6edce9a85b528bbe81f7c0deb91c0.bindPopup(popup_8156182f1232aa684f90c0e63aa37907)
+        ;
+
+        
+    
+    
+            var circle_marker_832051f99bda78136d9ea8220d24e64d = L.circleMarker(
+                [16.8635, 120.0268],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_acc92a022a9a1bc1493b40b193e1d1ea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_33af456e90f92a91952469fff594a9ee = $(`<div id="html_33af456e90f92a91952469fff594a9ee" style="width: 100.0%; height: 100.0%;">M5.4 · 38 km WNW of Bacnotan, Philippines<br>depth 35 km</div>`)[0];
+                popup_acc92a022a9a1bc1493b40b193e1d1ea.setContent(html_33af456e90f92a91952469fff594a9ee);
+            
+        
+
+        circle_marker_832051f99bda78136d9ea8220d24e64d.bindPopup(popup_acc92a022a9a1bc1493b40b193e1d1ea)
+        ;
+
+        
+    
+    
+            var circle_marker_0881b5083f9e089febc15d9911ab6895 = L.circleMarker(
+                [9.9133, 125.5075],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.859999999999999, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_142311b4d1482bc7745d2133ffa72eb2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_80e06b73750d1e9d17900ada1fef24d5 = $(`<div id="html_80e06b73750d1e9d17900ada1fef24d5" style="width: 100.0%; height: 100.0%;">M5.3 · 10 km WSW of Dinagat, Philippines<br>depth 144 km</div>`)[0];
+                popup_142311b4d1482bc7745d2133ffa72eb2.setContent(html_80e06b73750d1e9d17900ada1fef24d5);
+            
+        
+
+        circle_marker_0881b5083f9e089febc15d9911ab6895.bindPopup(popup_142311b4d1482bc7745d2133ffa72eb2)
+        ;
+
+        
+    
+    
+            var circle_marker_9f55fd9f179b7af613836ebd7c7cb8bc = L.circleMarker(
+                [9.6436, 126.3902],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_b48a2fd91d6111647c8981c6344416f8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_48026e9646da18a01b18b361d8d1cfc8 = $(`<div id="html_48026e9646da18a01b18b361d8d1cfc8" style="width: 100.0%; height: 100.0%;">M5.0 · 33 km ESE of Union, Philippines<br>depth 35 km</div>`)[0];
+                popup_b48a2fd91d6111647c8981c6344416f8.setContent(html_48026e9646da18a01b18b361d8d1cfc8);
+            
+        
+
+        circle_marker_9f55fd9f179b7af613836ebd7c7cb8bc.bindPopup(popup_b48a2fd91d6111647c8981c6344416f8)
+        ;
+
+        
+    
+    
+            var circle_marker_bbfb0179a813c97c95b563002107817f = L.circleMarker(
+                [19.6495, 121.5052],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.300000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_734f68dac7eda108c247aba07a491be6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2ce9e1a83f62fb030932bf64af35ae81 = $(`<div id="html_2ce9e1a83f62fb030932bf64af35ae81" style="width: 100.0%; height: 100.0%;">M5.5 · 100 km SSW of Basco, Philippines<br>depth 46 km</div>`)[0];
+                popup_734f68dac7eda108c247aba07a491be6.setContent(html_2ce9e1a83f62fb030932bf64af35ae81);
+            
+        
+
+        circle_marker_bbfb0179a813c97c95b563002107817f.bindPopup(popup_734f68dac7eda108c247aba07a491be6)
+        ;
+
+        
+    
+    
+            var circle_marker_5d91b698fe986897c24f3bbe13d7fa89 = L.circleMarker(
+                [19.8236, 121.3136],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.859999999999999, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_2419c23d5ac1d26c584eab1094c9c0de = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_410da6cb1f7aff67e4da6fae28d7aab2 = $(`<div id="html_410da6cb1f7aff67e4da6fae28d7aab2" style="width: 100.0%; height: 100.0%;">M5.3 · 97 km SW of Basco, Philippines<br>depth 29 km</div>`)[0];
+                popup_2419c23d5ac1d26c584eab1094c9c0de.setContent(html_410da6cb1f7aff67e4da6fae28d7aab2);
+            
+        
+
+        circle_marker_5d91b698fe986897c24f3bbe13d7fa89.bindPopup(popup_2419c23d5ac1d26c584eab1094c9c0de)
+        ;
+
+        
+    
+    
+            var circle_marker_353bc1edfd72486a9301f188a48b2612 = L.circleMarker(
+                [18.1482, 120.6989],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_70ef4b7f9bd7698da6bb91b4f70a5147 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2a424ff943372b4c0d5a9d6be1092c8d = $(`<div id="html_2a424ff943372b4c0d5a9d6be1092c8d" style="width: 100.0%; height: 100.0%;">M5.4 · 2 km SW of Piddig, Philippines<br>depth 50 km</div>`)[0];
+                popup_70ef4b7f9bd7698da6bb91b4f70a5147.setContent(html_2a424ff943372b4c0d5a9d6be1092c8d);
+            
+        
+
+        circle_marker_353bc1edfd72486a9301f188a48b2612.bindPopup(popup_70ef4b7f9bd7698da6bb91b4f70a5147)
+        ;
+
+        
+    
+    
+            var circle_marker_1f4f7b06012fb156ed71dbd827b62c85 = L.circleMarker(
+                [5.2363, 125.3653],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_a5e973db2f7356c9599fcb95c0d458bd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a2a988460d6476912945ff354b9bbf79 = $(`<div id="html_a2a988460d6476912945ff354b9bbf79" style="width: 100.0%; height: 100.0%;">M5.0 · 21 km SSW of Sarangani, Philippines<br>depth 30 km</div>`)[0];
+                popup_a5e973db2f7356c9599fcb95c0d458bd.setContent(html_a2a988460d6476912945ff354b9bbf79);
+            
+        
+
+        circle_marker_1f4f7b06012fb156ed71dbd827b62c85.bindPopup(popup_a5e973db2f7356c9599fcb95c0d458bd)
+        ;
+
+        
+    
+    
+            var circle_marker_cd388c70034cbc9f4399d81455d59ed9 = L.circleMarker(
+                [13.6999, 120.7166],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_d9a89fd5cf196efda7cd1dd108eff416 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a0223adc30849122065e567e615d5be0 = $(`<div id="html_a0223adc30849122065e567e615d5be0" style="width: 100.0%; height: 100.0%;">M5.1 · 16 km S of Hukay, Philippines<br>depth 168 km</div>`)[0];
+                popup_d9a89fd5cf196efda7cd1dd108eff416.setContent(html_a0223adc30849122065e567e615d5be0);
+            
+        
+
+        circle_marker_cd388c70034cbc9f4399d81455d59ed9.bindPopup(popup_d9a89fd5cf196efda7cd1dd108eff416)
+        ;
+
+        
+    
+    
+            var circle_marker_dc3f7a51071c6cd85ffd130ffc64bad0 = L.circleMarker(
+                [16.6932, 120.2389],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.640000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_d18a81973a283e7b8c7800744e42f283 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f16c5129dd06617c7e691a514af40152 = $(`<div id="html_f16c5129dd06617c7e691a514af40152" style="width: 100.0%; height: 100.0%;">M5.2 · 11 km NW of San Fernando, Philippines<br>depth 35 km</div>`)[0];
+                popup_d18a81973a283e7b8c7800744e42f283.setContent(html_f16c5129dd06617c7e691a514af40152);
+            
+        
+
+        circle_marker_dc3f7a51071c6cd85ffd130ffc64bad0.bindPopup(popup_d18a81973a283e7b8c7800744e42f283)
+        ;
+
+        
+    
+    
+            var circle_marker_b96e47c81e4acf7cb7ceceda0d933dcd = L.circleMarker(
+                [9.867, 122.182],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_e2cb593646929f119ba827862f40bcfb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e07281586722bafd4c43410ebc5edd8c = $(`<div id="html_e07281586722bafd4c43410ebc5edd8c" style="width: 100.0%; height: 100.0%;">M5.1 · 24 km W of Bulata, Philippines<br>depth 10 km</div>`)[0];
+                popup_e2cb593646929f119ba827862f40bcfb.setContent(html_e07281586722bafd4c43410ebc5edd8c);
+            
+        
+
+        circle_marker_b96e47c81e4acf7cb7ceceda0d933dcd.bindPopup(popup_e2cb593646929f119ba827862f40bcfb)
+        ;
+
+        
+    
+    
+            var circle_marker_119af6d56e2435f384c5bb058b3d3107 = L.circleMarker(
+                [19.2068, 121.1565],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.52, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_2656006d334af690b050068af6231642 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_172e910c8998f8dea0c181b25d47f8be = $(`<div id="html_172e910c8998f8dea0c181b25d47f8be" style="width: 100.0%; height: 100.0%;">M5.6 · 65 km N of Namuac, Philippines<br>depth 18 km</div>`)[0];
+                popup_2656006d334af690b050068af6231642.setContent(html_172e910c8998f8dea0c181b25d47f8be);
+            
+        
+
+        circle_marker_119af6d56e2435f384c5bb058b3d3107.bindPopup(popup_2656006d334af690b050068af6231642)
+        ;
+
+        
+    
+    
+            var circle_marker_08ac18b8a2e912c9c7853f93074b19a5 = L.circleMarker(
+                [19.2094, 121.0904],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.300000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_21ae4db9f699431cd0782dc37f5acd4f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_642a69fc99d560f9ca34ae08bd80fcf8 = $(`<div id="html_642a69fc99d560f9ca34ae08bd80fcf8" style="width: 100.0%; height: 100.0%;">M5.5 · 66 km N of Claveria, Philippines<br>depth 20 km</div>`)[0];
+                popup_21ae4db9f699431cd0782dc37f5acd4f.setContent(html_642a69fc99d560f9ca34ae08bd80fcf8);
+            
+        
+
+        circle_marker_08ac18b8a2e912c9c7853f93074b19a5.bindPopup(popup_21ae4db9f699431cd0782dc37f5acd4f)
+        ;
+
+        
+    
+    
+            var circle_marker_41761c8751c7b1424b8254c92d0dc738 = L.circleMarker(
+                [6.7213, 125.1352],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_739071dcf776277584954dd25f7a03df = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9042936eadfb21fb456baa43ca68f386 = $(`<div id="html_9042936eadfb21fb456baa43ca68f386" style="width: 100.0%; height: 100.0%;">M5.0 · 7 km SW of Magsaysay, Philippines<br>depth 17 km</div>`)[0];
+                popup_739071dcf776277584954dd25f7a03df.setContent(html_9042936eadfb21fb456baa43ca68f386);
+            
+        
+
+        circle_marker_41761c8751c7b1424b8254c92d0dc738.bindPopup(popup_739071dcf776277584954dd25f7a03df)
+        ;
+
+        
+    
+    
+            var circle_marker_762e2f0093d9d00972af774d4cf57545 = L.circleMarker(
+                [7.867, 126.7422],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_4350862b5f84ca96e94a21be1021bb5b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9d632e6cdb13f01975dd2ce294313590 = $(`<div id="html_9d632e6cdb13f01975dd2ce294313590" style="width: 100.0%; height: 100.0%;">M5.0 · 28 km NE of Kinablangan, Philippines<br>depth 18 km</div>`)[0];
+                popup_4350862b5f84ca96e94a21be1021bb5b.setContent(html_9d632e6cdb13f01975dd2ce294313590);
+            
+        
+
+        circle_marker_762e2f0093d9d00972af774d4cf57545.bindPopup(popup_4350862b5f84ca96e94a21be1021bb5b)
+        ;
+
+        
+    
+    
+            var circle_marker_42ee84739ec1880e86987f47cb333c99 = L.circleMarker(
+                [11.4747, 125.806],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_f6d97f052921945e798c076e82129f09 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_79095de23842a612dab78350bef31e94 = $(`<div id="html_79095de23842a612dab78350bef31e94" style="width: 100.0%; height: 100.0%;">M5.0 · 26 km NE of Hernani, Philippines<br>depth 10 km</div>`)[0];
+                popup_f6d97f052921945e798c076e82129f09.setContent(html_79095de23842a612dab78350bef31e94);
+            
+        
+
+        circle_marker_42ee84739ec1880e86987f47cb333c99.bindPopup(popup_f6d97f052921945e798c076e82129f09)
+        ;
+
+        
+    
+    
+            var circle_marker_5e1749aeca6884e9fff8e460dcf5f917 = L.circleMarker(
+                [12.8077, 122.9791],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_62b221ee24e33c17cb67567b1cb91068 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dbfa15c1cbec57e6ef8ad84ab94c7f04 = $(`<div id="html_dbfa15c1cbec57e6ef8ad84ab94c7f04" style="width: 100.0%; height: 100.0%;">M5.0 · 30 km W of Mabiton, Philippines<br>depth 10 km</div>`)[0];
+                popup_62b221ee24e33c17cb67567b1cb91068.setContent(html_dbfa15c1cbec57e6ef8ad84ab94c7f04);
+            
+        
+
+        circle_marker_5e1749aeca6884e9fff8e460dcf5f917.bindPopup(popup_62b221ee24e33c17cb67567b1cb91068)
+        ;
+
+        
+    
+    
+            var circle_marker_77ac3340a1242595fef6d47c4bc70787 = L.circleMarker(
+                [11.5308, 125.7609],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.859999999999999, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_dc6cf89da60928dd12b993a12c5c6c41 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0d33fb84d41c1287c9156692b9adc91d = $(`<div id="html_0d33fb84d41c1287c9156692b9adc91d" style="width: 100.0%; height: 100.0%;">M5.3 · 26 km ENE of Llorente, Philippines<br>depth 10 km</div>`)[0];
+                popup_dc6cf89da60928dd12b993a12c5c6c41.setContent(html_0d33fb84d41c1287c9156692b9adc91d);
+            
+        
+
+        circle_marker_77ac3340a1242595fef6d47c4bc70787.bindPopup(popup_dc6cf89da60928dd12b993a12c5c6c41)
+        ;
+
+        
+    
+    
+            var circle_marker_657f618b77e2790fdf97c31ecdd3440d = L.circleMarker(
+                [10.267, 125.5373],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_323c6ef317340c00fa2ee3197763b316 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9d6eed8a8c294456b772ad3266f15bf2 = $(`<div id="html_9d6eed8a8c294456b772ad3266f15bf2" style="width: 100.0%; height: 100.0%;">M5.0 · 7 km SSW of Tubajon, Philippines<br>depth 120 km</div>`)[0];
+                popup_323c6ef317340c00fa2ee3197763b316.setContent(html_9d6eed8a8c294456b772ad3266f15bf2);
+            
+        
+
+        circle_marker_657f618b77e2790fdf97c31ecdd3440d.bindPopup(popup_323c6ef317340c00fa2ee3197763b316)
+        ;
+
+        
+    
+    
+            var circle_marker_a3ac80ff0c6990c70d2ed80d7834a004 = L.circleMarker(
+                [7.7025, 122.2079],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_aba11d5a30bbf6d89ca891b29bb4659b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9d2251cf91f6b4788b7f1f895530b688 = $(`<div id="html_9d2251cf91f6b4788b7f1f895530b688" style="width: 100.0%; height: 100.0%;">M5.4 · 8 km E of Siocon, Philippines<br>depth 62 km</div>`)[0];
+                popup_aba11d5a30bbf6d89ca891b29bb4659b.setContent(html_9d2251cf91f6b4788b7f1f895530b688);
+            
+        
+
+        circle_marker_a3ac80ff0c6990c70d2ed80d7834a004.bindPopup(popup_aba11d5a30bbf6d89ca891b29bb4659b)
+        ;
+
+        
+    
+    
+            var circle_marker_b82ff7b237262a9efa01aa02985dbae8 = L.circleMarker(
+                [10.0899, 125.1492],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.74, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_4b766568cc68beabd98cdbfb6b2384d3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b2d61b72155121094aea63359f363aa8 = $(`<div id="html_b2d61b72155121094aea63359f363aa8" style="width: 100.0%; height: 100.0%;">M5.7 · 3 km NNW of San Francisco, Philippines<br>depth 9 km</div>`)[0];
+                popup_4b766568cc68beabd98cdbfb6b2384d3.setContent(html_b2d61b72155121094aea63359f363aa8);
+            
+        
+
+        circle_marker_b82ff7b237262a9efa01aa02985dbae8.bindPopup(popup_4b766568cc68beabd98cdbfb6b2384d3)
+        ;
+
+        
+    
+    
+            var circle_marker_fd74466652281c710cc9eeb1b9ee7c51 = L.circleMarker(
+                [13.9035, 120.5676],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_5dd29db8f3ba1dd66ec589d412caee84 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4ccf8d193725f0f86942c1ec0a3f6ef3 = $(`<div id="html_4ccf8d193725f0f86942c1ec0a3f6ef3" style="width: 100.0%; height: 100.0%;">M5.4 · 6 km WSW of Talisay, Philippines<br>depth 100 km</div>`)[0];
+                popup_5dd29db8f3ba1dd66ec589d412caee84.setContent(html_4ccf8d193725f0f86942c1ec0a3f6ef3);
+            
+        
+
+        circle_marker_fd74466652281c710cc9eeb1b9ee7c51.bindPopup(popup_5dd29db8f3ba1dd66ec589d412caee84)
+        ;
+
+        
+    
+    
+            var circle_marker_ab6cd4e20662ad1f6da73cf5acd85c30 = L.circleMarker(
+                [8.4942, 125.8032],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_6a88a5051cfb23d875b2dbe7a0f4a9e4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e82f14d2a4aeb0718944a8170ca8f987 = $(`<div id="html_e82f14d2a4aeb0718944a8170ca8f987" style="width: 100.0%; height: 100.0%;">M5.0 · 4 km NNE of Talacogon, Philippines<br>depth 10 km</div>`)[0];
+                popup_6a88a5051cfb23d875b2dbe7a0f4a9e4.setContent(html_e82f14d2a4aeb0718944a8170ca8f987);
+            
+        
+
+        circle_marker_ab6cd4e20662ad1f6da73cf5acd85c30.bindPopup(popup_6a88a5051cfb23d875b2dbe7a0f4a9e4)
+        ;
+
+        
+    
+    
+            var circle_marker_679ff4374d8f6e70e1433b0da772f84d = L.circleMarker(
+                [5.5763, 125.0964],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_32360763fa007a2cf8bde94c58d2a7b5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_65025f1064d9c32cdd8299fce1646e46 = $(`<div id="html_65025f1064d9c32cdd8299fce1646e46" style="width: 100.0%; height: 100.0%;">M5.0 · 23 km SW of Burias, Philippines<br>depth 37 km</div>`)[0];
+                popup_32360763fa007a2cf8bde94c58d2a7b5.setContent(html_65025f1064d9c32cdd8299fce1646e46);
+            
+        
+
+        circle_marker_679ff4374d8f6e70e1433b0da772f84d.bindPopup(popup_32360763fa007a2cf8bde94c58d2a7b5)
+        ;
+
+        
+    
+    
+            var circle_marker_d3aedcb5c77a43ea8ba35c42146101fe = L.circleMarker(
+                [6.6712, 123.8527],
+                {"bubblingMouseEvents": true, "color": "#58c7f3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#58c7f3", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_cc92c9c3d1b35a7dd98682d5544077a5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b3d5f762cd5f20e4387d0a6005a7c5f6 = $(`<div id="html_b3d5f762cd5f20e4387d0a6005a7c5f6" style="width: 100.0%; height: 100.0%;">M5.4 · 20 km W of Taguisa, Philippines<br>depth 542 km</div>`)[0];
+                popup_cc92c9c3d1b35a7dd98682d5544077a5.setContent(html_b3d5f762cd5f20e4387d0a6005a7c5f6);
+            
+        
+
+        circle_marker_d3aedcb5c77a43ea8ba35c42146101fe.bindPopup(popup_cc92c9c3d1b35a7dd98682d5544077a5)
+        ;
+
+        
+    
+    
+            var circle_marker_36e2fb3b6ed9f2b29b3a3ec008cf71ae = L.circleMarker(
+                [18.4391, 120.9038],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.300000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_34de72fdb3d4756eb1a52472feb64fbb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_10172e4c701dad38158f39fd29432ec1 = $(`<div id="html_10172e4c701dad38158f39fd29432ec1" style="width: 100.0%; height: 100.0%;">M5.5 · 18 km SE of Bangui, Philippines<br>depth 34 km</div>`)[0];
+                popup_34de72fdb3d4756eb1a52472feb64fbb.setContent(html_10172e4c701dad38158f39fd29432ec1);
+            
+        
+
+        circle_marker_36e2fb3b6ed9f2b29b3a3ec008cf71ae.bindPopup(popup_34de72fdb3d4756eb1a52472feb64fbb)
+        ;
+
+        
+    
+    
+            var circle_marker_11a8e34cd6903e830eaa27dd375372a6 = L.circleMarker(
+                [9.6146, 126.2289],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.080000000000001, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_0f415eef3e68e8a7a7e8231c69485784 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0819c951bc0e8719785cb4a004afe7d4 = $(`<div id="html_0819c951bc0e8719785cb4a004afe7d4" style="width: 100.0%; height: 100.0%;">M5.4 · 20 km SE of Union, Philippines<br>depth 63 km</div>`)[0];
+                popup_0f415eef3e68e8a7a7e8231c69485784.setContent(html_0819c951bc0e8719785cb4a004afe7d4);
+            
+        
+
+        circle_marker_11a8e34cd6903e830eaa27dd375372a6.bindPopup(popup_0f415eef3e68e8a7a7e8231c69485784)
+        ;
+
+        
+    
+    
+            var circle_marker_d57eee44076ec20c4325953b43cd60c3 = L.circleMarker(
+                [8.473, 125.927],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.859999999999999, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_a993ec8fc6f2957684aa5ee1214a54d5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8e62eec3c1290a172a0bb1daad618f7c = $(`<div id="html_8e62eec3c1290a172a0bb1daad618f7c" style="width: 100.0%; height: 100.0%;">M5.3 · 3 km ESE of Borbon, Philippines<br>depth 24 km</div>`)[0];
+                popup_a993ec8fc6f2957684aa5ee1214a54d5.setContent(html_8e62eec3c1290a172a0bb1daad618f7c);
+            
+        
+
+        circle_marker_d57eee44076ec20c4325953b43cd60c3.bindPopup(popup_a993ec8fc6f2957684aa5ee1214a54d5)
+        ;
+
+        
+    
+    
+            var circle_marker_50035dba703a3a4a1d278360ac3c698a = L.circleMarker(
+                [9.6861, 122.6582],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_056e57d8247a0c0fcd702c16216db210 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_08bf3f829368893b247a6c66fd5f3174 = $(`<div id="html_08bf3f829368893b247a6c66fd5f3174" style="width: 100.0%; height: 100.0%;">M5.1 · 15 km SSE of Candoni, Philippines<br>depth 35 km</div>`)[0];
+                popup_056e57d8247a0c0fcd702c16216db210.setContent(html_08bf3f829368893b247a6c66fd5f3174);
+            
+        
+
+        circle_marker_50035dba703a3a4a1d278360ac3c698a.bindPopup(popup_056e57d8247a0c0fcd702c16216db210)
+        ;
+
+        
+    
+    
+            var circle_marker_08600a7bc3104e8b69d5ce34b1791dfa = L.circleMarker(
+                [18.5003, 120.7963],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.74, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_497866938e3a72525def95835c2a701b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cd61810d0ef73252bc16e9626629df20 = $(`<div id="html_cd61810d0ef73252bc16e9626629df20" style="width: 100.0%; height: 100.0%;">M5.7 · 5 km SE of Bangui, Philippines<br>depth 34 km</div>`)[0];
+                popup_497866938e3a72525def95835c2a701b.setContent(html_cd61810d0ef73252bc16e9626629df20);
+            
+        
+
+        circle_marker_08600a7bc3104e8b69d5ce34b1791dfa.bindPopup(popup_497866938e3a72525def95835c2a701b)
+        ;
+
+        
+    
+    
+            var circle_marker_42893a1d6dd9181ed7837ef63dfe47c4 = L.circleMarker(
+                [15.4608, 120.8046],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.74, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_9ded40bebe4c0e8155095a09312aff65 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_027d31e6d268986b60a47e976dc360e7 = $(`<div id="html_027d31e6d268986b60a47e976dc360e7" style="width: 100.0%; height: 100.0%;">M5.7 · 1 km NNE of Concepcion, Philippines<br>depth 182 km</div>`)[0];
+                popup_9ded40bebe4c0e8155095a09312aff65.setContent(html_027d31e6d268986b60a47e976dc360e7);
+            
+        
+
+        circle_marker_42893a1d6dd9181ed7837ef63dfe47c4.bindPopup(popup_9ded40bebe4c0e8155095a09312aff65)
+        ;
+
+        
+    
+    
+            var circle_marker_93f9af0913faa0e91f34d7634da8a71c = L.circleMarker(
+                [6.1462, 126.1658],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f4a261", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_c80505c354eb22269b900bcfae5d445a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e38997e2a5872928ae26725318609731 = $(`<div id="html_e38997e2a5872928ae26725318609731" style="width: 100.0%; height: 100.0%;">M5.1 · 23 km S of Pondaguitan, Philippines<br>depth 105 km</div>`)[0];
+                popup_c80505c354eb22269b900bcfae5d445a.setContent(html_e38997e2a5872928ae26725318609731);
+            
+        
+
+        circle_marker_93f9af0913faa0e91f34d7634da8a71c.bindPopup(popup_c80505c354eb22269b900bcfae5d445a)
+        ;
+
+        
+    
+    
+            var circle_marker_a4cc0946956738cc74ae7a8a3c2825bc = L.circleMarker(
+                [20.7794, 121.9014],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.42, "stroke": true, "weight": 0}
+            ).addTo(feature_group_2f5dd602d08917e842ea84e979d4d05a);
+        
+    
+        var popup_bb95a97e950a6e8e172317acbbb9e5d6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b987e3227d3c82de14c8af7387110959 = $(`<div id="html_b987e3227d3c82de14c8af7387110959" style="width: 100.0%; height: 100.0%;">M5.1 · 37 km N of Basco, Philippines<br>depth 18 km</div>`)[0];
+                popup_bb95a97e950a6e8e172317acbbb9e5d6.setContent(html_b987e3227d3c82de14c8af7387110959);
+            
+        
+
+        circle_marker_a4cc0946956738cc74ae7a8a3c2825bc.bindPopup(popup_bb95a97e950a6e8e172317acbbb9e5d6)
+        ;
+
+        
+    
+    
+            feature_group_2f5dd602d08917e842ea84e979d4d05a.addTo(map_77fdcd3b603f1f2b9c1b149cae28c25d);
+        
+    
+            var feature_group_e881769726c525465d5db6805e754b1a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_21d872c7f7fcbf5f7c4eda802fca6817 = L.polyline(
+                [[8.7, 163.3], [8.9, 163.2], [9.2, 163.0], [9.5, 162.7], [9.8, 162.3], [10.2, 161.9], [10.5, 161.4], [10.7, 160.8], [10.9, 160.2], [11.3, 159.6], [11.7, 159.0], [12.0, 158.5], [12.3, 158.0], [12.5, 157.3], [12.6, 156.6], [12.7, 155.9], [12.7, 155.3], [12.8, 154.7], [12.9, 154.2], [12.9, 153.6], [12.8, 153.1], [12.8, 152.6], [12.7, 152.2], [12.6, 151.8], [12.5, 151.5], [12.5, 151.1], [12.5, 150.8], [12.6, 150.5], [12.7, 150.2], [12.7, 149.9], [12.7, 149.6], [12.8, 149.3], [12.9, 148.9], [13.1, 148.5], [13.4, 148.1], [13.6, 147.5], [13.7, 146.9], [13.8, 146.5], [14.0, 146.1], [14.1, 145.6], [14.3, 145.0], [14.6, 144.5], [14.9, 144.0], [15.2, 143.4], [15.4, 142.7], [15.7, 141.9], [15.9, 141.1], [16.1, 140.5], [16.2, 139.9], [16.3, 139.2], [16.5, 138.4], [16.7, 137.5], [16.8, 136.7], [16.8, 136.0], [16.8, 135.3], [16.8, 134.7], [16.9, 134.1], [16.9, 133.5], [16.9, 133.0], [17.1, 132.4], [17.3, 131.8], [17.4, 131.3], [17.6, 130.8], [17.9, 130.3], [18.3, 129.9], [18.5, 129.4], [18.7, 129.0], [18.9, 128.9], [19.2, 128.8], [19.6, 128.6], [20.1, 128.2], [20.4, 127.7], [20.8, 127.3], [21.3, 127.1], [21.9, 126.9], [22.3, 126.5], [22.7, 126.0], [23.2, 125.6], [23.8, 125.2], [24.4, 124.9], [25.0, 124.6], [25.8, 124.0], [26.6, 123.2], [27.1, 122.5], [27.6, 121.8], [28.1, 121.1], [28.7, 120.4], [29.3, 119.9], [29.9, 119.5], [30.5, 118.8], [31.0, 118.3], [31.5, 118.1], [32.0, 118.1], [32.3, 118.0], [32.6, 117.9], [33.0, 117.9], [33.4, 118.0], [33.9, 117.9], [34.3, 117.8], [34.5, 118.0], [34.7, 118.5], [35.2, 119.2], [35.7, 119.9], [36.2, 120.5], [36.6, 121.2], [37.0, 122.1], [37.5, 123.0], [38.0, 123.8], [38.5, 124.8], [39.1, 126.3], [39.7, 128.1]],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e63946", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 2.2}
+            ).addTo(feature_group_e881769726c525465d5db6805e754b1a);
+        
+    
+            poly_line_21d872c7f7fcbf5f7c4eda802fca6817.bindTooltip(
+                `<div>
+                     BAVI · peak 154 kt
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_bddeb2fdc04c8ac84e2af60ef2f7eb43 = L.polyline(
+                [[9.6, 161.2], [10.0, 160.9], [10.4, 160.5], [10.6, 160.0], [10.7, 159.4], [10.8, 158.9], [10.9, 158.4], [10.9, 157.9], [11.0, 157.4], [11.3, 157.1], [11.5, 156.5], [11.4, 155.3], [11.3, 154.0], [11.3, 153.3], [11.4, 152.7], [11.4, 152.0], [11.4, 151.4], [11.6, 150.8], [11.9, 150.2], [12.2, 149.4], [12.4, 148.6], [12.5, 147.9], [12.5, 147.3], [12.5, 146.7], [12.6, 146.1], [12.9, 145.5], [13.1, 144.8], [13.1, 144.1], [13.1, 143.4], [13.1, 142.8], [13.1, 142.3], [13.3, 141.9], [13.5, 141.4], [13.7, 140.8], [13.8, 140.2], [13.9, 139.7], [14.0, 139.2], [14.1, 138.8], [14.3, 138.4], [14.5, 138.0], [14.8, 137.6], [15.1, 137.2], [15.4, 136.7], [15.6, 136.2], [15.9, 135.6], [16.2, 135.0], [16.5, 134.4], [16.8, 133.7], [17.0, 133.0], [17.2, 132.2], [17.4, 131.5], [17.7, 130.8], [18.1, 130.1], [18.4, 129.5], [18.7, 128.9], [19.0, 128.4], [19.3, 127.9], [19.6, 127.4], [19.9, 126.9], [20.1, 126.4], [20.3, 126.0], [20.6, 125.7], [20.9, 125.4], [21.0, 125.1], [21.2, 124.9], [21.5, 124.6], [21.9, 124.3], [22.3, 124.0], [22.7, 123.8], [23.2, 123.6], [23.7, 123.4], [24.5, 123.1], [25.0, 122.7], [24.9, 122.4], [24.6, 122.3], [24.5, 122.8], [24.8, 123.3], [25.7, 123.4], [26.8, 123.3], [27.4, 123.3], [27.8, 123.3], [28.1, 123.5], [28.3, 123.8], [28.6, 124.2], [29.0, 124.7], [29.6, 125.1], [30.1, 125.5], [30.4, 125.9], [30.7, 126.3], [31.0, 126.8], [31.2, 127.4], [31.3, 128.2], [31.4, 129.0]],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#e63946", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 2.2}
+            ).addTo(feature_group_e881769726c525465d5db6805e754b1a);
+        
+    
+            poly_line_bddeb2fdc04c8ac84e2af60ef2f7eb43.bindTooltip(
+                `<div>
+                     CHAMPI · peak 159 kt
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2ef31cb6a799f3a24cb1e421606266d7 = L.polyline(
+                [[17.3, 115.0], [17.5, 114.0], [17.6, 113.1], [17.7, 112.3], [17.8, 111.6], [17.7, 111.2], [17.6, 111.0], [17.5, 110.7], [17.4, 110.4], [17.3, 110.2], [17.3, 110.1], [17.4, 109.9], [17.6, 109.7], [18.0, 109.6], [18.5, 109.5], [19.2, 109.1], [19.8, 108.7], [20.1, 108.5], [20.2, 108.4], [20.4, 108.1], [20.6, 107.8], [21.0, 107.7], [21.3, 107.8], [21.5, 107.8], [21.6, 107.9], [21.8, 107.9], [22.1, 107.9], [22.5, 108.1], [23.0, 108.3]],
+                {"bubblingMouseEvents": true, "color": "#58c7f3", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#58c7f3", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 2.2}
+            ).addTo(feature_group_e881769726c525465d5db6805e754b1a);
+        
+    
+            poly_line_2ef31cb6a799f3a24cb1e421606266d7.bindTooltip(
+                `<div>
+                     MAYSAK · peak 51 kt
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e9323197cac249662225b6a64aa3e37c = L.polyline(
+                [[12.2, 145.1], [12.6, 144.0], [12.9, 143.1], [13.1, 142.4], [13.3, 141.8], [13.5, 141.0], [13.7, 140.2], [13.9, 139.3], [14.0, 138.6], [14.1, 138.2], [14.2, 137.8], [14.1, 137.3], [14.1, 136.8], [14.2, 136.1], [14.3, 135.4], [14.5, 134.8], [14.7, 134.2], [15.0, 133.6], [15.4, 133.0], [15.8, 132.5], [16.1, 131.9], [16.3, 131.3], [16.5, 130.6], [16.9, 129.7], [17.3, 128.9], [17.4, 128.3], [17.4, 127.8], [17.6, 127.3], [17.9, 126.9], [18.0, 126.5], [18.1, 126.1], [18.2, 125.8], [18.3, 125.6], [18.6, 125.4], [18.9, 125.2], [19.0, 125.0], [19.1, 124.8], [19.3, 124.7], [19.6, 124.7], [19.9, 124.8], [20.2, 124.8], [20.6, 124.7], [21.0, 124.6], [21.4, 124.7], [21.8, 124.8], [22.0, 124.8], [22.1, 124.8], [22.3, 124.9], [22.6, 125.0], [23.1, 125.1], [23.7, 125.3], [24.3, 125.7], [24.8, 126.0], [25.1, 126.1], [25.5, 126.2], [26.1, 126.4], [26.8, 126.6], [27.2, 126.7], [27.5, 127.0], [27.8, 127.4], [28.0, 128.0], [28.2, 128.6], [28.5, 129.3], [28.9, 130.2], [29.6, 131.2], [30.6, 132.1], [31.6, 133.2], [32.1, 134.2], [32.7, 135.8], [33.9, 138.3], [35.5, 141.4]],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#f4a261", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 2.2}
+            ).addTo(feature_group_e881769726c525465d5db6805e754b1a);
+        
+    
+            poly_line_e9323197cac249662225b6a64aa3e37c.bindTooltip(
+                `<div>
+                     MEKKHALA · peak 124 kt
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9a2cd476fa23d8aacb3a3a7415dce48a = L.polyline(
+                [[7.7, 132.7], [7.8, 132.5], [7.9, 132.3], [8.0, 132.1], [8.2, 131.8], [8.5, 131.3], [8.9, 130.7], [9.1, 130.2], [9.4, 130.0], [9.3, 129.8], [9.3, 129.6], [9.6, 129.3], [10.0, 129.0], [10.0, 128.9], [10.0, 129.0], [10.0, 129.0], [10.2, 129.0], [10.7, 129.0], [11.2, 128.9], [11.6, 128.5], [12.0, 127.9], [12.2, 127.3], [12.3, 126.7], [12.6, 126.1], [12.8, 125.6], [13.1, 125.3], [13.4, 125.1], [13.6, 124.9], [13.8, 124.7], [14.2, 124.5], [14.5, 124.4], [14.4, 124.8], [14.2, 125.1], [14.3, 125.2], [14.4, 125.2], [14.5, 125.3], [14.7, 125.5], [14.9, 125.6], [15.3, 125.6], [15.7, 125.6], [16.0, 125.7], [16.3, 126.0], [16.5, 126.4], [16.5, 126.5], [16.6, 126.6], [16.7, 126.8], [16.9, 127.0], [16.9, 127.5], [17.0, 128.1], [17.2, 128.6], [17.5, 129.1], [17.7, 129.7], [17.8, 130.3], [17.8, 131.1], [17.7, 131.9], [17.4, 132.5], [17.0, 132.9], [16.9, 133.3], [16.7, 133.7], [16.0, 134.0], [15.2, 134.3], [14.9, 134.5], [14.7, 134.7], [14.4, 134.9], [14.0, 135.0], [13.1, 135.1], [12.2, 135.0], [11.6, 134.8], [11.2, 134.6]],
+                {"bubblingMouseEvents": true, "color": "#58c7f3", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#58c7f3", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 2.2}
+            ).addTo(feature_group_e881769726c525465d5db6805e754b1a);
+        
+    
+            poly_line_9a2cd476fa23d8aacb3a3a7415dce48a.bindTooltip(
+                `<div>
+                     NOKAEN · peak 51 kt
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2ea5770372d5f5482fcc6ec76d1347b4 = L.polyline(
+                [[17.4, 128.4], [17.7, 127.7], [18.0, 126.9], [18.2, 126.0], [18.3, 125.1], [18.5, 124.3], [18.7, 123.5], [18.7, 122.6], [18.8, 121.8], [19.2, 121.1], [19.7, 120.4], [19.9, 119.8], [20.0, 119.3], [20.4, 118.8], [20.8, 118.3], [21.1, 117.4], [21.3, 116.6], [21.5, 116.2], [21.8, 115.9], [22.1, 115.5], [22.4, 115.1], [22.6, 114.8], [22.9, 114.5], [23.3, 114.3], [23.9, 114.2]],
+                {"bubblingMouseEvents": true, "color": "#f4d35e", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#f4d35e", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 2.2}
+            ).addTo(feature_group_e881769726c525465d5db6805e754b1a);
+        
+    
+            poly_line_2ea5770372d5f5482fcc6ec76d1347b4.bindTooltip(
+                `<div>
+                     NOUL · peak 84 kt
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_7412943f04868b6730b7feeb3a3206c9 = L.polyline(
+                [[17.6, 118.7], [17.7, 118.8], [17.8, 119.0], [17.8, 119.4], [17.8, 119.8], [17.8, 120.0], [17.7, 120.2], [17.6, 120.4], [17.4, 120.7], [17.2, 121.1], [17.0, 121.7], [16.8, 122.2], [16.7, 122.9], [16.7, 124.1], [16.8, 125.6], [16.9, 127.4], [17.1, 129.3], [17.4, 131.2], [17.6, 132.9], [17.8, 134.4], [18.1, 135.7], [18.6, 136.7], [19.2, 137.4], [19.9, 137.9], [20.7, 138.2], [21.4, 138.5], [22.0, 138.7], [22.5, 139.0], [22.7, 139.5], [22.7, 140.2], [22.5, 140.9], [22.4, 141.2], [22.1, 141.5], [21.7, 142.0], [21.2, 142.7], [20.9, 143.4], [20.7, 144.2], [20.6, 145.1], [20.5, 146.2], [20.5, 147.4], [20.6, 148.6], [20.8, 149.8], [21.1, 151.0], [21.3, 152.0], [21.6, 152.8], [21.9, 153.5], [22.4, 154.1], [23.3, 154.9], [24.4, 155.8], [25.3, 156.9], [26.0, 158.0], [26.0, 158.9], [26.1, 159.5], [27.2, 159.8], [28.4, 160.2], [29.0, 161.2], [29.4, 162.1], [29.8, 162.5], [30.1, 162.7], [30.2, 163.0], [30.3, 163.5], [30.3, 164.2], [30.4, 165.1], [30.7, 165.9], [31.1, 166.6], [31.5, 167.3], [32.0, 168.0], [32.4, 168.6], [32.9, 169.1], [33.4, 169.6], [33.8, 170.2]],
+                {"bubblingMouseEvents": true, "color": "#58c7f3", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#58c7f3", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 2.2}
+            ).addTo(feature_group_e881769726c525465d5db6805e754b1a);
+        
+    
+            poly_line_7412943f04868b6730b7feeb3a3206c9.bindTooltip(
+                `<div>
+                     PEILOU · peak 39 kt
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4adc7125cc7221bbe1117cc6112ef54c = L.polyline(
+                [[10.0, 137.3], [10.2, 136.6], [10.3, 135.9], [10.1, 135.3], [9.8, 134.8], [9.4, 134.4], [9.1, 134.0], [9.0, 133.6], [8.9, 133.2], [8.8, 132.8], [8.8, 132.5], [8.7, 132.1], [8.7, 131.6], [8.5, 131.1], [8.3, 130.5], [8.2, 130.0], [8.1, 129.4], [8.1, 128.6], [8.3, 127.9], [8.5, 127.4], [8.8, 127.1], [9.1, 126.5], [9.5, 126.0], [9.6, 125.4], [9.7, 124.9], [9.7, 124.3], [9.7, 123.8], [9.8, 123.5], [10.0, 123.3], [10.1, 123.1], [10.2, 122.8], [10.3, 122.7], [10.3, 122.6]],
+                {"bubblingMouseEvents": true, "color": "#58c7f3", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#58c7f3", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 2.2}
+            ).addTo(feature_group_e881769726c525465d5db6805e754b1a);
+        
+    
+            poly_line_4adc7125cc7221bbe1117cc6112ef54c.bindTooltip(
+                `<div>
+                     PENHA · peak 39 kt
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1ed4c1766a639b24b703a93edcb50f12 = L.polyline(
+                [[7.9, 154.9], [8.2, 154.8], [8.3, 154.6], [8.1, 154.4], [8.0, 154.2], [8.2, 154.1], [8.5, 154.1], [8.9, 154.0], [9.4, 153.7], [9.9, 153.3], [10.5, 152.8], [11.0, 152.2], [11.4, 151.6], [11.6, 151.2], [11.9, 150.9], [12.3, 150.5], [12.8, 150.2], [13.2, 149.9], [13.7, 149.6], [14.3, 149.3], [14.7, 149.0], [14.8, 148.7], [14.9, 148.5], [15.4, 148.3], [16.0, 148.1], [16.6, 147.7], [17.1, 147.3], [17.5, 146.9], [17.9, 146.5], [18.2, 146.2], [18.6, 145.8], [19.1, 145.3], [19.6, 144.8], [20.0, 144.2], [20.4, 143.6], [20.7, 143.0], [21.0, 142.3], [21.4, 141.6], [21.9, 140.9], [22.3, 140.2], [22.6, 139.4], [22.9, 138.7], [23.2, 137.9], [23.5, 137.1], [23.9, 136.3], [24.2, 135.5], [24.5, 134.7], [24.7, 134.1], [24.9, 133.5], [25.2, 132.9], [25.6, 132.3], [25.8, 131.7], [26.0, 131.1], [26.4, 130.6], [26.8, 130.1], [27.0, 129.5], [27.2, 129.0], [27.4, 128.5], [27.5, 128.1], [27.6, 127.7], [27.8, 127.3], [28.1, 126.9], [28.3, 126.5], [28.5, 126.2], [28.6, 125.9], [28.6, 125.6], [28.6, 125.3], [28.6, 125.1], [28.5, 124.9], [28.5, 124.6], [28.4, 124.2], [28.3, 123.9], [28.2, 123.5], [28.1, 123.1], [28.1, 122.6], [28.1, 121.9], [28.1, 121.0], [19.5, 110.2], [19.4, 110.8], [19.3, 111.3], [19.2, 111.7], [19.2, 112.0], [19.3, 112.4], [19.5, 112.9], [19.7, 113.6], [20.0, 114.4], [20.4, 115.1], [20.8, 115.7], [21.1, 116.1], [21.4, 116.3], [21.8, 116.5], [22.1, 116.7], [22.2, 117.0], [22.3, 117.4], [22.6, 117.7], [22.9, 117.9], [23.2, 118.3], [23.4, 118.4], [23.6, 118.1], [23.8, 117.4]],
+                {"bubblingMouseEvents": true, "color": "#f4a261", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#f4a261", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 2.2}
+            ).addTo(feature_group_e881769726c525465d5db6805e754b1a);
+        
+    
+            poly_line_1ed4c1766a639b24b703a93edcb50f12.bindTooltip(
+                `<div>
+                     SAUDEL · peak 115 kt
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_e881769726c525465d5db6805e754b1a.addTo(map_77fdcd3b603f1f2b9c1b149cae28c25d);
+        
+    
+            var feature_group_ad070432301d0739b4230fe11857992b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_b869c550b368cc66e5e6e4a0b75479fc = L.circle(
+                [13.2573, 123.6855],
+                {"bubblingMouseEvents": true, "color": "#e63946", "dashArray": "6", "dashOffset": null, "fill": true, "fillColor": "#e63946", "fillOpacity": 0.12, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6000, "stroke": true, "weight": 1.5}
+            ).addTo(feature_group_ad070432301d0739b4230fe11857992b);
+        
+    
+        var popup_0f322d04013d6a8ecaba464447f76dd4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_962da7a29d5b6a6bf7710349fa28839a = $(`<div id="html_962da7a29d5b6a6bf7710349fa28839a" style="width: 100.0%; height: 100.0%;">Mayon 6 km Permanent Danger Zone</div>`)[0];
+                popup_0f322d04013d6a8ecaba464447f76dd4.setContent(html_962da7a29d5b6a6bf7710349fa28839a);
+            
+        
+
+        circle_b869c550b368cc66e5e6e4a0b75479fc.bindPopup(popup_0f322d04013d6a8ecaba464447f76dd4)
+        ;
+
+        
+    
+    
+            var marker_09ba9f92f4003032c4906df4454eda47 = L.marker(
+                [13.2573, 123.6855],
+                {
+}
+            ).addTo(feature_group_ad070432301d0739b4230fe11857992b);
+        
+    
+            var icon_246e91d948b9af84f70aaa9d65d47150 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "triangle-exclamation",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_09ba9f92f4003032c4906df4454eda47.bindTooltip(
+                `<div>
+                     Mayon · 2,462 m
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_09ba9f92f4003032c4906df4454eda47.setIcon(icon_246e91d948b9af84f70aaa9d65d47150);
+            
+    
+            feature_group_ad070432301d0739b4230fe11857992b.addTo(map_77fdcd3b603f1f2b9c1b149cae28c25d);
+        
+    
+            var measure_control_eb49445cf2b0576e5ad9e0c90938dc35 = new L.Control.Measure(
+                {
+  "position": "topright",
+  "primaryLengthUnit": "meters",
+  "secondaryLengthUnit": "miles",
+  "primaryAreaUnit": "sqmeters",
+  "secondaryAreaUnit": "acres",
+});
+            map_77fdcd3b603f1f2b9c1b149cae28c25d.addControl(measure_control_eb49445cf2b0576e5ad9e0c90938dc35);
+
+            // Workaround for using this plugin with Leaflet>=1.8.0
+            // https://github.com/ljagis/leaflet-measure/issues/171
+            L.Control.Measure.include({
+                _setCaptureMarkerIcon: function () {
+                    // disable autopan
+                    this._captureMarker.options.autoPanOnFocus = false;
+                    // default function
+                    this._captureMarker.setIcon(
+                        L.divIcon({
+                            iconSize: this._map.getSize().multiplyBy(2)
+                        })
+                    );
+                },
+            });
+
+        
+    
+            map_77fdcd3b603f1f2b9c1b149cae28c25d.fitBounds(
+                [[4.3, 114.0], [21.5, 127.0]],
+                {}
+            );
+        
+    
+            var layer_control_9e0749ef6064e84749b9347b32740721_layers = {
+                base_layers : {
+                },
+                overlays :  {
+                    "Earthquakes M5+ (Nov 2024 \u2013 now)" : feature_group_2f5dd602d08917e842ea84e979d4d05a,
+                    "2026 typhoon tracks" : feature_group_e881769726c525465d5db6805e754b1a,
+                    "Mayon danger zone" : feature_group_ad070432301d0739b4230fe11857992b,
+                },
+            };
+            let layer_control_9e0749ef6064e84749b9347b32740721 = L.control.layers(
+                layer_control_9e0749ef6064e84749b9347b32740721_layers.base_layers,
+                layer_control_9e0749ef6064e84749b9347b32740721_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_77fdcd3b603f1f2b9c1b149cae28c25d);
+
+        
+</script>
+</html>

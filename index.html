@@ -1,0 +1,2949 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>30 Day Map Challenge 2026 · The Philippines</title>
+<meta name="description" content="Thirty Python maps of the Philippines: earthquakes, typhoons, volcanoes, floods and the open data behind them.">
+<style>
+:root{
+  --paper:#0b1622; --panel:#101f2c; --ink:#f4efe6; --muted:#9db0bd;
+  --accent:#e63946; --line:#26394a; --water:#58c7f3; --max:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:
+    radial-gradient(1100px 520px at 72% -8%, #122a3c 0%, rgba(11,22,34,0) 60%),
+    var(--paper);
+  color:var(--ink);
+  font-family:"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+[hidden]{display:none!important}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.kicker{
+  color:var(--accent);font-size:.74rem;font-weight:700;letter-spacing:.34em;
+  text-transform:uppercase;
+}
+header.site{padding:64px 0 26px}
+header.site h1{
+  font-size:clamp(2.4rem,5.6vw,4.6rem);line-height:1.02;letter-spacing:-.03em;
+  margin:.28em 0 .35em;max-width:16ch;
+}
+header.site .dek{max-width:62ch;color:var(--muted);font-size:1.06rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.chip{
+  border:1px solid var(--line);border-radius:999px;padding:5px 12px;
+  font-size:.75rem;letter-spacing:.04em;color:var(--muted);
+}
+.chip b{color:var(--ink);font-weight:600}
+.rule{height:1px;background:var(--line);margin:34px 0 0}
+.section-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  margin:34px 0 18px;
+}
+.section-head h2{font-size:1.1rem;letter-spacing:.12em;text-transform:uppercase;margin:0}
+.section-head span{color:var(--muted);font-size:.85rem}
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:22px;padding-bottom:60px;
+}
+.card{
+  display:flex;flex-direction:column;text-decoration:none;background:var(--panel);
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.card:hover,.card:focus-visible{
+  transform:translateY(-4px);border-color:#3c5a73;
+  box-shadow:0 18px 40px rgba(0,0,0,.32);outline:none;
+}
+.thumb{
+  aspect-ratio:4/3;background:#0a1420;display:flex;align-items:center;
+  justify-content:center;overflow:hidden;border-bottom:1px solid var(--line);
+}
+.thumb img{width:100%;height:100%;object-fit:contain;display:block}
+.thumb--interactive{
+  background:
+    radial-gradient(500px 240px at 70% 20%, rgba(88,199,243,.18), transparent 65%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 1px, transparent 1px 12px),
+    #0c1a27;
+  color:var(--water);font-weight:700;letter-spacing:.28em;font-size:.82rem;
+  text-transform:uppercase;flex-direction:column;gap:10px;
+}
+.thumb--interactive .dot{font-size:2rem;line-height:1;letter-spacing:0}
+.card-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.eyebrow{
+  display:flex;justify-content:space-between;gap:10px;color:var(--accent);
+  font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+}
+.eyebrow span:last-child{color:var(--muted)}
+.card h3{margin:0;font-size:1.22rem;line-height:1.25;letter-spacing:-.01em}
+.card p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.5}
+.more{margin-top:auto;padding-top:10px;color:var(--ink);font-size:.84rem;font-weight:600}
+.more::after{content:" →"}
+
+/* detail */
+.detail{padding:56px 0 80px;max-width:1000px;margin:0 auto}
+.back{
+  display:inline-block;color:var(--muted);text-decoration:none;font-size:.85rem;
+  letter-spacing:.08em;margin-bottom:28px;
+}
+.back:hover{color:var(--ink)}
+.detail-head h1{
+  font-size:clamp(2rem,4.4vw,3.3rem);line-height:1.06;letter-spacing:-.025em;
+  margin:.2em 0 .35em;
+}
+.detail-head .dek{color:var(--muted);font-size:1.02rem;max-width:70ch}
+.hero{
+  margin:34px 0 18px;border:1px solid var(--line);border-radius:16px;
+  background:#08111b;overflow:hidden;
+}
+.hero img{display:block;max-width:100%;max-height:82vh;width:auto;height:auto;margin:0 auto}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 30px}
+.btn{
+  display:inline-block;text-decoration:none;border:1px solid var(--line);
+  border-radius:999px;padding:9px 16px;font-size:.84rem;font-weight:600;
+  color:var(--ink);background:#0e1c29;transition:border-color .15s,background .15s;
+}
+.btn:hover{border-color:#46647c;background:#122436}
+.btn--accent{border-color:var(--accent);color:#fff}
+.prose{max-width:78ch;font-size:1.02rem}
+.prose h2{
+  font-size:1.24rem;letter-spacing:.02em;margin:2.2em 0 .5em;
+  padding-top:.7em;border-top:1px solid var(--line);
+}
+.prose h3{font-size:1.04rem;margin:1.6em 0 .4em}
+.prose p{margin:.8em 0}
+.prose ul,.prose ol{padding-left:1.3em;margin:.8em 0}
+.prose li{margin:.28em 0}
+.prose code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;
+  background:#0d1c29;border:1px solid var(--line);border-radius:5px;
+  padding:.1em .38em;white-space:nowrap;
+}
+.prose pre{background:#0d1c29;border:1px solid var(--line);border-radius:10px;
+  padding:14px;overflow:auto}
+.prose a{color:var(--water)}
+.prose strong{color:#fff}
+.detail-foot{
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;
+  margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:.86rem;color:var(--muted);
+}
+.detail-foot a{color:var(--ink);text-decoration:none}
+.detail-foot a:hover{color:var(--water)}
+footer.site{padding:30px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+footer.site a{color:var(--ink);text-decoration:none}
+footer.site a:hover{color:var(--water)}
+footer.site .src{display:flex;flex-wrap:wrap;gap:6px 18px;margin:10px 0 14px}
+footer.site .src a{border-bottom:1px solid var(--line);padding-bottom:1px}
+@media (max-width:640px){
+  .wrap{padding:0 18px}
+  header.site{padding-top:42px}
+  .grid{grid-template-columns:1fr;gap:18px}
+  .detail{padding-top:36px}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+<div id="gallery">
+  <header class="site">
+    <div class="kicker">30 Day Map Challenge 2026</div>
+    <h1>The Philippines in thirty maps</h1>
+    <p class="dek">Earthquakes, typhoons, volcanoes, floods and the communities mapping
+    them. Every map is built in Python from open data — OpenStreetMap, Landsat,
+    Sentinel, USGS, IBTrACS and Copernicus.</p>
+    <div class="meta">
+      <span class="chip"><b>30</b> maps</span>
+      <span class="chip"><b>Python</b> + open data</span>
+      <span class="chip"><b>Nov 2026</b></span>
+    </div>
+    <div class="rule"></div>
+  </header>
+
+  <div class="section-head">
+    <h2>The gallery</h2>
+    <span>Click a map for the story, data and process</span>
+  </div>
+  <div class="grid">
+    
+<a class="card" href="#day01_points">
+  <div class="thumb"><img src="day01_points/day01_points.png" alt="133 earthquakes, two years" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 01</span><span>Points</span></div>
+    <h3>133 earthquakes, two years</h3>
+    <p>The Philippines sits on the Pacific Ring of Fire, and the last two years made that impossible to ignore. On 30 September 2025 a magnitude 6.9 earthquake shook the Cebu–Bohol area.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day02_lines">
+  <div class="thumb"><img src="day02_lines/day02_lines.png" alt="Nine storms entered the ring" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 02</span><span>Lines</span></div>
+    <h3>Nine storms entered the ring</h3>
+    <p>The 2026 western North Pacific season produced nine tropical cyclones that entered the Philippine Area of Responsibility (PAR) in the IBTrACS archive used here.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day03_polygons">
+  <div class="thumb"><img src="day03_polygons/day03_polygons.png" alt="Inside the permanent danger zone" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 03</span><span>Polygons</span></div>
+    <h3>Inside the permanent danger zone</h3>
+    <p>On 30 October 2026 Mayon Volcano produced a moderately explosive eruption that sent an ash column roughly 3,000 metres above the summit and forced 2,041 people to evacuate from Tabaco City, Camalig and Ligao City.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day04_clusters">
+  <div class="thumb"><img src="day04_clusters/day04_clusters.png" alt="Earthquakes travel in families" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 04</span><span>Clusters</span></div>
+    <h3>Earthquakes travel in families</h3>
+    <p>A big earthquake is rarely a single event. It opens a sequence: a mainshock, then aftershocks that can continue for months along the same fault.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day05_sight">
+  <div class="thumb"><img src="day05_sight/day05_sight.png" alt="What Landsat saw two days later" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 05</span><span>Senses: Sight</span></div>
+    <h3>What Landsat saw two days later</h3>
+    <p>On 30 October 2026 Mayon erupted, sending an ash column roughly three kilometres above the summit and forcing more than two thousand people to leave the slopes.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day06_vintage">
+  <div class="thumb"><img src="day06_vintage/day06_vintage.png" alt="Mapa del Volcan Mayon" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 06</span><span>Vintage</span></div>
+    <h3>Mapa del Volcan Mayon</h3>
+    <p>In 1814 Mayon produced one of its most destructive eruptions. Pyroclastic flows and lahars buried the town of Cagsawa; only the church bell tower survived, and it still stands as the icon of Albay.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day07_tenmin">
+  <div class="thumb"><img src="day07_tenmin/day07_tenmin.png" alt="Ten minutes from the water" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 07</span><span>10 minute map</span></div>
+    <h3>Ten minutes from the water</h3>
+    <p>Metro Manila is a city built on a delta, crossed by the Pasig River, dozens of esteros and a dense network of drains. After the 2026 monsoon floods, the question &quot;how far is the water?&quot; stopped being rhetorical.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day08_utopia">
+  <div class="thumb"><img src="day08_utopia/day08_utopia.png" alt="A Metro Manila that does not flood" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 08</span><span>Utopia</span></div>
+    <h3>A Metro Manila that does not flood</h3>
+    <p>The map was made on 8 November 2026, the thirteenth anniversary of Super Typhoon Yolanda (Haiyan), in the same week that Typhoon Tino cut through Cebu and Negros.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day09_urbanrural">
+  <div class="thumb"><img src="day09_urbanrural/day09_urbanrural.png" alt="Where the city ends" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 09</span><span>Urban-rural</span></div>
+    <h3>Where the city ends</h3>
+    <p>Metro Manila is usually drawn as a single urban blob. At the scale of land use, however, it is a patchwork: vast residential polygons, a belt of industrial land, commercial cores, and — at the edge — the farmland, forest and…</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day10_prompting">
+  <div class="thumb"><img src="day10_prompting/day10_prompting.png" alt="The strongest storm of 2026" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 10</span><span>Prompting only</span></div>
+    <h3>The strongest storm of 2026</h3>
+    <p>The challenge reserves Day 10 for maps produced from start to finish by prompting an AI: &quot;make AI work for its money.&quot; This whole series is built with an AI coding agent, so the honest version of the day is not to pretend…</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day11_sound">
+  <div class="thumb"><img src="day11_sound/day11_sound.png" alt="Where the city is quiet" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 11</span><span>Senses: Sound</span></div>
+    <h3>Where the city is quiet</h3>
+    <p>Metro Manila is one of the loudest urban areas in Southeast Asia: jeepneys, motorcycles, expressways, construction, generators and videoke. The challenge asks how to map a soundscape.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day12_power">
+  <div class="thumb"><img src="day12_power/day12_power.png" alt="The grid, and the plant we never turned on" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 12</span><span>Power</span></div>
+    <h3>The grid, and the plant we never turned on</h3>
+    <p>In the week this map was made, Typhoon Tino cut power across Cebu and Negros, adding a electricity outage to an island region still recovering from earlier disasters.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day13_interactions">
+  <div class="thumb"><img src="day13_interactions/day13_interactions.png" alt="Two years of shaking, wind and ash" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 13</span><span>Interactions</span></div>
+    <h3>Two years of shaking, wind and ash</h3>
+    <p>The static maps in this series each isolate one hazard. This day asks for interaction: let the reader move between earthquakes, typhoon tracks and the Mayon danger zone on one canvas.</p>
+    <span class="more">Open interactive map</span>
+  </div>
+</a>
+<a class="card" href="#day14_borges">
+  <div class="thumb"><img src="day14_borges/day14_borges.png" alt="The map is the territory" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 14</span><span>Borgesian map</span></div>
+    <h3>The map is the territory</h3>
+    <p>Borges&#x27; one-paragraph story On Exactitude in Science describes a map so detailed that it covers the territory exactly. This day asks for a map that approaches that joke.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day15_insideout">
+  <div class="thumb"><img src="day15_insideout/day15_insideout.png" alt="The sea between the islands" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 15</span><span>Inside out</span></div>
+    <h3>The sea between the islands</h3>
+    <p>Conventional maps colour land and leave the sea as empty background. For an archipelago, that is backwards. The Philippines is mostly water: the West Philippine Sea, the Philippine Sea, the Sulu, Celebes, Bohol, Sibuyan and…</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day16_collaborative">
+  <div class="thumb"><img src="day16_collaborative/day16_collaborative.png" alt="The crowd maps the storm" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 16</span><span>Collaborative map</span></div>
+    <h3>The crowd maps the storm</h3>
+    <p>The brief for Day 16 asks for a map made with another person. This map is made with thousands of them. OpenStreetMap is a collaborative artefact: every road, building and evacuation route is someone&#x27;s edit.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day17_lightdark">
+  <div class="thumb"><img src="day17_lightdark/day17_lightdark.png" alt="The cone at first light" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 17</span><span>Light &amp; dark</span></div>
+    <h3>The cone at first light</h3>
+    <p>Mayon is famous for the geometry of its cone: a near-perfect symmetric stratovolcano with ravines radiating from the summit. Most maps describe it with contours or hazard polygons. This map describes it with light.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day18_null">
+  <div class="thumb"><img src="day18_null/day18_null.png" alt="The storm that isn&#x27;t here" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 18</span><span>NULL</span></div>
+    <h3>The storm that isn&#x27;t here</h3>
+    <p>The 2026 theme &quot;NULL&quot; has no description. This map takes the prompt literally: what is missing from the data?</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day19_smell">
+  <div class="thumb"><img src="day19_smell/day19_smell.png" alt="The volcano you can smell" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 19</span><span>Senses: Smell</span></div>
+    <h3>The volcano you can smell</h3>
+    <p>Taal Volcano, south of Manila, is one of the smallest active volcanoes in the world and one of the easiest to smell: sulphur dioxide from its crater drifts over Batangas and Cavite on ordinary days, and far more during unrest.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day20_hexagons">
+  <div class="thumb"><img src="day20_hexagons/day20_hexagons.png" alt="The bestagons of shaking" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 20</span><span>Hexagons</span></div>
+    <h3>The bestagons of shaking</h3>
+    <p>Every earthquake map in this series has used points. Hexagons offer a different question: not &quot;where exactly?&quot; but &quot;how much per area?&quot; Binning the last two years of M5+ earthquakes into H3 cells turns the catalogue into a…</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day21_osm">
+  <div class="thumb"><img src="day21_osm/day21_osm.png" alt="Every hospital the crowd knows" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 21</span><span>OpenStreetMap</span></div>
+    <h3>Every hospital the crowd knows</h3>
+    <p>On 30 September 2025 a magnitude 6.9 earthquake struck the sea between Cebu and Bohol. Hospitals in Cebu City, Danao, Lapu-Lapu and the surrounding towns were within the shaking radius.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day22_projections">
+  <div class="thumb"><img src="day22_projections/day22_projections.png" alt="The shape you choose" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 22</span><span>Projections</span></div>
+    <h3>The shape you choose</h3>
+    <p>Every flat map of the Philippines is an argument about what to preserve. Mercator keeps bearings and shapes useful for navigation, but inflates area as you move away from the equator.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day23_taste">
+  <div class="thumb"><img src="day23_taste/day23_taste.png" alt="The taste of the city" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 23</span><span>Senses: Taste</span></div>
+    <h3>The taste of the city</h3>
+    <p>Taste is the most local sense. In Metro Manila, the everyday food map is not the mall; it is the palengke (wet market), the panaderia, the butcher, the greengrocer and the fishmonger.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day24_network">
+  <div class="thumb"><img src="day24_network/day24_network.png" alt="Two ways off the spine" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 24</span><span>Network</span></div>
+    <h3>Two ways off the spine</h3>
+    <p>Cebu is a long, narrow island. Its population and its primary road network run along the coast, with a mountainous spine in the middle.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day25_art">
+  <div class="thumb"><img src="day25_art/day25_art.png" alt="Wind writing" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 25</span><span>Is this a map?</span></div>
+    <h3>Wind writing</h3>
+    <p>The prompt asks when something becomes a map and when it stops being one. This piece removes every conventional map element: no coastline, no labels, no legend, no scale, no north arrow, no axes.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day26_water">
+  <div class="thumb"><img src="day26_water/day26_water.png" alt="Through the cloud, the water" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 26</span><span>Water</span></div>
+    <h3>Through the cloud, the water</h3>
+    <p>In late August 2026, heavy monsoon rain and a tropical system produced floods and landslides across Luzon. Optical satellites were useless: every Sentinel-2 scene over Central Luzon in the following week was 100% cloud.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day27_newtool">
+  <div class="thumb"><img src="day27_newtool/day27_newtool.png" alt="A globe that turns" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 27</span><span>New tool</span></div>
+    <h3>A globe that turns</h3>
+    <p>The challenge asks for a tool you have not used before. This series had already used GeoPandas, OSMnx, Rasterio, Folium, H3 and Matplotlib; Plotly had not appeared.</p>
+    <span class="more">Open interactive map</span>
+  </div>
+</a>
+<a class="card" href="#day28_feeling">
+  <div class="thumb"><img src="day28_feeling/day28_feeling.png" alt="How the shaking felt" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 28</span><span>Senses: Feeling</span></div>
+    <h3>How the shaking felt</h3>
+    <p>Seismographs record ground motion. People record fear. The USGS &quot;Did You Feel It?&quot; programme collects both: anyone can report what they felt, where, and how strong it was.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day29_raster">
+  <div class="thumb"><img src="day29_raster/day29_raster.png" alt="The cone, one pixel at a time" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 29</span><span>Raster</span></div>
+    <h3>The cone, one pixel at a time</h3>
+    <p>Raster maps hide their own construction. A smooth hillshade or a flood mask looks continuous, but underneath it is a grid of decisions: each cell has one elevation, one class, one value. This day makes the grid visible.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+<a class="card" href="#day30_penpaper">
+  <div class="thumb"><img src="day30_penpaper/day30_penpaper.png" alt="Mayon, a map to draw by hand" loading="lazy"></div>
+  <div class="card-body">
+    <div class="eyebrow"><span>Day 30</span><span>Pen &amp; paper</span></div>
+    <h3>Mayon, a map to draw by hand</h3>
+    <p>The final day asks you to close the laptop and draw. This folder contains the part a script can do: a printable tracing sheet.</p>
+    <span class="more">Open map</span>
+  </div>
+</a>
+  </div>
+</div>
+
+
+<section class="detail" id="day01_points" data-title="133 earthquakes, two years" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 01 · Points</div>
+    <h1>133 earthquakes, two years</h1>
+    <p class="dek">The Philippines sits on the Pacific Ring of Fire, and the last two years made that impossible to ignore. On 30 September 2025 a magnitude 6.9 earthquake shook the Cebu–Bohol area.</p>
+  </div>
+  <div class="hero"><img src="day01_points/day01_points.png" alt="133 earthquakes, two years"></div>
+  <div class="actions"><a class="btn" href="day01_points/day01_points.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day01_points/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day01_points/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day01_points/day01_points.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day01_points.map</code></p>
+<h2>The story</h2>
+<p>The Philippines sits on the Pacific Ring of Fire, and the last two years made that
+impossible to ignore. On 30 September 2025 a magnitude 6.9 earthquake shook the
+Cebu–Bohol area. In October 2025 a magnitude 7.4 event struck off Eastern
+Mindanao, followed hours later by a 6.7. Then, on 8 June 2026, a magnitude 7.8
+earthquake ruptured offshore of Sarangani in southern Mindanao — the strongest
+event in this window and the one that dominates the map.</p>
+<p>This is the opening map of the series because points are the simplest honest
+shape for an earthquake: an epicentre is a location, not an area. The map does
+not try to show damage or intensity (that is Day 28's job). It shows how much of
+the country's two years was spent inside these events, and how tightly the
+Sarangani sequence clusters around its mainshock.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Earthquakes:</strong> USGS FDSN Event API, <code>starttime=2024-11-01</code>,
+  <code>minmagnitude=5</code>, bounding box 4–22°N, 114–128°E. The download is cached as
+  <code>data/ph_quakes.geojson</code>.</li>
+<li><strong>Country boundary:</strong> OpenStreetMap relation for the Philippines downloaded
+  through Nominatim/OSMnx and cached as <code>data/ph_boundary.gpkg</code>. It is used as a
+  filter, not as a land silhouette, because the relation includes territorial
+  waters.</li>
+<li><strong>Land:</strong> Natural Earth 1:10m land polygons, clipped to the Philippine
+  bounding box and cached as <code>data/ph_land.gpkg</code>.</li>
+<li><strong>Licences:</strong> USGS data is public domain; OSM data is © OpenStreetMap
+  contributors under ODbL; Natural Earth is public domain.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li><strong>Fetch once, cache forever.</strong> The script asks USGS for every event at or
+   above magnitude 5 in the box and writes the raw GeoJSON. Re-runs read the
+   cache, so the map is reproducible offline.</li>
+<li><strong>Filter to national territory.</strong> Events inside the OSM country polygon are
+   kept with a spatial join. The raw query returns events in Malaysian and
+   Indonesian waters; without this step the map would include shaking that is
+   not Philippine territory. 133 events survive.</li>
+<li><strong>Read depth.</strong> GeoPandas exposes the third coordinate as <code>geometry.z</code>;
+   this becomes the depth attribute used for colour.</li>
+<li><strong>Project.</strong> Everything is reprojected to EPSG:3857 (Web Mercator) so that
+   distances and point sizes behave at national scale.</li>
+<li><strong>Encode magnitude twice.</strong> Marker area scales as <code>(mag − 4)³ × 4</code>, and a
+   second, much larger, very transparent copy of each marker creates the glow.
+   Area rather than diameter carries the value, which is the correct visual
+   encoding for a quantity like energy/magnitude.</li>
+<li><strong>Encode depth with colour.</strong> Shallow events (under 70 km) are red; 70–300 km
+   are orange; deeper events are blue. Shallow earthquakes are the ones that
+   shake cities hardest, so the red should dominate the reader's attention.</li>
+<li><strong>Label the three events a news reader would recognise.</strong> The M7.8
+   Sarangani, the M7.4 Eastern Mindanao and the M6.9 Cebu events get short
+   labels with paper-coloured halos so they survive over dense clusters.</li>
+<li><strong>Add a schematic national boundary.</strong> The dashed line is the outer limit of
+   the OSM country relation — a reminder that this is a maritime country and
+   that many epicentres are offshore.</li>
+<li><strong>Compose.</strong> Dark paper background, cream type, a labelled dot legend
+   (M5/M6/M7) and depth legend, title block top-left, sources bottom-left.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>133 events at M5 or above inside Philippine territory, November 2024 to
+  November 2026.</li>
+<li>Largest: M7.8, 25 km SW of Kablalan, Sarangani, 8 June 2026.</li>
+<li>Other labelled events: M7.4 Eastern Mindanao (October 2025), M6.9 Cebu
+  (30 September 2025).</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://earthquake.usgs.gov/fdsnws/event/1/" target="_blank" rel="noopener">USGS FDSN Event API</a></li>
+<li><a href="https://earthquake.usgs.gov/earthquakes/search/" target="_blank" rel="noopener">USGS Earthquake Search</a></li>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://nominatim.org/" target="_blank" rel="noopener">Nominatim geocoder</a></li>
+<li><a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>USGS's M5 threshold is a catalogue choice, not a physical boundary. Thousands
+  of smaller events are omitted, and completeness varies with distance from
+  seismic stations.</li>
+<li>An epicentre is not damage. The map has no exposure, soil, building or
+  intensity information.</li>
+<li>Depth comes from the catalogue's hypocentre solution and carries uncertainty,
+  especially offshore.</li>
+<li>The country outline is a simplified maritime/territorial relation. It is not
+  a legal boundary and should not be read as one.</li>
+</ul></div>
+  <div class="detail-foot"><span></span><a href="#day02_lines">Day 02 · Lines →</a></div>
+</section>
+<section class="detail" id="day02_lines" data-title="Nine storms entered the ring" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 02 · Lines</div>
+    <h1>Nine storms entered the ring</h1>
+    <p class="dek">The 2026 western North Pacific season produced nine tropical cyclones that entered the Philippine Area of Responsibility (PAR) in the IBTrACS archive used here.</p>
+  </div>
+  <div class="hero"><img src="day02_lines/day02_lines.png" alt="Nine storms entered the ring"></div>
+  <div class="actions"><a class="btn" href="day02_lines/day02_lines.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day02_lines/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day02_lines/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day02_lines/day02_lines.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day02_lines.map</code></p>
+<h2>The story</h2>
+<p>The 2026 western North Pacific season produced nine tropical cyclones that
+entered the Philippine Area of Responsibility (PAR) in the IBTrACS archive used
+here. Two of them carried the season: <strong>Champi</strong>, locally named <strong>Rosal</strong>, which
+became the strongest cyclone of 2026 by maximum sustained wind, and <strong>Bavi</strong>,
+locally <strong>Inday</strong>, which left 20 people dead in July after its passage and the
+enhanced southwest monsoon.</p>
+<p>The map is drawn during the week that <strong>Kalmaegi — Tino</strong> — made landfall in
+southern Leyte and crossed Cebu and Negros. Tino is deliberately absent from the
+tracks: the official best-track archive had not yet processed it when this map
+was made. That absence became Day 18.</p>
+<p>Lines are the right geometry for a track because a typhoon is a path through
+time, not a dot. Colour along each line carries wind speed, so the reader can
+see where a storm intensified, where it peaked, and where it weakened.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Tracks:</strong> IBTrACS v04r01, <code>ibtracs.last3years.list.v04r01.csv</code>, NOAA/NCEI,
+  cached as <code>data/ibtracs_last3years.csv</code>. Each row is a 6-hourly (or 3-hourly
+  near landfall) position with <code>LAT</code>, <code>LON</code>, <code>USA_WIND</code>, <code>ISO_TIME</code>, <code>NAME</code>.</li>
+<li><strong>Filtering:</strong> season 2026, named storms only, and only storms with at least
+  one position inside a PAR test box (114.5–127°E, 4.5–22°N). Nine storms
+  survive: Bavi, Champi, Maysak, Mekkhala, Nokaen, Noul, Peilou, Penha, Saudel.</li>
+<li><strong>Land:</strong> Natural Earth 1:10m clipped to the western Pacific
+  (<code>data/wp_land.gpkg</code>).</li>
+<li><strong>Philippine boundary:</strong> OSM country relation (<code>data/ph_boundary.gpkg</code>),
+  intersected with land to highlight the national territory.</li>
+<li><strong>PAR outline:</strong> a simplified polygon with vertices at 115°E/5°N, 115°E/15°N,
+  120°E/21°N, 120°E/25°N, 135°E/25°N, 135°E/5°N. It is schematic.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load the cached IBTrACS CSV, skipping its second header row (units), and
+   convert <code>LAT</code>, <code>LON</code> and <code>USA_WIND</code> to numbers.</li>
+<li>Keep named 2026 storms, then test each storm for any point inside the PAR
+   box. This is a rough entry test, not the official PAGASA polygon.</li>
+<li>Sort each track by <code>ISO_TIME</code> so line segments connect in chronological
+   order.</li>
+<li>Project to EPSG:3857 and build segment lists. A <code>LineCollection</code> is used
+   rather than a single <code>plot</code>, because each segment needs its own colour.</li>
+<li>Colour by <code>USA_WIND</code> in knots: under 64 kt blue, 64–95 kt yellow, 96–136 kt
+   orange, 137 kt and above red. A wider, very transparent duplicate of each
+   segment adds the glow.</li>
+<li>Draw land in two tones: the wider western Pacific faint, the Philippine
+   territory brighter, so the country reads immediately without a legend.</li>
+<li>Draw the schematic PAR boundary as a dashed line and label it once.</li>
+<li>Place each storm name at its strongest point inside the frame, with a
+   paper-coloured halo. Bavi and Champi carry their local names
+   (<code>Bavi · Inday</code>, <code>Champi · Rosal</code>).</li>
+<li>Add a legend of wind categories with counts and a source footer.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>Nine named storms entered PAR in the archive.</li>
+<li>Champi peaked at 159 kt, the strongest of 2026.</li>
+<li>Bavi peaked at 154 kt and was linked to 20 deaths in July.</li>
+<li>The track colours also show that some storms peaked well east of the
+  Philippines before recurving.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.ncei.noaa.gov/products/international-best-track-archive" target="_blank" rel="noopener">IBTrACS product page</a></li>
+<li><a href="https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r01/access/csv/" target="_blank" rel="noopener">IBTrACS CSV access</a></li>
+<li><a href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">PAGASA</a></li>
+<li><a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a></li>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>IBTrACS is a best-track archive, not a real-time warning product. Its
+  6-hourly sampling smooths out loops, eyewall replacements and short-lived
+  intensification.</li>
+<li>The PAR outline is a simplified six-vertex polygon, not the legal PAGASA
+  boundary.</li>
+<li>"Entered PAR" is tested against a bounding box, not the official polygon, so
+  a storm skimming the edge may be included or excluded.</li>
+<li>Kalmaegi/Tino is missing because the archive lagged the event. Absence here
+  means "not yet processed", not "did not happen".</li>
+<li>Wind speeds are agency estimates; different agencies can disagree by tens of
+  knots for the same storm.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day01_points">← Day 01 · Points</a><a href="#day03_polygons">Day 03 · Polygons →</a></div>
+</section>
+<section class="detail" id="day03_polygons" data-title="Inside the permanent danger zone" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 03 · Polygons</div>
+    <h1>Inside the permanent danger zone</h1>
+    <p class="dek">On 30 October 2026 Mayon Volcano produced a moderately explosive eruption that sent an ash column roughly 3,000 metres above the summit and forced 2,041 people to evacuate from Tabaco City, Camalig and Ligao City.</p>
+  </div>
+  <div class="hero"><img src="day03_polygons/day03_polygons.png" alt="Inside the permanent danger zone"></div>
+  <div class="actions"><a class="btn" href="day03_polygons/day03_polygons.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day03_polygons/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day03_polygons/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day03_polygons/day03_polygons.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day03_polygons.map</code></p>
+<h2>The story</h2>
+<p>On 30 October 2026 Mayon Volcano produced a moderately explosive eruption that
+sent an ash column roughly 3,000 metres above the summit and forced 2,041
+people to evacuate from Tabaco City, Camalig and Ligao City. The 6 km Permanent
+Danger Zone is the line the state draws around the crater; this map asks the
+simplest possible question of it: <strong>what is inside?</strong></p>
+<p>Every building footprint that OpenStreetMap holds around Mayon is drawn as a
+dot. The zone is a real polygon on top of them. The result is not a hazard
+assessment — it is a reminder that a danger zone is a polygon, but evacuation
+is a list of addresses. 1,363 mapped buildings sit inside the 6 km line.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Buildings:</strong> OSM <code>building=*</code> ways around Mayon, fetched from the Overpass
+  API with <code>out center</code> (one point per building) for the box
+  13.08–13.40°N, 123.50–123.88°E. 140,694 building centres were returned and
+  cached as <code>data/mayon_buildings.json</code>.</li>
+<li><strong>Roads and places:</strong> a second Overpass query returns highways
+  (primary/secondary/tertiary) and <code>place=city|town|village|hamlet</code> nodes,
+  cached as <code>data/mayon_places.gpkg</code>.</li>
+<li><strong>Summit:</strong> 13.2573°N, 123.6855°E, from the published Mayon coordinates.</li>
+<li><strong>Zone:</strong> a geodesic 6,000 m buffer around the summit, computed in
+  EPSG:32651 (UTM zone 51N).</li>
+<li><strong>Event facts:</strong> 30 October 2026 eruption, 3,000 m ash column, 2,041 evacuees,
+  from PHIVOLCS and the Albay provincial government reporting.</li>
+<li><strong>Licence:</strong> OSM data © OpenStreetMap contributors, ODbL.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Fetch building centres and context once; cache both responses.</li>
+<li>Convert the JSON elements to a GeoDataFrame with the project's small
+   Overpass helper (<code>osm.py</code>).</li>
+<li>Project everything to UTM 51N so buffer distances are metres, not degrees.</li>
+<li>Buffer the summit by 6,000 m. This is a circle, not PHIVOLCS's official
+   hazard polygon — an honest approximation made explicit in the footer.</li>
+<li>Count buildings whose centre falls inside the buffer with a spatial
+   predicate. <strong>1,363 of 140,694</strong> are inside.</li>
+<li>Plot roads faintly, buildings as small slate dots, then the zone as a
+   translucent red fill with a dashed edge and a soft outer glow.</li>
+<li>Label the towns that matter in the news story (Tabaco, Malilipot, Bacacay,
+   Santo Domingo, Ligao, Guinobatan, Camalig, Daraga, Legazpi) with paper
+   halos so they remain legible over dense settlement.</li>
+<li>Mark the summit with a triangle and add the zone label inside the circle.</li>
+<li>Crop the axes inside the building extract so the rectangular data boundary
+   never appears as a hard edge.</li>
+<li>Compose the title, subtitle and source line on the series' dark paper.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>140,694 building footprints in the extract.</li>
+<li>1,363 inside the 6 km zone.</li>
+<li>2,041 people evacuated after the 30 October 2026 eruption.</li>
+<li>Ash column approximately 3,000 m.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://overpass-api.de/" target="_blank" rel="noopener">Overpass API</a></li>
+<li><a href="https://www.phivolcs.dost.gov.ph/" target="_blank" rel="noopener">PHIVOLCS</a></li>
+<li><a href="https://volcano.si.edu/volcano.cfm?vn=273030" target="_blank" rel="noopener">Smithsonian GVP: Mayon</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>OSM building completeness is uneven. The count is a lower bound on what is
+  mapped, not a census, and dense informal settlements may be under-mapped.</li>
+<li>A circular buffer is not the official PHIVOLCS hazard polygon. Real
+  pyroclastic-flow, lahar and ashfall hazard zones are direction-dependent.</li>
+<li>Building centres are points; a large building straddling the line is counted
+  by its centre.</li>
+<li>The map does not estimate how many people live in those buildings. Population
+  would require a separate, much more uncertain dataset.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day02_lines">← Day 02 · Lines</a><a href="#day04_clusters">Day 04 · Clusters →</a></div>
+</section>
+<section class="detail" id="day04_clusters" data-title="Earthquakes travel in families" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 04 · Clusters</div>
+    <h1>Earthquakes travel in families</h1>
+    <p class="dek">A big earthquake is rarely a single event. It opens a sequence: a mainshock, then aftershocks that can continue for months along the same fault.</p>
+  </div>
+  <div class="hero"><img src="day04_clusters/day04_clusters.png" alt="Earthquakes travel in families"></div>
+  <div class="actions"><a class="btn" href="day04_clusters/day04_clusters.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day04_clusters/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day04_clusters/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day04_clusters/day04_clusters.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day04_clusters.map</code></p>
+<h2>The story</h2>
+<p>A big earthquake is rarely a single event. It opens a sequence: a mainshock,
+then aftershocks that can continue for months along the same fault. Over two
+years the Philippine catalogue contains several of these families, and they are
+visually obvious once the points are grouped.</p>
+<p>The map takes the same 133 M5+ events as Day 1 and links any two that lie within
+50 km of each other. The result is 27 clusters, from isolated single events to
+the 40-event Sarangani family that opened with the M7.8 on 8 June 2026. The
+strongest five families are coloured and labelled; everything smaller is left
+grey so the main sequences read first.</p>
+<p>This is a deliberately naive clustering. It is spatial only — no time window, no
+fault geometry, no magnitude dependence. That is the point: even the simplest
+grouping recovers the sequences a reader remembers from the news.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Earthquakes:</strong> the cached USGS FDSN catalogue from Day 1
+  (<code>data/ph_quakes.geojson</code>), filtered to the OSM country polygon. 133 events.</li>
+<li><strong>Land:</strong> Natural Earth 1:10m (<code>data/ph_land.gpkg</code>).</li>
+<li><strong>Boundary:</strong> OSM country relation (<code>data/ph_boundary.gpkg</code>).</li>
+<li><strong>Licences:</strong> USGS public domain; OSM ODbL; Natural Earth public domain.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load the cached catalogue, read depth from the geometry's Z coordinate, and
+   clip to the national boundary.</li>
+<li>Implement single-linkage clustering with a tiny union-find structure. For
+   every pair of events, compute the great-circle distance with the haversine
+   formula; if it is under 50 km, union the two.</li>
+<li>Assign each event the root of its union-find set as a cluster id. With 133
+   points the O(n²) loop is trivial.</li>
+<li>Sort clusters by size. The five largest (40, 20, 11, 7, 7) get fixed colours
+   and human labels; all others are plotted as small grey dots.</li>
+<li>Build a convex hull around each named family, buffer it slightly, and fill it
+   at very low opacity to show the footprint of the sequence without hiding the
+   points.</li>
+<li>Plot points with magnitude-scaled area, plus a transparent larger copy for
+   glow, exactly as in Day 1 so the series stays visually consistent.</li>
+<li>Label each family at its centroid with its name, largest magnitude and count.</li>
+<li>Project to Web Mercator, draw the national silhouette, and compose the title
+   block and source line.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>133 events, 27 clusters.</li>
+<li>Sarangani: 40 events around the M7.8 of 8 June 2026.</li>
+<li>Moro Gulf: 20 events, largest M5.9.</li>
+<li>Cebu: 11 events around the M6.9 of 30 September 2025.</li>
+<li>Davao Oriental: 7 events around the M7.4 of October 2025.</li>
+<li>Surigao: 7 events, largest M6.0.</li>
+<li>Six events remain singletons.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://earthquake.usgs.gov/fdsnws/event/1/" target="_blank" rel="noopener">USGS FDSN Event API</a></li>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>The 50 km threshold is a choice. A larger radius merges neighbouring
+  sequences into a single chain; a smaller one fragments real aftershock zones.</li>
+<li>There is no time constraint. Two unrelated events years apart but within
+  50 km are grouped as one family.</li>
+<li>Clusters are not faults. They are clouds of epicentres, and epicentre
+  uncertainty can move a point by tens of kilometres offshore.</li>
+<li>The M5 catalogue is incomplete for small aftershocks, so family sizes are
+  minima, not true aftershock counts.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day03_polygons">← Day 03 · Polygons</a><a href="#day05_sight">Day 05 · Senses: Sight →</a></div>
+</section>
+<section class="detail" id="day05_sight" data-title="What Landsat saw two days later" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 05 · Senses: Sight</div>
+    <h1>What Landsat saw two days later</h1>
+    <p class="dek">On 30 October 2026 Mayon erupted, sending an ash column roughly three kilometres above the summit and forcing more than two thousand people to leave the slopes.</p>
+  </div>
+  <div class="hero"><img src="day05_sight/day05_sight.png" alt="What Landsat saw two days later"></div>
+  <div class="actions"><a class="btn" href="day05_sight/day05_sight.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day05_sight/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day05_sight/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day05_sight/day05_sight.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day05_sight.map</code></p>
+<h2>The story</h2>
+<p>On 30 October 2026 Mayon erupted, sending an ash column roughly three kilometres
+above the summit and forcing more than two thousand people to leave the slopes.
+Two days later, on 1 November, Landsat 9 passed over Albay with only about a
+quarter of the scene cloud-covered. The satellite saw the mountain and the ash
+still streaming away from it.</p>
+<p>This is "sight" in the most literal sense: what an instrument 705 km above the
+ground could see. The image is a short-wave infrared composite rather than true
+colour, because SWIR separates fresh ash, vegetation and cloud more clearly than
+red-green-blue. The ash reads grey-brown, forest is green, cloud is blue.
+Overlaid on the image is the same 6 km Permanent Danger Zone used in Day 3.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Scene:</strong> Landsat 9 Collection 2 Level-2 surface reflectance,
+  <code>LC09_L2SP_114051_20261101_02_T1</code>, 1 November 2026, about 26% cloud.</li>
+<li><strong>Bands:</strong> <code>swir22</code> (B7), <code>swir16</code> (B6) and <code>red</code> (B4), read at native 30 m
+  resolution from cloud-optimised GeoTIFFs.</li>
+<li><strong>Access:</strong> Microsoft Planetary Computer STAC API, with SAS signing through
+  the <code>planetary-computer</code> package.</li>
+<li><strong>Crop:</strong> 123.55–123.82°E, 13.13–13.36°N, projected to UTM 51N for windowed
+  reads.</li>
+<li><strong>Zone:</strong> 6 km buffer around the summit (13.2573°N, 123.6855°E).</li>
+<li><strong>Licence:</strong> Landsat data is NASA/USGS, public domain.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Search the Planetary Computer STAC for Landsat 9 scenes over Mayon between
+   31 October and 3 November 2026, and choose the least cloudy result.</li>
+<li>Sign the item's asset URLs, then read a window of each band. The window is
+   computed by transforming the geographic crop into UTM 51N and using
+   <code>rasterio.windows.from_bounds</code>; this avoids downloading whole 7,000-pixel
+   scenes.</li>
+<li>Stack SWIR2, SWIR1 and red into an RGB array and apply a percentile stretch
+   (1st to 99th) with a gamma of 0.7. The stretch makes the ash plume visible
+   without inventing contrast.</li>
+<li>Cache the stacked array as <code>data/mayon_landsat.npy</code> so re-renders are
+   instant.</li>
+<li>Plot the image with a geographic extent inside a dark figure, then overlay
+   the danger-zone circle in two passes: a wide dark underlay for contrast and a
+   thin red dashed line on top.</li>
+<li>Add a summit cross, a label chip, a north arrow and a 5 km scale bar.</li>
+<li>Compose the title, a three-line explanation of the colour composite, and the
+   source footer.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>Scene date: 1 November 2026, two days after the eruption.</li>
+<li>Pixel size: 30 m.</li>
+<li>Zone diameter: 12 km (6 km radius).</li>
+<li>Scene cloud cover: about 26%.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2" target="_blank" rel="noopener">Planetary Computer: Landsat C2 L2</a></li>
+<li><a href="https://www.usgs.gov/landsat-missions/landsat-9" target="_blank" rel="noopener">USGS Landsat 9</a></li>
+<li><a href="https://earthexplorer.usgs.gov/" target="_blank" rel="noopener">USGS EarthExplorer</a></li>
+<li><a href="https://www.phivolcs.dost.gov.ph/" target="_blank" rel="noopener">PHIVOLCS</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>The grey-brown mass is interpreted as ash, but thin cloud and ash can look
+  similar in a single SWIR composite. The map is a visual reading, not a
+  classified plume mask.</li>
+<li>No atmospheric correction beyond the provider's Level-2 surface reflectance
+  was applied, and no plume height or mass is derived.</li>
+<li>A single overpass is a snapshot. It cannot show how the plume evolved through
+  the day.</li>
+<li>The 6 km circle is a schematic buffer, not the official PHIVOLCS hazard
+  polygon.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day04_clusters">← Day 04 · Clusters</a><a href="#day06_vintage">Day 06 · Vintage →</a></div>
+</section>
+<section class="detail" id="day06_vintage" data-title="Mapa del Volcan Mayon" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 06 · Vintage</div>
+    <h1>Mapa del Volcan Mayon</h1>
+    <p class="dek">In 1814 Mayon produced one of its most destructive eruptions. Pyroclastic flows and lahars buried the town of Cagsawa; only the church bell tower survived, and it still stands as the icon of Albay.</p>
+  </div>
+  <div class="hero"><img src="day06_vintage/day06_vintage.png" alt="Mapa del Volcan Mayon"></div>
+  <div class="actions"><a class="btn" href="day06_vintage/day06_vintage.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day06_vintage/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day06_vintage/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day06_vintage/day06_vintage.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day06_vintage.map</code></p>
+<h2>The story</h2>
+<p>In 1814 Mayon produced one of its most destructive eruptions. Pyroclastic flows
+and lahars buried the town of Cagsawa; only the church bell tower survived, and
+it still stands as the icon of Albay. The mountain that did that is the same
+mountain that erupted again on 30 October 2026.</p>
+<p>For "Vintage", the map dresses current OpenStreetMap detail in the visual
+language of a nineteenth-century mapa: cream paper, sepia ink, a double rule
+border, a serif cartouche, a compass rose and italic place names. The data is
+modern; the grammar is old. The result is not a historical reconstruction but a
+visual argument about continuity — the same cone, the same towns, the same
+danger.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Buildings:</strong> 140,694 OSM building centres around Mayon
+  (<code>data/mayon_buildings.json</code>).</li>
+<li><strong>Roads and towns:</strong> OSM highways and place nodes
+  (<code>data/mayon_places.gpkg</code>).</li>
+<li><strong>Summit:</strong> 13.2573°N, 123.6855°E.</li>
+<li><strong>Cagsawa:</strong> 13.1647°N, 123.6947°E, marked as a cross.</li>
+<li><strong>Zone:</strong> 6 km buffer around the summit, projected to UTM 51N.</li>
+<li><strong>Event context:</strong> the 1814 eruption and the 30 October 2026 eruption.</li>
+<li><strong>Licence:</strong> OSM data © OpenStreetMap contributors, ODbL.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load the cached OSM building centres, roads and town nodes; project to UTM
+   51N.</li>
+<li>Choose a paper palette (<code>#e9dcbf</code> paper, <code>#4a3826</code> ink, <code>#9b3a2a</code> accent)
+   and a serif family (Baskerville) for every label.</li>
+<li>Draw buildings as very small, low-opacity ink specks. At this scale they read
+   as settlement texture rather than individual structures, which is the
+   intended vintage effect.</li>
+<li>Draw primary, secondary and tertiary roads in a faded brown, then the 6 km
+   zone as a dashed red circle with a faint wash.</li>
+<li>Label the towns in upper case with paper-coloured halos so the names remain
+   legible over the settlement texture.</li>
+<li>Mark the summit as a triangle with a two-line label (<code>VOLCAN MAYON</code>,
+   <code>2,462 m</code>), and Cagsawa as a cross labelled <code>Cagsawa (1814)</code>.</li>
+<li>Add a compass rose and a double-rule border drawn in figure coordinates.</li>
+<li>Set the title in a centred cartouche, with the Spanish-style subtitle
+   <code>y de sus contornos · Albay, Islas Filipinas</code> and an English line about the
+   1814 eruption.</li>
+<li>Save at 200 dpi on the paper background.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>6 km danger-zone radius.</li>
+<li>Mayon summit elevation: 2,462 m.</li>
+<li>Cagsawa marker: 1814 eruption.</li>
+<li>140,694 building footprints in the underlying data.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://overpass-api.de/" target="_blank" rel="noopener">Overpass API</a></li>
+<li><a href="https://volcano.si.edu/volcano.cfm?vn=273030" target="_blank" rel="noopener">Smithsonian GVP: Mayon</a></li>
+<li><a href="https://www.phivolcs.dost.gov.ph/" target="_blank" rel="noopener">PHIVOLCS</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>This is not a historical map. It uses present-day OSM geometry restyled to
+  look old; roads, buildings and town extents are 2026 data.</li>
+<li>The 6 km circle is a modern hazard buffer, not an 1814 flow boundary.</li>
+<li>The 1814 event is represented by a single marker and a line of text; no
+  attempt is made to reconstruct the actual pyroclastic-flow footprint.</li>
+<li>Baskerville may fall back to another serif on machines that do not have it.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day05_sight">← Day 05 · Senses: Sight</a><a href="#day07_tenmin">Day 07 · 10 minute map →</a></div>
+</section>
+<section class="detail" id="day07_tenmin" data-title="Ten minutes from the water" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 07 · 10 minute map</div>
+    <h1>Ten minutes from the water</h1>
+    <p class="dek">Metro Manila is a city built on a delta, crossed by the Pasig River, dozens of esteros and a dense network of drains. After the 2026 monsoon floods, the question &quot;how far is the water?&quot; stopped being rhetorical.</p>
+  </div>
+  <div class="hero"><img src="day07_tenmin/day07_tenmin.png" alt="Ten minutes from the water"></div>
+  <div class="actions"><a class="btn" href="day07_tenmin/day07_tenmin.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day07_tenmin/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day07_tenmin/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day07_tenmin/day07_tenmin.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day07_tenmin.map</code></p>
+<h2>The story</h2>
+<p>Metro Manila is a city built on a delta, crossed by the Pasig River, dozens of
+esteros and a dense network of drains. After the 2026 monsoon floods, the
+question "how far is the water?" stopped being rhetorical. This map answers it
+at walking scale: from every 20 m cell of land, how many minutes on foot to the
+nearest mapped river, creek, canal or drain?</p>
+<p>The answer is uncomfortable in the other direction from what one might expect:
+<strong>91% of the city is within ten minutes of a mapped waterway, and the median is
+about three minutes.</strong> Water is not a distant hazard in Metro Manila; it is the
+substrate the city is built on. The map was also an experiment in the challenge's
+time constraint — a genuine quick build from cached OSM data.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Waterways:</strong> OSM <code>waterway=river|stream|canal|drain|ditch</code> inside the Metro
+  Manila box (120.90–121.10°E, 14.55–14.78°N), cached as
+  <code>data/mm_waterways.gpkg</code> (from Day 8's fetch).</li>
+<li><strong>Land mask:</strong> Natural Earth 1:10m land (<code>data/ph_land.gpkg</code>) to exclude the
+  bay and adjacent sea.</li>
+<li><strong>Walking speed:</strong> 80 m per minute, approximately 4.8 km/h, an easy pace.</li>
+<li><strong>Licence:</strong> OSM data © OpenStreetMap contributors, ODbL.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load and project the waterways to UTM 51N.</li>
+<li>Build a 20 m grid over the waterway bounding box. The grid has roughly
+   1.35 million land cells.</li>
+<li>Rasterise the waterway lines onto that grid with <code>rasterio.features.rasterize</code>.
+   A cell is "water" if a line crosses it.</li>
+<li>Compute the Euclidean distance from every non-water cell to the nearest water
+   pixel with <code>scipy.ndimage.distance_transform_edt</code>, using the 20 m cell size
+   as the sampling distance. This produces a smooth distance surface rather than
+   250 m blocks.</li>
+<li>Convert metres to walking minutes at 80 m/min.</li>
+<li>Rasterise the land polygons onto the same grid and mask out the sea.</li>
+<li>Draw the result with a five-stop colour ramp from red (0 minutes) through
+   yellow and pale blue to dark navy (10+ minutes). Values above ten minutes are
+   clipped into the darkest colour.</li>
+<li>Overlay dashed contour lines at 5 and 10 minutes with inline labels.</li>
+<li>Add city names (Manila, Quezon City, Marikina, Taguig) with dark halos, a
+   horizontal colour bar, the headline statistic, and the source footer.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>20 m analysis grid, about 1.35 million land cells.</li>
+<li>91% of land cells within 10 minutes of mapped water.</li>
+<li>Median walking time: about 3 minutes.</li>
+<li>80 m/min assumed walking speed.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://overpass-api.de/" target="_blank" rel="noopener">Overpass API</a></li>
+<li><a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a></li>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.distance_transform_edt.html" target="_blank" rel="noopener">SciPy distance_transform_edt</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>Distances are straight-line, not routed along streets. A river behind a wall
+  or across an expressway may be close but unreachable in the stated time.</li>
+<li>OSM's drain and canal coverage is uneven. Unmapped esteros make some areas
+  look farther from water than they are; over-mapped drainage can do the
+  opposite.</li>
+<li>The land mask is a 1:10m coastline, so small reclaimed areas and fishponds may
+  be misclassified.</li>
+<li>This is not a flood-extent map. Proximity to water is not the same as flood
+  risk; elevation, tide, drainage capacity and rainfall all matter.</li>
+<li>The first version of this map had a vertically flipped land mask, which
+  produced a wrong "49% over ten minutes" statistic. The corrected version is
+  the one shipped here.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day06_vintage">← Day 06 · Vintage</a><a href="#day08_utopia">Day 08 · Utopia →</a></div>
+</section>
+<section class="detail" id="day08_utopia" data-title="A Metro Manila that does not flood" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 08 · Utopia</div>
+    <h1>A Metro Manila that does not flood</h1>
+    <p class="dek">The map was made on 8 November 2026, the thirteenth anniversary of Super Typhoon Yolanda (Haiyan), in the same week that Typhoon Tino cut through Cebu and Negros.</p>
+  </div>
+  <div class="hero"><img src="day08_utopia/day08_utopia.png" alt="A Metro Manila that does not flood"></div>
+  <div class="actions"><a class="btn" href="day08_utopia/day08_utopia.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day08_utopia/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day08_utopia/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day08_utopia/day08_utopia.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day08_utopia.map</code></p>
+<h2>The story</h2>
+<p>The map was made on 8 November 2026, the thirteenth anniversary of Super Typhoon
+Yolanda (Haiyan), in the same week that Typhoon Tino cut through Cebu and
+Negros. In the Philippines, the gap between the flood-control system that exists
+and the one that was promised is no longer an abstraction; it is a political
+crisis with a body count.</p>
+<p>"Utopia" is a map of something that could be. Every river, creek, canal and
+drain that OpenStreetMap knows in Metro Manila is drawn as a single luminous
+network — the spine of a city that treats water as infrastructure instead of an
+emergency. The map is not a proposal with a budget or an alignment. It is a
+visual argument: the city already has a water network. The utopia is deciding to
+build it properly.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Waterways:</strong> OSM <code>waterway=*</code> features (river, stream, canal, drain, ditch)
+  inside the Metro Manila box (120.90–121.10°E, 14.55–14.78°N), fetched once
+  from Overpass and cached as <code>data/mm_waterways.gpkg</code>.</li>
+<li><strong>Context:</strong> no roads are drawn. An early attempt to add the major-road layer
+  failed because the Overpass mirrors were at capacity; the water-only
+  composition turned out stronger, so it stayed.</li>
+<li><strong>Licence:</strong> OSM data © OpenStreetMap contributors, ODbL.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Query the Overpass API for every waterway in the Metro Manila bounding box.</li>
+<li>Keep only river, stream, canal, drain and ditch; drop pipelines and
+   intermittent features that would add noise.</li>
+<li>Cache the result as a GeoPackage and project it to UTM 51N.</li>
+<li>Draw the network in two passes per waterway class: a wide, very transparent
+   stroke for glow, then a narrow bright stroke. Line width depends on class
+   (rivers 3.2 pt, streams 1.1 pt, canals 1.6 pt, drains and ditches under 1 pt).</li>
+<li>Place city labels at known centroids (Manila, Quezon City, Caloocan, Pasig,
+   Marikina, Taguig, Pasay, Makati) with dark halos, plus two italic river
+   labels.</li>
+<li>Compose on near-black paper with a single blue accent, a red theme label, a
+   bold headline and a three-line subtitle placing the map on Yolanda's
+   anniversary and in the week of Tino.</li>
+<li>Save at 200 dpi.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>Eight city labels.</li>
+<li>The network is drawn from every mapped waterway class, not a selected
+  "major" subset.</li>
+<li>No count is printed because the raw feature count includes thousands of short
+  drains and would imply a precision the map does not need.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://overpass-api.de/" target="_blank" rel="noopener">Overpass API</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>This is not a flood-control plan. There are no dikes, pumping stations,
+  retention basins, costs or alignments.</li>
+<li>OSM waterway coverage is uneven; some drains are mapped in detail, others not
+  at all. The luminous network is a map of what is known, not of what exists.</li>
+<li>The map deliberately omits roads and buildings, so it cannot show who lives
+  next to the water or which communities flooded.</li>
+<li>"Utopia" is a rhetorical frame. The map does not claim that a single network
+  would prevent flooding in a city exposed to monsoon rain, typhoons, sea-level
+  rise and subsidence.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day07_tenmin">← Day 07 · 10 minute map</a><a href="#day09_urbanrural">Day 09 · Urban-rural →</a></div>
+</section>
+<section class="detail" id="day09_urbanrural" data-title="Where the city ends" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 09 · Urban-rural</div>
+    <h1>Where the city ends</h1>
+    <p class="dek">Metro Manila is usually drawn as a single urban blob. At the scale of land use, however, it is a patchwork: vast residential polygons, a belt of industrial land, commercial cores, and — at the edge — the farmland, forest and…</p>
+  </div>
+  <div class="hero"><img src="day09_urbanrural/day09_urbanrural.png" alt="Where the city ends"></div>
+  <div class="actions"><a class="btn" href="day09_urbanrural/day09_urbanrural.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day09_urbanrural/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day09_urbanrural/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day09_urbanrural/day09_urbanrural.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day09_urbanrural.map</code></p>
+<h2>The story</h2>
+<p>Metro Manila is usually drawn as a single urban blob. At the scale of land use,
+however, it is a patchwork: vast residential polygons, a belt of industrial
+land, commercial cores, and — at the edge — the farmland, forest and meadow that
+the city has not yet swallowed. The 2026 monsoon floods pushed hardest against
+that edge, where subdivisions meet floodplains and the drainage is least
+engineered.</p>
+<p>This map shows the land-use polygons that OpenStreetMap mappers have drawn
+across Metro Manila and its immediate fringe. It is a map of categories, not of
+people: each colour is a claim someone made about how the land is used.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Land use:</strong> OSM <code>landuse=*</code> ways in the box 14.45–14.80°N,
+  120.85–121.20°E, fetched with <code>out geom</code>. 7,063 polygons across seven classes:
+  residential, commercial, industrial, farmland, forest, meadow and orchard.</li>
+<li><strong>Roads:</strong> OSM motorway/trunk/primary/secondary ways in the same box, used as
+  faint context.</li>
+<li><strong>Derived areas:</strong> computed from the projected polygon geometry in UTM 51N and
+  summed by class.</li>
+<li><strong>Licence:</strong> OSM data © OpenStreetMap contributors, ODbL.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Fetch land-use polygons and major roads once; cache as GeoPackages.</li>
+<li>Deduplicate tag columns that differ only in case (<code>FIXME</code> / <code>fixme</code>), which
+   otherwise makes the GeoPackage writer fail.</li>
+<li>Project to UTM 51N and compute each polygon's area in square kilometres.</li>
+<li>Sum area by <code>landuse</code> class for the legend.</li>
+<li>Draw roads first in a dark slate, then each land-use class with a fixed
+   colour: sand for residential, red for commercial, purple for industrial,
+   olive for farmland, dark green for forest, pale green for meadow, green for
+   orchard.</li>
+<li>Add a legend in the empty bay area at upper left, with the class name and its
+   total area, and force the legend text to the series font/colour.</li>
+<li>Crop the axes to the land-use bounding box so the map fills the frame.</li>
+<li>Compose the title, the three headline counts and a short line connecting the
+   green fringe to the 2026 floods.</li>
+</ol>
+<h2>Numbers on the map (areas from OSM polygons)</h2>
+<ul>
+<li>Residential: 113 km².</li>
+<li>Industrial: 22 km².</li>
+<li>Commercial: 13 km².</li>
+<li>Farmland: 10 km².</li>
+<li>Forest: 4 km².</li>
+<li>Meadow: 1 km².</li>
+<li>Orchard: 1 km².</li>
+<li>Seven classes, 7,063 polygons.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://overpass-api.de/" target="_blank" rel="noopener">Overpass API</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>Land-use polygons are mapper interpretations, not cadastral records. Coverage
+  is dense in some cities and sparse in others.</li>
+<li>The areas are planimetric polygon areas, not official statistics. They are
+  useful for comparing classes on this map, not for quoting as municipal totals.</li>
+<li>The fringe box cuts through neighbouring provinces; some polygons belong to
+  Rizal, Cavite, Laguna or Bulacan rather than Metro Manila proper.</li>
+<li>The map does not show population, building height or density. A large
+  residential polygon can be a subdivision, a informal settlement or an
+  industrial camp.</li>
+<li>The line about floods is context, not a spatial analysis: the map does not
+  overlay flood extents.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day08_utopia">← Day 08 · Utopia</a><a href="#day10_prompting">Day 10 · Prompting only →</a></div>
+</section>
+<section class="detail" id="day10_prompting" data-title="The strongest storm of 2026" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 10 · Prompting only</div>
+    <h1>The strongest storm of 2026</h1>
+    <p class="dek">The challenge reserves Day 10 for maps produced from start to finish by prompting an AI: &quot;make AI work for its money.&quot; This whole series is built with an AI coding agent, so the honest version of the day is not to pretend…</p>
+  </div>
+  <div class="hero"><img src="day10_prompting/day10_prompting.png" alt="The strongest storm of 2026"></div>
+  <div class="actions"><a class="btn" href="day10_prompting/day10_prompting.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day10_prompting/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day10_prompting/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day10_prompting/day10_prompting.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day10_prompting.map</code></p>
+<h2>The story</h2>
+<p>The challenge reserves Day 10 for maps produced from start to finish by
+prompting an AI: "make AI work for its money." This whole series is built with
+an AI coding agent, so the honest version of the day is not to pretend otherwise.
+The map was specified in conversation, generated as a script, run, and fixed
+from the rendered image — no hand-edited geometry, no manual styling pass in a
+graphics editor.</p>
+<p>The subject is <strong>Super Typhoon Champi</strong>, locally named <strong>Rosal</strong>, the strongest
+tropical cyclone of 2026 by maximum sustained wind. On 21 October it passed
+close enough to Batanes for PAGASA to raise Signal No. 2. The map shows the
+track at its closest approach to the islands, coloured by wind speed, with the
+peak intensity marked.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Track:</strong> IBTrACS v04r01 last-three-years CSV, storm <code>CHAMPI</code>, fields <code>LAT</code>,
+  <code>LON</code>, <code>USA_WIND</code>, <code>ISO_TIME</code>.</li>
+<li><strong>Land:</strong> Natural Earth 1:10m western Pacific land (<code>data/wp_land.gpkg</code>).</li>
+<li><strong>Philippine territory:</strong> OSM country relation clipped to land
+  (<code>data/ph_boundary.gpkg</code>).</li>
+<li><strong>Event facts:</strong> Batanes Signal No. 2 on 21 October 2026; Champi classified as
+  the strongest cyclone of the year.</li>
+<li><strong>Licences:</strong> IBTrACS NOAA/NCEI; OSM ODbL; Natural Earth public domain.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load the cached IBTrACS file and keep only <code>CHAMPI</code>.</li>
+<li>Convert coordinates and wind to numbers, drop missing positions, and sort by
+   time.</li>
+<li>Project the track to Web Mercator and split it into segments.</li>
+<li>Colour each segment by wind: blue below 64 kt, yellow for typhoon strength,
+   orange for strong typhoon, red for super typhoon (137 kt and above). A wide
+   transparent duplicate creates the glow.</li>
+<li>Draw the western Pacific land faintly and Philippine land more brightly, so
+   Batanes is visible without a locator inset.</li>
+<li>Find the closest track point to Batanes (121.97°E, 20.45°N) and annotate it
+   with the date (22 October in UTC; 21 October local).</li>
+<li>Find the peak-wind point and label the intensity (159 kt).</li>
+<li>Set the map extent to 116–133°E, 14–24°N so both the closest approach and the
+   peak remain inside the frame.</li>
+<li>Compose the title, a three-line subtitle that states the prompting method
+   plainly, and the source footer.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>Peak intensity: 159 kt.</li>
+<li>Closest approach to Batanes: 22 October 2026 UTC (21 October local).</li>
+<li>Signal level over Batanes: No. 2.</li>
+<li>Track coloured in four wind bands.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.ncei.noaa.gov/products/international-best-track-archive" target="_blank" rel="noopener">IBTrACS product page</a></li>
+<li><a href="https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r01/access/csv/" target="_blank" rel="noopener">IBTrACS CSV access</a></li>
+<li><a href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">PAGASA</a></li>
+<li><a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>IBTrACS is a best-track archive compiled after the event; it is not the
+  warning timeline PAGASA issued.</li>
+<li>The closest-approach label is computed from a 6-hourly track point, so the
+  true closest pass could be slightly nearer between samples.</li>
+<li>"Strongest of 2026" is by maximum sustained wind in this archive; other
+  metrics (central pressure, integrated kinetic energy) could rank storms
+  differently.</li>
+<li>The land and boundary layers are simplified. Batanes is a small archipelago
+  and is barely visible at this scale.</li>
+<li>The map demonstrates a prompting workflow, not a claim that prompting is a
+  substitute for domain review. Every number was checked against the cached
+  data.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day09_urbanrural">← Day 09 · Urban-rural</a><a href="#day11_sound">Day 11 · Senses: Sound →</a></div>
+</section>
+<section class="detail" id="day11_sound" data-title="Where the city is quiet" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 11 · Senses: Sound</div>
+    <h1>Where the city is quiet</h1>
+    <p class="dek">Metro Manila is one of the loudest urban areas in Southeast Asia: jeepneys, motorcycles, expressways, construction, generators and videoke. The challenge asks how to map a soundscape.</p>
+  </div>
+  <div class="hero"><img src="day11_sound/day11_sound.png" alt="Where the city is quiet"></div>
+  <div class="actions"><a class="btn" href="day11_sound/day11_sound.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day11_sound/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day11_sound/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day11_sound/day11_sound.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day11_sound.map</code></p>
+<h2>The story</h2>
+<p>Metro Manila is one of the loudest urban areas in Southeast Asia: jeepneys,
+motorcycles, expressways, construction, generators and videoke. The challenge
+asks how to map a soundscape. Without a calibrated noise model or a network of
+sound sensors, the honest proxy is <strong>distance from major roads</strong>.</p>
+<p>This map treats distance from the nearest motorway, trunk, primary or secondary
+road as a rough traffic-noise proxy. The bright areas are quiet — far from the
+fast roads — and the dark veins are the road network. What survives as quiet in
+the city is revealing: watersheds, campuses, golf courses, large institutional
+compounds and the gaps between expressways. The map labels La Mesa and the
+Marikina Watershed because they are the two largest uninterrupted quiet areas in
+the frame.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Roads:</strong> OSM <code>highway=motorway|trunk|primary|secondary</code> in the Metro Manila
+  box (120.85–121.10°E, 14.45–14.78°N), fetched with geometry and cached as
+  <code>data/mm_roads.gpkg</code>.</li>
+<li><strong>Land mask:</strong> Natural Earth 1:10m land (<code>data/ph_land.gpkg</code>), cropped to the
+  road extent.</li>
+<li><strong>Derived metric:</strong> Euclidean distance from each 25 m grid cell to the nearest
+  major-road pixel, clipped at 900 m.</li>
+<li><strong>Licence:</strong> OSM data © OpenStreetMap contributors, ODbL.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load and project the major-road lines to UTM 51N.</li>
+<li>Build a 25 m grid over the road bounding box.</li>
+<li>Rasterise the roads onto the grid with <code>rasterio.features.rasterize</code>.</li>
+<li>Compute distance to the nearest road pixel with
+   <code>scipy.ndimage.distance_transform_edt</code>, sampling at 25 m.</li>
+<li>Clip distances at 900 m. Anything beyond that is treated as equally quiet;
+   otherwise the rural fringe would dominate the colour scale.</li>
+<li>Rasterise land polygons onto the same grid so the sea is left blank.</li>
+<li>Map distance to a five-stop ramp from dark blue-green (near a road) to warm
+   cream (900 m away). Brighter means quieter.</li>
+<li>Add city labels (Manila, Quezon City, Marikina) and two landscape labels
+   (La Mesa, Marikina Watershed) with dark halos.</li>
+<li>Add a horizontal colour bar labelled "metres from the nearest major road ·
+   brighter = quieter", plus the title and source footer.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>25 m analysis grid.</li>
+<li>Distances clipped at 900 m.</li>
+<li>Four road classes included: motorway, trunk, primary, secondary.</li>
+<li>Two named quiet landscapes: La Mesa and the Marikina Watershed.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://overpass-api.de/" target="_blank" rel="noopener">Overpass API</a></li>
+<li><a href="https://www.who.int/europe/publications/i/item/9789289053563" target="_blank" rel="noopener">WHO Environmental Noise Guidelines</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>Road distance is not noise. A quiet residential street can be louder than a
+  distant expressway; topography, buildings, trees and time of day all change
+  propagation.</li>
+<li>The map uses only major roads. Tertiary streets, jeepney routes, construction
+  sites, airports and industrial sources are omitted, so some "quiet" areas may
+  be noisy in reality.</li>
+<li>OSM road completeness varies. Sparse mapping on the eastern fringe can make
+  rural areas look quieter than they are.</li>
+<li>The label positions are approximate landscape centroids, not measured
+  quietest points.</li>
+<li>The colour scale is a visual index, not decibels. No calibration data were
+  used.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day10_prompting">← Day 10 · Prompting only</a><a href="#day12_power">Day 12 · Power →</a></div>
+</section>
+<section class="detail" id="day12_power" data-title="The grid, and the plant we never turned on" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 12 · Power</div>
+    <h1>The grid, and the plant we never turned on</h1>
+    <p class="dek">In the week this map was made, Typhoon Tino cut power across Cebu and Negros, adding a electricity outage to an island region still recovering from earlier disasters.</p>
+  </div>
+  <div class="hero"><img src="day12_power/day12_power.png" alt="The grid, and the plant we never turned on"></div>
+  <div class="actions"><a class="btn" href="day12_power/day12_power.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day12_power/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day12_power/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day12_power/day12_power.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day12_power.map</code></p>
+<h2>The story</h2>
+<p>In the week this map was made, Typhoon Tino cut power across Cebu and Negros,
+adding a electricity outage to an island region still recovering from earlier
+disasters. A transmission map is therefore not an abstraction: it is the
+infrastructure that has to carry the recovery.</p>
+<p>The map draws every transmission line OpenStreetMap knows in the Philippines,
+coloured by voltage, with substations as small points. In the middle of the
+network sits the <strong>Bataan Nuclear Power Plant</strong> — completed in 1984, never
+operated, and still the country's most famous piece of unused infrastructure.
+The star is deliberately the only red object that is not a 500 kV line.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Transmission lines:</strong> OSM <code>power=line</code> ways with full geometry across the
+  Philippine bounding box, fetched from Overpass and cached as
+  <code>data/ph_powerlines.gpkg</code>. 3,737 lines.</li>
+<li><strong>Substations:</strong> OSM <code>power=substation</code> nodes and ways, cached in
+  <code>data/ph_power.gpkg</code>.</li>
+<li><strong>Voltage:</strong> the OSM <code>voltage</code> tag, in volts, converted to numeric. Counts by
+  band: 500 kV 154, 230 kV 913, 138 kV 442, 115 kV 639, 69 kV 691; smaller and
+  untagged lines are drawn in grey.</li>
+<li><strong>Bataan Nuclear Power Plant:</strong> 14.6294°N, 120.4678°E.</li>
+<li><strong>Land:</strong> Natural Earth 1:10m (<code>data/ph_land.gpkg</code>).</li>
+<li><strong>Licence:</strong> OSM data © OpenStreetMap contributors, ODbL.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Fetch power lines with <code>out geom</code> (an earlier query using <code>out center</code>
+   returned only midpoints, which is useless for a network map).</li>
+<li>Fetch substations separately and filter to <code>power=substation</code>.</li>
+<li>Convert the voltage tag to a number and draw five bands with fixed colours:
+   red for 500 kV, orange for 230 kV, yellow for 138 kV, blue for 115 kV,
+   slate for 69 kV. Lines below 69 kV or without voltage are drawn thin and
+   grey.</li>
+<li>Plot the national land silhouette, then the lines, then substations as small
+   cream points.</li>
+<li>Mark the Bataan plant with a red star and a two-line label: "completed 1984 ·
+   never operated".</li>
+<li>Build a legend with the voltage bands and their line counts, computed from
+   the same filters used to draw them.</li>
+<li>Set the extent to 114–127°E, 4.2–19.5°N, which keeps Luzon, the Visayas and
+   most of Mindanao in frame without the empty ocean to the north.</li>
+<li>Compose the title, the Tino context, the Bataan line, and the source footer.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>3,737 transmission lines.</li>
+<li>Voltage bands: 154 lines at 500 kV, 913 at 230 kV, 442 at 138 kV, 639 at
+  115 kV, 691 at 69 kV.</li>
+<li>Bataan Nuclear Power Plant completed 1984, never operated.</li>
+<li>Tino cut power across Cebu and Negros in November 2026.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://wiki.openstreetmap.org/wiki/Power_networks" target="_blank" rel="noopener">OSM power networks wiki</a></li>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://pris.iaea.org/PRIS/CountryStatistics/CountryDetails.aspx?current=PH" target="_blank" rel="noopener">IAEA PRIS: Philippines</a></li>
+<li><a href="https://doe.gov.ph/" target="_blank" rel="noopener">Department of Energy (PH)</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>OSM's power network is incomplete and uneven. Lines are mapped in some regions
+  and missing in others; the map is a map of mapped infrastructure, not of the
+  physical grid.</li>
+<li>Voltage tags can be missing, rounded or wrong. The legend counts depend on
+  the tag, and 1% bands are used to group values.</li>
+<li>There is no outage, capacity, generation or demand data here. The Tino
+  sentence is context from reporting, not a spatial overlay.</li>
+<li>The Bataan plant's status is summarised in one line; the political and
+  technical history is far more complicated than "never operated" suggests.</li>
+<li>Lines are drawn as straight segments between OSM vertices; they are not
+  electrical flow paths.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day11_sound">← Day 11 · Senses: Sound</a><a href="#day13_interactions">Day 13 · Interactions →</a></div>
+</section>
+<section class="detail" id="day13_interactions" data-title="Two years of shaking, wind and ash" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 13 · Interactions</div>
+    <h1>Two years of shaking, wind and ash</h1>
+    <p class="dek">The static maps in this series each isolate one hazard. This day asks for interaction: let the reader move between earthquakes, typhoon tracks and the Mayon danger zone on one canvas.</p>
+  </div>
+  <div class="hero"><img src="day13_interactions/day13_interactions.png" alt="Two years of shaking, wind and ash"></div>
+  <div class="actions"><a class="btn" href="day13_interactions/day13_interactions.png" target="_blank" rel="noopener">Open full image</a><a class="btn btn--accent" href="day13_interactions/day13_interactions.html" target="_blank" rel="noopener">Open interactive map</a><a class="btn" href="day13_interactions/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day13_interactions/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day13_interactions/day13_interactions.html</code> (interactive) and
+<code>day13_interactions/day13_interactions.png</code> (static preview)
+<strong>Run:</strong> <code>uv run python -m day13_interactions.map</code></p>
+<h2>The story</h2>
+<p>The static maps in this series each isolate one hazard. This day asks for
+interaction: let the reader move between earthquakes, typhoon tracks and the
+Mayon danger zone on one canvas. The result is a Folium map centred on the
+Philippines with three toggleable layers, popups, a scale bar and a measuring
+tool.</p>
+<p>The narrative is the same as the rest of the series: the last two years in the
+Philippines were a compound emergency. Earthquakes, typhoons and volcanic
+eruptions did not wait for each other. An interactive map makes that
+co-occurrence easier to explore than a stack of separate posters.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Earthquakes:</strong> the cached USGS M5+ catalogue from Day 1
+  (<code>data/ph_quakes.geojson</code>), clipped to the national boundary. 133 events.</li>
+<li><strong>Typhoons:</strong> the cached IBTrACS 2026 tracks, filtered to storms that entered
+  the PAR test box. Nine storms.</li>
+<li><strong>Mayon:</strong> a 6 km circle around 13.2573°N, 123.6855°E.</li>
+<li><strong>Basemap:</strong> Esri World Dark Gray Canvas tiles (free tier), with attribution.</li>
+<li><strong>Libraries:</strong> Folium for the map, <code>folium.plugins.MeasureControl</code> for
+  distance measurement.</li>
+<li><strong>Licences:</strong> USGS public domain; IBTrACS NOAA; OSM ODbL; Esri basemap terms.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load the cached earthquake catalogue, read depth from the geometry Z, and
+   spatial-join to the OSM country polygon.</li>
+<li>Create a Folium map centred at 12.5°N, 122°E, zoom 5, with no default tile
+   layer. Add Esri's dark canvas as a named but uncontrolled layer
+   (<code>name="Dark canvas"</code>, <code>control=False</code>), so the layer control does not show a
+   raw tile URL. (CartoDB's dark tiles now require an API key, so the basemap was
+   switched.)</li>
+<li>Add a <code>FeatureGroup</code> for earthquakes. Each event becomes a circle marker:
+   radius scales with magnitude, colour by depth (red under 70 km, orange
+   70–300 km, blue deeper), popup with magnitude, place and depth.</li>
+<li>Add a second <code>FeatureGroup</code> for typhoons. For each storm, build a polyline
+   from its <code>LAT</code>/<code>LON</code> sequence and colour it by peak wind (blue, yellow,
+   orange, red). The tooltip carries the storm name and peak intensity.</li>
+<li>Add a third group for Mayon: a dashed red 6 km circle with fill and a marker
+   with a warning icon.</li>
+<li>Add a collapsed layer control (cleaner default view), a scale bar and a
+   measuring tool.</li>
+<li>Fit the initial view to the Philippine bounding box (4.3–21.5°N,
+   114–127°E) so the map opens on the archipelago instead of the whole of
+   Southeast Asia.</li>
+<li>Inject a fixed-position HTML title block in the page's top-left, using the
+   series palette and letter-spaced theme label.</li>
+<li>Save as a self-contained HTML file. Tiles load from the network when opened.</li>
+<li>For the gallery preview, capture the HTML with headless Chrome at
+    1600 × 1200 (<code>--headless=new --virtual-time-budget=15000 --screenshot=…</code>)
+    and save it next to the HTML as a PNG.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>133 M5+ earthquakes.</li>
+<li>9 named 2026 typhoon tracks.</li>
+<li>One 6 km volcanic danger zone.</li>
+<li>Three toggleable layers.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://earthquake.usgs.gov/fdsnws/event/1/" target="_blank" rel="noopener">USGS FDSN Event API</a></li>
+<li><a href="https://www.ncei.noaa.gov/products/international-best-track-archive" target="_blank" rel="noopener">IBTrACS product page</a></li>
+<li><a href="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer" target="_blank" rel="noopener">Esri Dark Gray Canvas</a></li>
+<li><a href="https://python-visualization.github.io/folium/" target="_blank" rel="noopener">Folium</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>The HTML depends on external tile and JavaScript CDNs. Offline, the layers
+  remain but the basemap disappears.</li>
+<li>Earthquake and typhoon layers are simplified versions of the static maps;
+  there is no time slider, so events from different months sit on top of each
+  other.</li>
+<li>The Mayon circle is a schematic buffer, not the official hazard polygon.</li>
+<li>Popups show catalogue values, not impact or damage.</li>
+<li>Folium renders vector layers client-side; with many points on a low-end
+  device, panning and zooming can be slow.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day12_power">← Day 12 · Power</a><a href="#day14_borges">Day 14 · Borgesian map →</a></div>
+</section>
+<section class="detail" id="day14_borges" data-title="The map is the territory" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 14 · Borgesian map</div>
+    <h1>The map is the territory</h1>
+    <p class="dek">Borges&#x27; one-paragraph story On Exactitude in Science describes a map so detailed that it covers the territory exactly. This day asks for a map that approaches that joke.</p>
+  </div>
+  <div class="hero"><img src="day14_borges/day14_borges.png" alt="The map is the territory"></div>
+  <div class="actions"><a class="btn" href="day14_borges/day14_borges.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day14_borges/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day14_borges/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day14_borges/day14_borges.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day14_borges.map</code></p>
+<h2>The story</h2>
+<p>Borges' one-paragraph story <em>On Exactitude in Science</em> describes a map so
+detailed that it covers the territory exactly. This day asks for a map that
+approaches that joke. The answer is central Tacloban, drawn at building level:
+<strong>24,811 building footprints</strong>, every one of them, in fine ink line work.</p>
+<p>Tacloban is also the ground zero of Super Typhoon Yolanda (Haiyan), which
+flattened the city in November 2013. Thirteen years later, on the anniversary
+week when this series was made, the map shows the city rebuilt building by
+building. The line work is not a memorial; it is evidence of the rebuild, and of
+the volunteers who mapped it.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Buildings:</strong> OSM <code>building=*</code> ways with full geometry in central Tacloban,
+  bounding box 11.21–11.28°N, 124.97–125.04°E. 24,811 polygons after filtering.</li>
+<li><strong>Roads:</strong> OSM primary, secondary, tertiary and residential highways in the
+  same box, used as fine context lines. 1,028 ways.</li>
+<li><strong>Fetching:</strong> Overpass API with <code>out geom</code>, cached as
+  <code>data/tacloban_detail.gpkg</code>.</li>
+<li><strong>Licence:</strong> OSM data © OpenStreetMap contributors, ODbL.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Fetch building polygons and roads once; cache the combined GeoPackage.</li>
+<li>Split the layer into polygons and lines by geometry type.</li>
+<li>Project to UTM 51N.</li>
+<li>Draw roads first as thin brown lines, then buildings as <strong>outlines only</strong> —
+   no fill — so overlapping footprints and courtyards remain visible.</li>
+<li>Crop the view to the dense urban core (124.975–125.032°E, 11.218–11.268°N),
+   which removes the sparse northern fragments and fills the frame with city.</li>
+<li>Add a 1 km scale bar and a small "1 km" label in Baskerville.</li>
+<li>Set the title in a serif face on cream paper, with the line "The map is the
+   territory" and a short note about Yolanda and the rebuild.</li>
+<li>Save at 200 dpi.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>24,811 building footprints.</li>
+<li>1,028 road segments.</li>
+<li>Scale: 1 km bar; the "1:1" in the subtitle is conceptual, not literal.</li>
+<li>View covers roughly 5.5 × 5.5 km of central Tacloban.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://overpass-api.de/" target="_blank" rel="noopener">Overpass API</a></li>
+<li><a href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">PAGASA</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>OSM does not contain every building. The map is a census of mapped
+  footprints, not of structures on the ground.</li>
+<li>Building outlines can be outdated, simplified or traced from old imagery.
+  Some may have been destroyed or replaced since mapping.</li>
+<li>The "1:1" claim is a literary reference. The image is a projection at a
+  printable scale, not a physically exact copy of the territory.</li>
+<li>The map has no attributes: no height, use, occupancy or construction date.</li>
+<li>The ink density is a visual effect; it is not a measure of damage or recovery.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day13_interactions">← Day 13 · Interactions</a><a href="#day15_insideout">Day 15 · Inside out →</a></div>
+</section>
+<section class="detail" id="day15_insideout" data-title="The sea between the islands" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 15 · Inside out</div>
+    <h1>The sea between the islands</h1>
+    <p class="dek">Conventional maps colour land and leave the sea as empty background. For an archipelago, that is backwards. The Philippines is mostly water: the West Philippine Sea, the Philippine Sea, the Sulu, Celebes, Bohol, Sibuyan and…</p>
+  </div>
+  <div class="hero"><img src="day15_insideout/day15_insideout.png" alt="The sea between the islands"></div>
+  <div class="actions"><a class="btn" href="day15_insideout/day15_insideout.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day15_insideout/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day15_insideout/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day15_insideout/day15_insideout.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day15_insideout.map</code></p>
+<h2>The story</h2>
+<p>Conventional maps colour land and leave the sea as empty background. For an
+archipelago, that is backwards. The Philippines is mostly water: the West
+Philippine Sea, the Philippine Sea, the Sulu, Celebes, Bohol, Sibuyan and
+Visayan seas are the connective tissue between 7,000+ islands, and they are
+where typhoons travel.</p>
+<p>This map turns the convention inside out. The seas are pale and named; the
+islands are dark gaps. The subject is the water. Two recent paths are overlaid:
+<strong>Champi (Rosal)</strong> crossing the Philippine Sea in October 2026, and a dashed
+circle marking where <strong>Tino (Kalmaegi)</strong> crossed the Visayan Sea and the
+Cebu–Negros islands in November 2026.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Land:</strong> Natural Earth 1:10m (<code>data/ph_land.gpkg</code>).</li>
+<li><strong>National boundary:</strong> OSM country relation (<code>data/ph_boundary.gpkg</code>), drawn
+  dashed as the outer limit of territory.</li>
+<li><strong>Champi track:</strong> IBTrACS v04r01, 2026, storm <code>CHAMPI</code>.</li>
+<li><strong>Tino location:</strong> the landfall/crossing area around 123.65°E, 10.55°N, with a
+  schematic 120 km radius circle. Tino itself is not in the archive used for the
+  track data.</li>
+<li><strong>Sea labels:</strong> eight manual positions (West Philippine Sea, Luzon Strait,
+  Philippine Sea, Sibuyan Sea, Visayan Sea, Sulu Sea, Celebes Sea, Bohol Sea).</li>
+<li><strong>Licences:</strong> Natural Earth public domain; OSM ODbL; IBTrACS NOAA.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load land and boundary, project both to Web Mercator.</li>
+<li>Set the figure background to a pale sea green and draw land in a dark navy
+   with a thin slate edge.</li>
+<li>Plot the national boundary as a dashed grey line.</li>
+<li>Build the Champi track from <code>LAT</code>/<code>LON</code>, project it, and draw it as a red
+   polyline. Find a track point near 125.3°E, 20.6°N for the label.</li>
+<li>Draw a dashed red 120 km circle around the Tino crossing area and label it
+   "Tino · 4 Nov".</li>
+<li>Place the eight sea names at hand-chosen coordinates. Each label gets a
+   sea-coloured halo so it remains readable over islands.</li>
+<li>Use dark text for the title block (the background is light), and the series
+   red for accents.</li>
+<li>Set the extent to the national bounding box and save at 200 dpi.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>Eight named seas.</li>
+<li>One typhoon track (Champi, October 2026).</li>
+<li>One 120 km schematic Tino crossing circle.</li>
+<li>The national boundary is drawn as a dashed outline.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a></li>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://www.ncei.noaa.gov/products/international-best-track-archive" target="_blank" rel="noopener">IBTrACS product page</a></li>
+<li><a href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">PAGASA</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>The inversion is a design choice, not a physical one. It changes what the eye
+  reads first, not the underlying geography.</li>
+<li>The Tino circle is a location marker, not a track or a damage footprint. The
+  best-track archive used for the line data did not yet contain Kalmaegi.</li>
+<li>The sea names are approximate label positions; maritime boundaries are not
+  shown and are politically sensitive.</li>
+<li>The national boundary relation includes territorial waters and is simplified.</li>
+<li>Natural Earth 1:10m drops many small islands, which matters visually in an
+  archipelago map.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day14_borges">← Day 14 · Borgesian map</a><a href="#day16_collaborative">Day 16 · Collaborative map →</a></div>
+</section>
+<section class="detail" id="day16_collaborative" data-title="The crowd maps the storm" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 16 · Collaborative map</div>
+    <h1>The crowd maps the storm</h1>
+    <p class="dek">The brief for Day 16 asks for a map made with another person. This map is made with thousands of them. OpenStreetMap is a collaborative artefact: every road, building and evacuation route is someone&#x27;s edit.</p>
+  </div>
+  <div class="hero"><img src="day16_collaborative/day16_collaborative.png" alt="The crowd maps the storm"></div>
+  <div class="actions"><a class="btn" href="day16_collaborative/day16_collaborative.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day16_collaborative/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day16_collaborative/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day16_collaborative/day16_collaborative.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day16_collaborative.map</code></p>
+<h2>The story</h2>
+<p>The brief for Day 16 asks for a map made with another person. This map is made
+with thousands of them. OpenStreetMap is a collaborative artefact: every road,
+building and evacuation route is someone's edit. When Typhoon Tino crossed Cebu
+and Negros on 4 November 2026, mappers kept editing through the week — adding
+buildings, correcting roads, fixing names.</p>
+<p>The map shows the <strong>changesets</strong> (edit sessions) in the Cebu–Negros box returned
+by the OSM API, coloured by mapper. Thirty changesets dated after Tino's
+landfall are highlighted; seventy earlier ones are left as faint context. It is
+a portrait of a community doing maintenance in the middle of a disaster.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Changesets:</strong> OpenStreetMap changeset API,
+  <code>GET /api/0.6/changesets?bbox=123.3,9.6,124.6,11.4</code>, requested without
+  authentication. The API returns the 100 most recent changesets; they span
+  23 October to 8 November 2026.</li>
+<li><strong>Attributes:</strong> changeset id, user, <code>created_at</code>, and bounding box
+  (<code>min_lat</code>, <code>min_lon</code>, <code>max_lat</code>, <code>max_lon</code>). Cached as
+  <code>data/cebu_changesets.xml</code>.</li>
+<li><strong>Roads:</strong> OSM trunk/primary/secondary/tertiary ways in the same box
+  (<code>data/cebu_roads.gpkg</code>), used as context.</li>
+<li><strong>Land:</strong> Natural Earth 1:10m (<code>data/ph_land.gpkg</code>).</li>
+<li><strong>Licence:</strong> OSM data © OpenStreetMap contributors, ODbL.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Request the changeset feed for the Cebu–Negros bounding box and cache the
+   XML.</li>
+<li>Parse each <code>&lt;changeset&gt;</code> element with <code>xml.etree.ElementTree</code>, keeping user,
+   timestamp and bounding box.</li>
+<li>Convert each bounding box to a Shapely polygon and build a GeoDataFrame in
+   EPSG:4326, then project to Web Mercator.</li>
+<li>Split the data into "after Tino" (created on or after 4 November) and
+   "before Tino".</li>
+<li>Draw land and roads in dark tones. Draw pre-Tino changesets as very faint
+   grey rectangles so the week's activity has context without competing.</li>
+<li>Draw post-Tino changesets as translucent rectangles with thin edges, and a
+   point at each centroid, coloured by mapper. The five most active mappers get
+   fixed colours; everyone else is slate.</li>
+<li>Draw a dashed red 120 km circle around the Tino crossing area.</li>
+<li>Label Cebu City, Toledo, Tagbilaran and Dumaguete for orientation.</li>
+<li>Add a mapper legend with counts and a note about the API's 100-changeset
+   limit.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>100 changesets returned by the API, 23 October–8 November 2026.</li>
+<li>30 changesets after 4 November 2026.</li>
+<li>15 distinct mappers in the post-Tino set.</li>
+<li>Most active: Totor (6), junyeah (4), imiraldz (4), DodaBettaMountain (3),
+  RusumoFalls (2).</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://wiki.openstreetmap.org/wiki/API_v0.6#Changesets_2" target="_blank" rel="noopener">OSM API v0.6 changesets</a></li>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>The API returns at most 100 changesets, so this is a sample of the most recent
+  activity, not a complete count of edits since Tino. A busier week would push
+  older changesets out of the response.</li>
+<li>A changeset is an edit session, not a feature. One changeset can touch a
+  single node or thousands of objects; the rectangles show where the session's
+  bounding box lies, not the amount or quality of work.</li>
+<li>Mapper colours are assigned to the top five only; "others" is a aggregate.</li>
+<li>The map does not measure whether edits were repairs, imports, armchair
+  mapping or unrelated maintenance.</li>
+<li>Bounding boxes overlap heavily in Cebu City, so the visual density is not a
+  count of features.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day15_insideout">← Day 15 · Inside out</a><a href="#day17_lightdark">Day 17 · Light &amp; dark →</a></div>
+</section>
+<section class="detail" id="day17_lightdark" data-title="The cone at first light" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 17 · Light &amp; dark</div>
+    <h1>The cone at first light</h1>
+    <p class="dek">Mayon is famous for the geometry of its cone: a near-perfect symmetric stratovolcano with ravines radiating from the summit. Most maps describe it with contours or hazard polygons. This map describes it with light.</p>
+  </div>
+  <div class="hero"><img src="day17_lightdark/day17_lightdark.png" alt="The cone at first light"></div>
+  <div class="actions"><a class="btn" href="day17_lightdark/day17_lightdark.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day17_lightdark/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day17_lightdark/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day17_lightdark/day17_lightdark.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day17_lightdark.map</code></p>
+<h2>The story</h2>
+<p>Mayon is famous for the geometry of its cone: a near-perfect symmetric
+stratovolcano with ravines radiating from the summit. Most maps describe it with
+contours or hazard polygons. This map describes it with light.</p>
+<p>A digital elevation model is lit from the north-west at a low sun angle. The
+result is a hillshade: every ridge catches light, every ravine falls into
+shadow. The volcano's shape becomes the map. The 6 km Permanent Danger Zone is
+drawn over the slopes, and the villages at the foot of the cone sit exactly
+where the ash and lahars would travel.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Elevation:</strong> Copernicus DEM GLO-30, tile <code>Copernicus_DSM_COG_10_N13_00_E123_00_DEM</code>
+  (30 m, EPSG:4326), accessed through the Microsoft Planetary Computer STAC API.</li>
+<li><strong>Crop:</strong> 123.55–123.82°E, 13.13–13.36°N; the downloaded array is 829 × 973
+  pixels after clipping.</li>
+<li><strong>Summit:</strong> 13.2573°N, 123.6855°E.</li>
+<li><strong>Zone:</strong> 6 km buffer computed in UTM 51N and converted back to geographic
+  coordinates for plotting.</li>
+<li><strong>Licence:</strong> Copernicus DEM is free and open under the Copernicus terms.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Search the Planetary Computer for the GLO-30 tile covering Mayon, sign the
+   asset, and clip it to the crop box with <code>rioxarray</code>.</li>
+<li>Cache the elevation array as <code>data/mayon_dem.npy</code>.</li>
+<li>Create a <code>matplotlib.colors.LightSource</code> with azimuth 315° (north-west) and
+   altitude 32°.</li>
+<li>Call <code>LightSource.shade</code> on the elevation array with <code>vert_exag=2.5</code>,
+   <code>dx=dy=30</code> metres, and a custom five-stop terrain colormap (deep navy, pine,
+   olive, sand, cream). The blend mode is "soft", which preserves the colour
+   ramp while adding shadows.</li>
+<li>Display the shaded image with a geographic extent and an aspect ratio
+   corrected for latitude (<code>1/cos(13.25°)</code>).</li>
+<li>Overlay the 6 km zone as a red dashed circle, with a label chip below the
+   summit.</li>
+<li>Mark the summit with a cross and a label chip (<code>Mayon · 2,462 m</code>).</li>
+<li>Compose the title, an explanation of the lighting, and the source footer.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>30 m elevation pixels.</li>
+<li>829 × 973 pixels in the crop.</li>
+<li>Vertical exaggeration: 2.5×.</li>
+<li>Sun azimuth 315°, altitude 32°.</li>
+<li>Danger-zone radius: 6 km.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://planetarycomputer.microsoft.com/dataset/cop-dem-glo-30" target="_blank" rel="noopener">Planetary Computer: Copernicus DEM GLO-30</a></li>
+<li><a href="https://dataspace.copernicus.eu/" target="_blank" rel="noopener">Copernicus Data Space</a></li>
+<li><a href="https://www.phivolcs.dost.gov.ph/" target="_blank" rel="noopener">PHIVOLCS</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>The hillshade is a visual product. It is not a slope, aspect or hazard map,
+  and vertical exaggeration changes the apparent steepness.</li>
+<li>The lighting direction is arbitrary. A different sun angle would reveal
+  different ravines and make the cone look different.</li>
+<li>The DEM is a surface model, not a bare-earth model; in forested areas the
+  canopy is part of the elevation.</li>
+<li>The 6 km circle is a schematic buffer, not the official PHIVOLCS hazard
+  polygon.</li>
+<li>The map does not show the 2026 ash deposit. For that, see Day 5.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day16_collaborative">← Day 16 · Collaborative map</a><a href="#day18_null">Day 18 · NULL →</a></div>
+</section>
+<section class="detail" id="day18_null" data-title="The storm that isn&#x27;t here" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 18 · NULL</div>
+    <h1>The storm that isn&#x27;t here</h1>
+    <p class="dek">The 2026 theme &quot;NULL&quot; has no description. This map takes the prompt literally: what is missing from the data?</p>
+  </div>
+  <div class="hero"><img src="day18_null/day18_null.png" alt="The storm that isn&#x27;t here"></div>
+  <div class="actions"><a class="btn" href="day18_null/day18_null.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day18_null/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day18_null/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day18_null/day18_null.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day18_null.map</code></p>
+<h2>The story</h2>
+<p>The 2026 theme "NULL" has no description. This map takes the prompt literally:
+what is missing from the data?</p>
+<p>The grey lines are every named 2026 typhoon track in the IBTrACS archive used
+for this series. The red circle in the Visayas is empty. That is where
+<strong>Kalmaegi — Tino</strong> made landfall in southern Leyte on 4 November 2026 and cut
+across Cebu and Negros, killing more than a hundred people and leaving over a
+million households without power. Tino is not in the archive because the archive
+was compiled before the event was processed.</p>
+<p>The point is not that the storm is unknown. It is that a NULL in a dataset is
+often a statement about the pipeline — latency, processing, revision — rather
+than about the world. The damage is already real; the data is late.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Tracks:</strong> IBTrACS v04r01 last-three-years CSV, cached as
+  <code>data/ibtracs_last3years.csv</code>, filtered to named 2026 storms that entered the
+  PAR test box. Nine tracks.</li>
+<li><strong>Archive timestamp:</strong> the IBTrACS file used was last modified 7 November 2026.</li>
+<li><strong>Tino location:</strong> landfall in southern Leyte and crossing of Cebu/Negros;
+  the circle is centred on 123.65°E, 10.55°N with a 170 km radius.</li>
+<li><strong>Land:</strong> Natural Earth 1:10m (<code>data/wp_land.gpkg</code>), with Philippine land
+  highlighted.</li>
+<li><strong>Boundary:</strong> OSM country relation (<code>data/ph_boundary.gpkg</code>).</li>
+<li><strong>Licences:</strong> IBTrACS NOAA/NCEI; OSM ODbL; Natural Earth public domain.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load the cached tracks and keep named 2026 storms with a point inside the
+   PAR test box.</li>
+<li>Project to Web Mercator and draw each track as a thin grey line at 55%
+   opacity. Deliberately mute the archive so the absence is the bright object.</li>
+<li>Draw the Philippine land silhouette more brightly than the surrounding
+   western Pacific land.</li>
+<li>Draw a dashed red circle around the Tino crossing area.</li>
+<li>Place a large red <code>NULL</code> at the centre of the circle, with a two-line label
+   naming Kalmaegi/Tino and the date.</li>
+<li>Set the national extent, compose the title and a subtitle that explains the
+    distinction between "no storm" and "not yet data".</li>
+<li>Save at 200 dpi.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>Nine archived 2026 tracks in grey.</li>
+<li>One missing storm: Kalmaegi/Tino, 4 November 2026.</li>
+<li>170 km schematic circle.</li>
+<li>Archive compiled 7 November 2026.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.ncei.noaa.gov/products/international-best-track-archive" target="_blank" rel="noopener">IBTrACS product page</a></li>
+<li><a href="https://www.pagasa.dost.gov.ph/" target="_blank" rel="noopener">PAGASA</a></li>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>The archive is not wrong; it is incomplete for the most recent event. A later
+  IBTrACS release will contain Tino.</li>
+<li>The circle marks a known landfall area, not a reconstructed track. No
+  positions are invented.</li>
+<li>"More than a hundred dead" and the outage figures came from reporting in the
+  days after landfall and were still being revised; they are context, not
+  values in the dataset.</li>
+<li>A NULL in a best-track file does not mean the storm was unobserved. Satellites,
+  radars and warnings observed it in real time; only the curated archive lagged.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day17_lightdark">← Day 17 · Light &amp; dark</a><a href="#day19_smell">Day 19 · Senses: Smell →</a></div>
+</section>
+<section class="detail" id="day19_smell" data-title="The volcano you can smell" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 19 · Senses: Smell</div>
+    <h1>The volcano you can smell</h1>
+    <p class="dek">Taal Volcano, south of Manila, is one of the smallest active volcanoes in the world and one of the easiest to smell: sulphur dioxide from its crater drifts over Batangas and Cavite on ordinary days, and far more during unrest.</p>
+  </div>
+  <div class="hero"><img src="day19_smell/day19_smell.png" alt="The volcano you can smell"></div>
+  <div class="actions"><a class="btn" href="day19_smell/day19_smell.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day19_smell/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day19_smell/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day19_smell/day19_smell.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day19_smell.map</code></p>
+<h2>The story</h2>
+<p>Taal Volcano, south of Manila, is one of the smallest active volcanoes in the
+world and one of the easiest to smell: sulphur dioxide from its crater drifts
+over Batangas and Cavite on ordinary days, and far more during unrest. On
+29 September 2026 PHIVOLCS recorded a steam-laden plume 2,700 metres tall and
+160 tonnes of SO₂ from the main crater.</p>
+<p>Smell is chemistry in the air, so the map uses a chemical measurement. The
+TROPOMI instrument on Sentinel-5P measures the total vertical column of sulphur
+dioxide. On 29 September the daily pass caught an enhancement over the Taal area
+and a larger patch drifting southeast over Quezon. This is what a smell looks
+like as a raster of molecules per square metre.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Instrument:</strong> ESA Sentinel-5P TROPOMI Level-2 SO₂, orbit
+  <code>S5P_L2_SO2____20260929T055116_20260929T055616_46433</code>, downloaded as a
+  120 MB NetCDF from the Microsoft Planetary Computer.</li>
+<li><strong>Variables:</strong> <code>latitude</code>, <code>longitude</code>, <code>qa_value</code>,
+  <code>sulfurdioxide_total_vertical_column</code> (mol/m²), read from the <code>PRODUCT</code> group
+  with <code>xarray</code> + <code>h5netcdf</code>.</li>
+<li><strong>Quality filter:</strong> <code>qa_value &gt; 0.5</code>, finite values, and SO₂ above
+  1 × 10⁻⁴ mol/m². 993 pixels survive inside the crop.</li>
+<li><strong>Crop:</strong> 120.55–123.25°E, 12.15–15.10°N.</li>
+<li><strong>Event facts:</strong> 160 tonnes of SO₂ and a 2,700 m plume on 29 September 2026,
+  from PHIVOLCS.</li>
+<li><strong>Licence:</strong> Copernicus Sentinel-5P data, free and open.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Search the Planetary Computer for Sentinel-5P SO₂ items over Taal on
+   29 September 2026 and choose the orbit covering the area.</li>
+<li>Download the NetCDF file and open the <code>PRODUCT</code> group. The root group is
+   empty, which is why the first read attempt returned no variables.</li>
+<li>Read latitude, longitude, quality flag and SO₂ column arrays (1 × 358 × 450
+   pixels).</li>
+<li>Build a mask from quality, finite values, a minimum column and the crop box.</li>
+<li>Plot the selected pixels as 3.5 × 5.5 km squares coloured on a logarithmic
+   scale from 10⁻⁴ to 1.6 × 10⁻³ mol/m². Log scaling is necessary because the
+   plume is an order of magnitude above background.</li>
+<li>Draw the Philippine land silhouette beneath the pixels so the plume's
+   position relative to Taal, Batangas and Quezon is readable.</li>
+<li>Mark Taal with a red triangle and label the enhancement southeast of the
+   volcano.</li>
+<li>Add a horizontal colour bar, explaining that each pixel is a TROPOMI
+   footprint, and compose the title and source line.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>993 quality-filtered pixels.</li>
+<li>Pixel footprint: 3.5 × 5.5 km.</li>
+<li>Column range shown: 10⁻⁴ to 1.6 × 10⁻³ mol/m².</li>
+<li>160 tonnes/day SO₂ and a 2,700 m plume on 29 September 2026.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://planetarycomputer.microsoft.com/dataset/sentinel-5p-l2-netcdf" target="_blank" rel="noopener">Planetary Computer: Sentinel-5P L2</a></li>
+<li><a href="https://www.tropomi.eu/" target="_blank" rel="noopener">TROPOMI</a></li>
+<li><a href="https://dataspace.copernicus.eu/" target="_blank" rel="noopener">Copernicus Data Space</a></li>
+<li><a href="https://www.phivolcs.dost.gov.ph/" target="_blank" rel="noopener">PHIVOLCS</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>TROPOMI measures a column from the surface to the top of the atmosphere, not
+  ground-level concentration. A high column does not mean a strong smell at
+  street level.</li>
+<li>The enhancement is weak in absolute terms; most values are close to the
+  detection limit. Some pixels may be noise, cloud artefacts or transport from
+  other sources.</li>
+<li>The daily overpass is a snapshot around late morning local time. SO₂
+  emissions vary hourly.</li>
+<li>The apparent southeast drift is a single-day pattern, not a climatology.</li>
+<li>The map shows an enhancement, not a health-risk zone. Odour thresholds,
+  exposure and wind at ground level are not modelled.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day18_null">← Day 18 · NULL</a><a href="#day20_hexagons">Day 20 · Hexagons →</a></div>
+</section>
+<section class="detail" id="day20_hexagons" data-title="The bestagons of shaking" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 20 · Hexagons</div>
+    <h1>The bestagons of shaking</h1>
+    <p class="dek">Every earthquake map in this series has used points. Hexagons offer a different question: not &quot;where exactly?&quot; but &quot;how much per area?&quot; Binning the last two years of M5+ earthquakes into H3 cells turns the catalogue into a…</p>
+  </div>
+  <div class="hero"><img src="day20_hexagons/day20_hexagons.png" alt="The bestagons of shaking"></div>
+  <div class="actions"><a class="btn" href="day20_hexagons/day20_hexagons.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day20_hexagons/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day20_hexagons/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day20_hexagons/day20_hexagons.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day20_hexagons.map</code></p>
+<h2>The story</h2>
+<p>Every earthquake map in this series has used points. Hexagons offer a different
+question: not "where exactly?" but "how much per area?" Binning the last two
+years of M5+ earthquakes into H3 cells turns the catalogue into a surface. The
+Sarangani sequence fills one southern cell with 18 events; the east coast and
+the trenches carry the rest.</p>
+<p>The hexagon is also a visual pun. H3 is a real spatial index used by data teams,
+and the challenge's "bestagons" prompt invites the joke. Under the joke is a
+serious point: binning changes the story. A single M7.8 at the edge of a cell
+can dominate a hexagon that covers 1,770 km² of sea and islands.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Earthquakes:</strong> the cached USGS M5+ catalogue from Day 1
+  (<code>data/ph_quakes.geojson</code>), clipped to the OSM country polygon. 133 events.</li>
+<li><strong>Hexagons:</strong> Uber's H3 discrete global grid, resolution 4, average cell area
+  about 1,770 km². The Python <code>h3</code> package provides
+  <code>latlng_to_cell</code> and <code>cell_to_boundary</code>.</li>
+<li><strong>Land:</strong> Natural Earth 1:10m (<code>data/ph_land.gpkg</code>).</li>
+<li><strong>Boundary:</strong> OSM country relation (<code>data/ph_boundary.gpkg</code>).</li>
+<li><strong>Licences:</strong> USGS public domain; OSM ODbL; Natural Earth public domain.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load and clip the earthquake catalogue.</li>
+<li>Convert each epicentre to an H3 cell at resolution 4 and count events per
+   cell.</li>
+<li>Build a polygon for each cell from <code>h3.cell_to_boundary</code>, close the ring, and
+   create a GeoDataFrame in EPSG:4326.</li>
+<li>Project the hexagons to Web Mercator so they align with the basemap.</li>
+<li>Draw the national land silhouette first, then the hexagons coloured by event
+   count with a dark-teal-to-red ramp. Cells with one event are dark; the
+   18-event Sarangani cell is bright red.</li>
+<li>Add the earthquake points at low opacity on top, sized by magnitude, so the
+   reader can see where inside each hexagon the events actually sit.</li>
+<li>Add a horizontal colour bar for events per hexagon and a title block that
+   explains the resolution and the largest cell.</li>
+<li>Save at 200 dpi.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>133 M5+ earthquakes.</li>
+<li>H3 resolution 4; about 1,770 km² per cell.</li>
+<li>Largest cell: 18 events, in the Sarangani area.</li>
+<li>Next largest: 17 and 13 events.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://earthquake.usgs.gov/fdsnws/event/1/" target="_blank" rel="noopener">USGS FDSN Event API</a></li>
+<li><a href="https://h3geo.org/" target="_blank" rel="noopener">H3 geospatial index</a></li>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>The hexagon resolution is a choice. At resolution 3 the sequences merge; at
+  resolution 5 the map fragments into small counts.</li>
+<li>Counts are not rates. A cell with many events may be a long aftershock
+  sequence, not a higher long-term hazard.</li>
+<li>H3 cells are equal-area on the globe but their shapes distort in Web Mercator;
+  the visual areas are not exactly equal on screen.</li>
+<li>The M5 threshold and catalogue completeness affect counts, especially
+  offshore.</li>
+<li>A hexagon crossing land and sea is coloured by events anywhere inside it; the
+  colour does not mean the land part shook.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day19_smell">← Day 19 · Senses: Smell</a><a href="#day21_osm">Day 21 · OpenStreetMap →</a></div>
+</section>
+<section class="detail" id="day21_osm" data-title="Every hospital the crowd knows" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 21 · OpenStreetMap</div>
+    <h1>Every hospital the crowd knows</h1>
+    <p class="dek">On 30 September 2025 a magnitude 6.9 earthquake struck the sea between Cebu and Bohol. Hospitals in Cebu City, Danao, Lapu-Lapu and the surrounding towns were within the shaking radius.</p>
+  </div>
+  <div class="hero"><img src="day21_osm/day21_osm.png" alt="Every hospital the crowd knows"></div>
+  <div class="actions"><a class="btn" href="day21_osm/day21_osm.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day21_osm/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day21_osm/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day21_osm/day21_osm.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day21_osm.map</code></p>
+<h2>The story</h2>
+<p>On 30 September 2025 a magnitude 6.9 earthquake struck the sea between Cebu and
+Bohol. Hospitals in Cebu City, Danao, Lapu-Lapu and the surrounding towns were
+within the shaking radius. Less than a year later, Typhoon Tino cut roads across
+the same islands. In both cases, the first operational question is the same:
+<strong>which health facilities are near, and are they still reachable?</strong></p>
+<p>OpenStreetMap is the map responders and volunteers can edit in real time. This
+day is a celebration of that layer: every <code>amenity=hospital</code> mapped in the
+country, with the ones near the Cebu earthquake highlighted. It is not a health
+system inventory. It is a map of what the crowd has recorded.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Health facilities:</strong> OSM <code>amenity=hospital</code> nodes and ways across the
+  Philippine bounding box, fetched with <code>out center</code> and cached as
+  <code>data/ph_hospitals.gpkg</code>. 2,029 facilities.</li>
+<li><strong>Earthquakes:</strong> the cached USGS catalogue (<code>data/ph_quakes.geojson</code>). The
+  Cebu event is selected as the largest magnitude in the box 10.7–11.6°N,
+  123.6–124.7°E: M6.9, 30 September 2025.</li>
+<li><strong>Buffer:</strong> 50 km around that epicentre, computed in UTM 51N.</li>
+<li><strong>Land:</strong> Natural Earth 1:10m (<code>data/ph_land.gpkg</code>).</li>
+<li><strong>Licence:</strong> OSM data © OpenStreetMap contributors, ODbL.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Fetch hospitals once, keeping only the centre point of each way so the map
+   can be drawn as a point layer.</li>
+<li>Load the earthquake catalogue, clip to the national boundary, and select the
+   Cebu event.</li>
+<li>Project the epicentre to UTM 51N and build a 50 km buffer.</li>
+<li>Count hospital points inside the buffer. <strong>16 hospitals</strong> fall within 50 km.</li>
+<li>Draw the national land silhouette, hospitals as small cream crosses, and the
+   quake buffer as a dashed red circle.</li>
+<li>Mark the epicentre with a red star and a two-line label: magnitude/date and
+   the hospital count.</li>
+<li>Compose the title, the OSM-day framing, and a source footer that credits
+   contributors and USGS.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>2,029 mapped health facilities.</li>
+<li>16 inside 50 km of the M6.9 Cebu earthquake.</li>
+<li>Epicentre: M6.9, 30 September 2025.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://overpass-api.de/" target="_blank" rel="noopener">Overpass API</a></li>
+<li><a href="https://earthquake.usgs.gov/fdsnws/event/1/" target="_blank" rel="noopener">USGS FDSN Event API</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>OSM hospital coverage is uneven. Dense cities are well mapped; remote
+  municipalities, birthing homes, clinics and barangay health stations are
+  often missing. The 2,029 is a lower bound.</li>
+<li>A hospital point does not mean the facility was open, staffed or undamaged
+  after the earthquake or the typhoon.</li>
+<li>The 50 km radius is a simple distance, not travel time. Roads, ferries and
+  bridges matter.</li>
+<li><code>amenity=hospital</code> includes both large hospitals and small facilities; the
+  tag is not a capacity measure.</li>
+<li>The map does not show evacuation centres, clinics, pharmacies or field
+  hospitals.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day20_hexagons">← Day 20 · Hexagons</a><a href="#day22_projections">Day 22 · Projections →</a></div>
+</section>
+<section class="detail" id="day22_projections" data-title="The shape you choose" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 22 · Projections</div>
+    <h1>The shape you choose</h1>
+    <p class="dek">Every flat map of the Philippines is an argument about what to preserve. Mercator keeps bearings and shapes useful for navigation, but inflates area as you move away from the equator.</p>
+  </div>
+  <div class="hero"><img src="day22_projections/day22_projections.png" alt="The shape you choose"></div>
+  <div class="actions"><a class="btn" href="day22_projections/day22_projections.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day22_projections/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day22_projections/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day22_projections/day22_projections.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day22_projections.map</code></p>
+<h2>The story</h2>
+<p>Every flat map of the Philippines is an argument about what to preserve.
+Mercator keeps bearings and shapes useful for navigation, but inflates area as
+you move away from the equator. Equal Earth keeps areas honest, at the cost of
+bending shapes. An azimuthal equidistant projection centred on Manila keeps
+distance from one point true in every direction, and distorts everything else.</p>
+<p>This map puts the same archipelago in all three frames side by side. The
+differences are subtle because the Philippines sits near the equator, where
+Mercator's distortion is smallest. That is itself the point: projection choice
+matters most where you are not looking. The azimuthal panel adds 500, 1,000 and
+1,500 km rings, turning the projection into a distance map from the capital.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Land:</strong> Natural Earth 1:10m, clipped to 114–128°E, 4–22°N
+  (<code>data/ph_land.gpkg</code>).</li>
+<li><strong>Boundary:</strong> OSM country relation (<code>data/ph_boundary.gpkg</code>), drawn dashed as
+  the outer limit of territory.</li>
+<li><strong>Projections:</strong></li>
+<li>Mercator, EPSG:3857.</li>
+<li>Equal Earth, EPSG:8857.</li>
+<li>Azimuthal equidistant, <code>+proj=aeqd +lat_0=14.6 +lon_0=121 +datum=WGS84 +units=m</code>.</li>
+<li><strong>Licences:</strong> Natural Earth public domain; OSM ODbL.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load land and boundary in EPSG:4326 and clip land to the Philippine box.</li>
+<li>Create a 1 × 3 panel figure with a dark background.</li>
+<li>For each projection, reproject the land and boundary with GeoPandas
+   <code>to_crs</code>, plot land as a slate fill with a thin edge, and draw the national
+   boundary dashed.</li>
+<li>Set each panel's limits to the projected land bounds and force equal aspect
+   so the shapes are comparable.</li>
+<li>In the azimuthal panel, draw dashed circles at 500, 1,000 and 1,500 km from
+   the projection origin (Manila at 14.6°N, 121°E). Because the projection is
+   centred on that point, the circles are true distances.</li>
+<li>Add each projection's name above its panel and a short note below it
+   describing what it preserves and what it bends.</li>
+<li>Compose the title, the three-line argument about preservation, and the source
+   footer.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>Three projections of the same national geometry.</li>
+<li>Three distance rings: 500, 1,000, 1,500 km.</li>
+<li>Projection centre: 14.6°N, 121°E (Manila).</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a></li>
+<li><a href="https://epsg.io/3857" target="_blank" rel="noopener">EPSG:3857 Mercator</a></li>
+<li><a href="https://epsg.io/8857" target="_blank" rel="noopener">EPSG:8857 Equal Earth</a></li>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>The panels look similar because the Philippines is near the equator. A global
+  or high-latitude comparison would make the differences much larger.</li>
+<li>The azimuthal projection preserves distance only from its centre, not between
+  arbitrary pairs of points.</li>
+<li>The "correct" projection depends on the question: navigation, area, distance,
+  shape or a compromise.</li>
+<li>The national boundary is a simplified OSM relation, not a legal maritime
+  boundary.</li>
+<li>Land is from Natural Earth 1:10m, which omits many small islands; the same
+  omission appears in all three panels, so it does not affect the comparison but
+  does affect the portrait of the country.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day21_osm">← Day 21 · OpenStreetMap</a><a href="#day23_taste">Day 23 · Senses: Taste →</a></div>
+</section>
+<section class="detail" id="day23_taste" data-title="The taste of the city" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 23 · Senses: Taste</div>
+    <h1>The taste of the city</h1>
+    <p class="dek">Taste is the most local sense. In Metro Manila, the everyday food map is not the mall; it is the palengke (wet market), the panaderia, the butcher, the greengrocer and the fishmonger.</p>
+  </div>
+  <div class="hero"><img src="day23_taste/day23_taste.png" alt="The taste of the city"></div>
+  <div class="actions"><a class="btn" href="day23_taste/day23_taste.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day23_taste/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day23_taste/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day23_taste/day23_taste.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day23_taste.map</code></p>
+<h2>The story</h2>
+<p>Taste is the most local sense. In Metro Manila, the everyday food map is not the
+mall; it is the <strong>palengke</strong> (wet market), the panaderia, the butcher, the
+greengrocer and the fishmonger. When floods close the roads, these are the last
+mile of the food supply chain.</p>
+<p>This map plots every food shop the crowd has mapped in Metro Manila, coloured by
+type. Bakeries dominate by count — 1,255 of 2,746 — which is a very Filipino
+result: the neighborhood bakery is more common than the supermarket. The 385 wet
+markets are drawn as stars because they anchor the everyday table.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Food retail:</strong> OSM nodes and ways in the Metro Manila box
+  (120.85–121.20°E, 14.45–14.80°N) tagged
+  <code>amenity=marketplace</code>, <code>shop=supermarket|greengrocer|butcher|seafood|bakery</code>.
+  Fetched with <code>out center</code> and cached as <code>data/mm_food.gpkg</code>.</li>
+<li><strong>Counts:</strong> 2,746 features: 1,255 bakeries, 840 supermarkets, 385 wet markets,
+  150 butchers, 91 greengrocers, 28 fishmongers (269 fresh-food shops in total).</li>
+<li><strong>Land:</strong> Natural Earth 1:10m (<code>data/ph_land.gpkg</code>).</li>
+<li><strong>Roads:</strong> major OSM roads in the same box (<code>data/mm_roads.gpkg</code>), drawn as
+  faint context.</li>
+<li><strong>Licence:</strong> OSM data © OpenStreetMap contributors, ODbL.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Query Overpass for markets, supermarkets, greengrocers, butchers, fishmongers
+   and bakeries; cache the JSON and convert to a GeoDataFrame.</li>
+<li>Split the layer by tag: markets (<code>amenity=marketplace</code>), supermarkets
+   (<code>shop=supermarket</code>), fresh-food shops (butcher, greengrocer, seafood) and
+   bakeries.</li>
+<li>Project to Web Mercator.</li>
+<li>Draw land and major roads as dark context.</li>
+<li>Plot bakeries as tiny sand-coloured dots, fresh-food shops as small olive
+   dots, supermarkets as small blue dots, and wet markets as larger red stars
+   with cream edges.</li>
+<li>Set a fixed extent over Metro Manila so the surrounding province does not
+   dilute the city pattern.</li>
+<li>Add a legend with counts for each class, place it in the lower-left over the
+   bay, and compose the title, the headline counts, and the food-supply line.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>2,746 food shops in total.</li>
+<li>1,255 bakeries.</li>
+<li>840 supermarkets.</li>
+<li>385 wet markets.</li>
+<li>269 butchers, greengrocers and fishmongers.</li>
+<li>The class counts add to slightly more than 2,746 because a handful of
+  features carry overlapping tags (for example a market with a shop tag).</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://overpass-api.de/" target="_blank" rel="noopener">Overpass API</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>OSM retail coverage is incomplete and biased toward malls, chains and
+  well-mapped neighborhoods. Informal stalls, sari-sari stores and talipapa are
+  largely absent.</li>
+<li>A point is a location, not a measure of supply, price, quality or opening
+  hours.</li>
+<li>The map does not show population or demand, so it cannot identify food
+  deserts. A dense cluster of bakeries may serve a small area; a sparse area may
+  be underserved or simply under-mapped.</li>
+<li>The claim that wet markets are "the last mile" is a narrative frame, not a
+  measured supply-chain fact.</li>
+<li>The map is not an evacuation or disruption analysis; it does not model which
+  shops remain open after a flood.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day22_projections">← Day 22 · Projections</a><a href="#day24_network">Day 24 · Network →</a></div>
+</section>
+<section class="detail" id="day24_network" data-title="Two ways off the spine" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 24 · Network</div>
+    <h1>Two ways off the spine</h1>
+    <p class="dek">Cebu is a long, narrow island. Its population and its primary road network run along the coast, with a mountainous spine in the middle.</p>
+  </div>
+  <div class="hero"><img src="day24_network/day24_network.png" alt="Two ways off the spine"></div>
+  <div class="actions"><a class="btn" href="day24_network/day24_network.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day24_network/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day24_network/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day24_network/day24_network.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day24_network.map</code></p>
+<h2>The story</h2>
+<p>Cebu is a long, narrow island. Its population and its primary road network run
+along the coast, with a mountainous spine in the middle. From Cebu City, there
+are two obvious ways out: north along the coast toward Daanbantayan, and south
+along the coast toward Santander. There is no equivalent inland alternative for
+most of the island.</p>
+<p>When Typhoon Tino crossed Cebu in November 2026, the coastal road was the
+corridor that had to keep working. This map draws the primary network and
+computes the shortest path from Cebu City to each tip. The routes are almost the
+same length — 120 km north, 126 km south — and both hug the coast. The network
+is efficient and exposed at the same time.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Roads:</strong> OSM <code>highway=trunk|primary|secondary|tertiary</code> ways in the Cebu box
+  (123.3–124.3°E, 9.3–11.4°N), fetched with <code>out geom</code> and cached as
+  <code>data/cebu_roads.gpkg</code>. 9,919 line segments.</li>
+<li><strong>Graph:</strong> built directly from the line vertices, with edges weighted by
+  great-circle distance in UTM 51N. About 200,000 nodes.</li>
+<li><strong>Endpoints:</strong> Cebu City (123.893°E, 10.315°N), Daanbantayan (124.020°E,
+  11.200°N), Santander (123.420°E, 9.420°N).</li>
+<li><strong>Land:</strong> Natural Earth 1:10m (<code>data/ph_land.gpkg</code>).</li>
+<li><strong>Licence:</strong> OSM data © OpenStreetMap contributors, ODbL.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load and project the Cebu road network to UTM 51N.</li>
+<li>Build a NetworkX graph from every consecutive pair of vertices in every
+   LineString. Nodes are rounded to 0.1 m so shared OSM junctions connect.</li>
+<li>Snap the three cities to their nearest graph nodes.</li>
+<li>Compute the shortest path with Dijkstra (<code>weight="weight"</code>) from Cebu City to
+   each tip and sum the edge lengths.</li>
+<li>Draw the full network as thin slate lines, then overlay the north route in
+   red and the south route in blue, each with a transparent glow.</li>
+<li>Mark the three cities with cream dots and labels.</li>
+<li>Add a legend with the route lengths, placed in the empty sea at upper left.</li>
+<li>Compose the title, the "no inland alternative" framing, and the source
+   footer.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>9,919 road segments, about 200,000 graph nodes.</li>
+<li>Cebu City → Daanbantayan: 120 km.</li>
+<li>Cebu City → Santander: 126 km.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://overpass-api.de/" target="_blank" rel="noopener">Overpass API</a></li>
+<li><a href="https://networkx.org/" target="_blank" rel="noopener">NetworkX</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>Only trunk, primary, secondary and tertiary roads are included. Barangay
+  roads, trails and ferry links are not, so the "shortest" path is shortest
+  within this network, not necessarily the real drive.</li>
+<li>The graph connects roads where OSM vertices share coordinates. Small mapping
+  gaps can disconnect a route or push it onto a detour.</li>
+<li>The routes are shortest paths, not traffic-aware routes. They ignore
+  one-ways, closures, landslides, checkpoints and ferry schedules.</li>
+<li>The map does not show Tino's damage or closures. The "when the coast closed"
+  line is context; no closure data are overlaid.</li>
+<li>Distance is along the line geometry, not elevation-aware, so fuel and travel
+  time are not represented.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day23_taste">← Day 23 · Senses: Taste</a><a href="#day25_art">Day 25 · Is this a map? →</a></div>
+</section>
+<section class="detail" id="day25_art" data-title="Wind writing" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 25 · Is this a map?</div>
+    <h1>Wind writing</h1>
+    <p class="dek">The prompt asks when something becomes a map and when it stops being one. This piece removes every conventional map element: no coastline, no labels, no legend, no scale, no north arrow, no axes.</p>
+  </div>
+  <div class="hero"><img src="day25_art/day25_art.png" alt="Wind writing"></div>
+  <div class="actions"><a class="btn" href="day25_art/day25_art.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day25_art/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day25_art/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day25_art/day25_art.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day25_art.map</code></p>
+<h2>The story</h2>
+<p>The prompt asks when something becomes a map and when it stops being one. This
+piece removes every conventional map element: no coastline, no labels, no
+legend, no scale, no north arrow, no axes. All that remains is the year's
+weather, drawn as ink.</p>
+<p>Each line is a named 2026 tropical cyclone track in the western North Pacific,
+clipped to 100–180°E and 0–45°N. The result looks like handwriting, or roots, or
+a weather chart without its annotations. It is still a map in the strict sense —
+positions in a coordinate system — but it is also an abstract drawing. The title
+and subtitle leave the question open on purpose.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Tracks:</strong> IBTrACS v04r01 last-three-years CSV (<code>data/ibtracs_last3years.csv</code>),
+  season 2026, named storms only.</li>
+<li><strong>Filtering:</strong> positions between 100 and 180°E and 0 and 45°N; storms with
+  fewer than two valid positions are dropped. 29 tracks survive.</li>
+<li><strong>Style:</strong> cream paper, near-black ink, one thin line per track, no labels.</li>
+<li><strong>Licence:</strong> IBTrACS NOAA/NCEI.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load the cached IBTrACS file, keep 2026 named storms, and convert coordinates
+   to numbers.</li>
+<li>Drop missing positions and clip each track to the western Pacific window.</li>
+<li>Sort each storm by <code>ISO_TIME</code> and draw a single <code>ax.plot</code> line at 0.45
+   opacity with round caps. Overlaps create darker knots where storms crossed
+   the same water.</li>
+<li>Set the extent to 105–170°E, 2–42°N, with an aspect ratio of 1.2 (a gentle
+   latitude correction) so the composition fills the page.</li>
+<li>Remove axes, ticks, frames and legends.</li>
+<li>Set a serif title (<code>WIND WRITING</code>) and an italic subtitle that states the
+   count and asks the question.</li>
+<li>Save at 200 dpi on cream paper.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>29 visible storm tracks.</li>
+<li>Window: 105–170°E, 2–42°N.</li>
+<li>No labels, no scale, no legend.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.ncei.noaa.gov/products/international-best-track-archive" target="_blank" rel="noopener">IBTrACS product page</a></li>
+<li><a href="https://www.ncei.noaa.gov/" target="_blank" rel="noopener">NOAA NCEI</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>The count is 29, not the 86 named storms in the full basin, because tracks
+  outside the window or with too few positions are excluded.</li>
+<li>Without labels, the reader cannot identify a storm. That is the point of the
+  piece, but it also makes it useless as a reference map.</li>
+<li>The line positions are 6-hourly best-track points; the curves between them are
+  straight interpolations, not the actual path.</li>
+<li>Overlapping tracks are not distinguishable; the ink density is a visual
+  accident, not a count.</li>
+<li>"Is this a map?" is a provocation, not a definition. The piece satisfies a
+  coordinate-space definition and fails almost every communicative one.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day24_network">← Day 24 · Network</a><a href="#day26_water">Day 26 · Water →</a></div>
+</section>
+<section class="detail" id="day26_water" data-title="Through the cloud, the water" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 26 · Water</div>
+    <h1>Through the cloud, the water</h1>
+    <p class="dek">In late August 2026, heavy monsoon rain and a tropical system produced floods and landslides across Luzon. Optical satellites were useless: every Sentinel-2 scene over Central Luzon in the following week was 100% cloud.</p>
+  </div>
+  <div class="hero"><img src="day26_water/day26_water.png" alt="Through the cloud, the water"></div>
+  <div class="actions"><a class="btn" href="day26_water/day26_water.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day26_water/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day26_water/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day26_water/day26_water.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day26_water.map</code></p>
+<h2>The story</h2>
+<p>In late August 2026, heavy monsoon rain and a tropical system produced floods and
+landslides across Luzon. Optical satellites were useless: every Sentinel-2 scene
+over Central Luzon in the following week was 100% cloud. Radar does not care
+about cloud.</p>
+<p>Sentinel-1 passed over the Pampanga basin on 5 September 2026, eight days after
+the floods. The map shows its VV backscatter as a greyscale radar image. Water —
+the Pampanga River, the Candaba wetlands, the fishponds — is dark because the
+surface is smooth and reflects the radar away from the satellite. Cities,
+fields and levee banks are brighter. It is a view of what the cloud was hiding.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Radar:</strong> ESA Sentinel-1 RTC (radiometrically terrain corrected), VV
+  polarisation, scene
+  <code>S1D_IW_GRDH_1SDV_20260905T214558_20260905T214623_004448_0083EA_rtc</code>,
+  5 September 2026.</li>
+<li><strong>Access:</strong> Microsoft Planetary Computer STAC, chosen from two overlapping
+  scenes by the fraction of valid pixels covering the basin (98.6% versus 5.8%).</li>
+<li><strong>Crop:</strong> 120.45–121.00°E, 14.80–15.45°N, read at 20 m resolution into a
+  2,400 × 2,858 array.</li>
+<li><strong>Towns:</strong> Angeles, San Fernando, Candaba, Calumpit; Pampanga River label near
+  120.75°E, 14.95°N.</li>
+<li><strong>Licence:</strong> Copernicus Sentinel-1 data, free and open.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Search the Planetary Computer for Sentinel-1 RTC scenes over the Pampanga
+   basin on 5 September 2026.</li>
+<li>For each candidate, read a small preview window and compute the fraction of
+   valid (non-zero) pixels. Choose the scene with the best coverage. The first
+   attempt picked the other scene and produced a mostly black image.</li>
+<li>Read the VV band for the full crop with <code>rasterio</code> windowed reads and
+   <code>out_shape</code> to resample to 20 m.</li>
+<li>Convert linear power to decibels (<code>10 × log10(VV)</code>), clip the floor, and set
+   zero/nodata pixels to NaN.</li>
+<li>Display with a grayscale ramp from −25 to −2 dB. Water is dark; built-up and
+   vegetated surfaces are bright.</li>
+<li>Add town labels and a river label with dark halos so they survive the busy
+   image.</li>
+<li>Add a vertical VV colour bar, the title, the "eight days after" context, and
+   the source footer.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>Scene date: 5 September 2026.</li>
+<li>Resolution: 20 m display grid.</li>
+<li>Coverage of the chosen scene: 98.6% of the crop.</li>
+<li>Backscatter range shown: −25 to −2 dB.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://planetarycomputer.microsoft.com/dataset/sentinel-1-rtc" target="_blank" rel="noopener">Planetary Computer: Sentinel-1 RTC</a></li>
+<li><a href="https://dataspace.copernicus.eu/" target="_blank" rel="noopener">Copernicus Data Space</a></li>
+<li><a href="https://documentation.dataspace.copernicus.eu/Data/SentinelMissions/Sentinel1.html" target="_blank" rel="noopener">Copernicus Sentinel-1 data guide</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>The image is not a classified flood map. No threshold, change detection or
+  ground truth was used; dark pixels are interpreted visually as water but can
+  also be smooth surfaces, shadow, or low-return fields.</li>
+<li>Eight days after the flood, some water had already drained. The map shows
+  what remained, not the peak extent.</li>
+<li>Radar backscatter depends on surface roughness, moisture and incidence angle,
+  not only on water.</li>
+<li>The scene is one moment in time. It cannot show how the flood moved.</li>
+<li>No population, damage or road-closure data are overlaid.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day25_art">← Day 25 · Is this a map?</a><a href="#day27_newtool">Day 27 · New tool →</a></div>
+</section>
+<section class="detail" id="day27_newtool" data-title="A globe that turns" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 27 · New tool</div>
+    <h1>A globe that turns</h1>
+    <p class="dek">The challenge asks for a tool you have not used before. This series had already used GeoPandas, OSMnx, Rasterio, Folium, H3 and Matplotlib; Plotly had not appeared.</p>
+  </div>
+  <div class="hero"><img src="day27_newtool/day27_newtool.png" alt="A globe that turns"></div>
+  <div class="actions"><a class="btn" href="day27_newtool/day27_newtool.png" target="_blank" rel="noopener">Open full image</a><a class="btn btn--accent" href="day27_newtool/day27_newtool.html" target="_blank" rel="noopener">Open interactive map</a><a class="btn" href="day27_newtool/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day27_newtool/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day27_newtool/day27_newtool.html</code> (interactive) and
+<code>day27_newtool/day27_newtool.png</code> (static preview)
+<strong>Run:</strong> <code>uv run python -m day27_newtool.map</code></p>
+<h2>The story</h2>
+<p>The challenge asks for a tool you have not used before. This series had already
+used GeoPandas, OSMnx, Rasterio, Folium, H3 and Matplotlib; Plotly had not
+appeared. A Plotly orthographic globe is a different way to see the same two
+years: the reader can drag the planet, spin it, and watch the typhoon tracks
+wrap around the curve of the Earth.</p>
+<p>The globe carries the nine 2026 PAR tracks and the 133 M5+ Philippine
+earthquakes. It is a deliberately small dataset on a deliberately large object.
+The point is not analytical precision; it is the pleasure of spinning the
+archipelago and seeing how a season of storms sits on a sphere.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Earthquakes:</strong> cached USGS M5+ catalogue (<code>data/ph_quakes.geojson</code>), clipped
+  to the national boundary. 133 events.</li>
+<li><strong>Typhoons:</strong> cached IBTrACS 2026 tracks filtered to the PAR test box. Nine
+  storms.</li>
+<li><strong>Globe:</strong> Plotly <code>Scattergeo</code> with <code>projection_type="orthographic"</code>, centred
+  on 122°E, 12°N.</li>
+<li><strong>Licences:</strong> USGS public domain; IBTrACS NOAA; Plotly open source.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load and clip the earthquake catalogue.</li>
+<li>Load the typhoon tracks, filter to named 2026 storms entering the PAR box,
+   and sort each track by time.</li>
+<li>Create a Plotly figure. Each storm becomes a <code>Scattergeo</code> line trace,
+   coloured by peak wind (blue, yellow, orange, red), with the storm name and
+   intensity in the legend and hover label.</li>
+<li>Add the earthquakes as a marker trace sized by magnitude, with magnitude and
+   place in the hover text.</li>
+<li>Configure the geo layer: orthographic projection centred on the Philippines,
+   dark ocean, slate land, subtle coastlines and country borders, no lakes.</li>
+<li>Apply a dark Plotly template and a fixed dark figure background so the HTML
+   matches the rest of the series. The figure is 1,200 px tall, with a dark body
+   injected after <code>write_html</code>, so the page has no white band below the globe.</li>
+<li>Write a self-contained HTML file with Plotly loaded from a CDN.</li>
+<li>For the gallery preview, capture the HTML with headless Chrome at
+   1600 × 1200 (<code>--headless=new --virtual-time-budget=15000 --screenshot=…</code>)
+   and save it next to the HTML as a PNG.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>Nine typhoon tracks.</li>
+<li>133 earthquakes.</li>
+<li>One interactive orthographic globe.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.ncei.noaa.gov/products/international-best-track-archive" target="_blank" rel="noopener">IBTrACS product page</a></li>
+<li><a href="https://earthquake.usgs.gov/fdsnws/event/1/" target="_blank" rel="noopener">USGS FDSN Event API</a></li>
+<li><a href="https://plotly.com/python/" target="_blank" rel="noopener">Plotly Python</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>The globe is a display, not an analysis. There is no time animation, no
+  filtering and no spatial query.</li>
+<li>Plotly loads from a CDN; the HTML needs network access to render.</li>
+<li>Orthographic projection makes distance and area judgments unreliable away
+  from the centre.</li>
+<li>The typography and layout are constrained by Plotly's HTML renderer; it does
+  not match the static maps pixel-for-pixel.</li>
+<li>The earthquake and typhoon layers are simplified versions of the static maps.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day26_water">← Day 26 · Water</a><a href="#day28_feeling">Day 28 · Senses: Feeling →</a></div>
+</section>
+<section class="detail" id="day28_feeling" data-title="How the shaking felt" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 28 · Senses: Feeling</div>
+    <h1>How the shaking felt</h1>
+    <p class="dek">Seismographs record ground motion. People record fear. The USGS &quot;Did You Feel It?&quot; programme collects both: anyone can report what they felt, where, and how strong it was.</p>
+  </div>
+  <div class="hero"><img src="day28_feeling/day28_feeling.png" alt="How the shaking felt"></div>
+  <div class="actions"><a class="btn" href="day28_feeling/day28_feeling.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day28_feeling/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day28_feeling/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day28_feeling/day28_feeling.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day28_feeling.map</code></p>
+<h2>The story</h2>
+<p>Seismographs record ground motion. People record fear. The USGS "Did You Feel
+It?" programme collects both: anyone can report what they felt, where, and how
+strong it was. For the M7.8 Sarangani earthquake of 8 June 2026, 597 responses
+came from 144 places, as far as 2,850 km away.</p>
+<p>This map turns those reports into a community decimal intensity (CDI) surface.
+Near the epicentre the grid reaches 9.1 — violent shaking. Across Mindanao it
+drops to 6, 5, 4. In Luzon it is mostly 2–4: felt, but as a sway rather than a
+threat. The same earthquake, many feelings. That is the point of the day.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Event:</strong> USGS event <code>us7000srb1</code>, M7.8, 8 June 2026, 25 km SW of Kablalan,
+  Sarangani.</li>
+<li><strong>Product:</strong> <code>dyfi</code>, specifically <code>dyfi_geo_10km.geojson</code> (10 km gridded
+  intensity) and <code>dyfi_zip.geojson</code> (response counts by place).</li>
+<li><strong>Grid:</strong> 188 polygons after cleaning unclosed rings in the source GeoJSON.</li>
+<li><strong>Responses:</strong> 597 reports from 144 places; maximum reported distance
+  2,850 km; maximum CDI 9.1.</li>
+<li><strong>Land:</strong> Natural Earth 1:10m (<code>data/ph_land.gpkg</code>).</li>
+<li><strong>Licence:</strong> USGS data, public domain.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Query the USGS event endpoint for <code>us7000srb1</code> and locate the <code>dyfi</code> product.</li>
+<li>Download the gridded GeoJSON from the product's content URL (the event-page
+   URL returns HTML, not GeoJSON).</li>
+<li>The source polygons have unclosed rings, so GeoPandas refuses to read them.
+   Parse the JSON manually, close each ring by repeating its first coordinate,
+   and build Shapely polygons. 188 cells survive.</li>
+<li>Load the ZIP-level reports to compute the headline totals and maximum
+   distance.</li>
+<li>Project the gridded cells to Web Mercator and plot them with a yellow-to-red
+   ramp from CDI 1 to 10, at 80% opacity.</li>
+<li>Draw the national land silhouette beneath, then mark the epicentre with a
+   red star and a label.</li>
+<li>Add a horizontal colour bar explaining CDI, and compose the title, the
+   response totals and the "same quake, different feeling" line.</li>
+<li>Save at 200 dpi.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>597 responses, 144 places.</li>
+<li>Maximum distance: 2,850 km.</li>
+<li>Maximum CDI: 9.1.</li>
+<li>188 grid cells at 10 km resolution.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://earthquake.usgs.gov/data/dyfi/" target="_blank" rel="noopener">USGS DYFI programme</a></li>
+<li><a href="https://earthquake.usgs.gov/earthquakes/eventpage/us7000srb1" target="_blank" rel="noopener">USGS event us7000srb1</a></li>
+<li><a href="https://earthquake.usgs.gov/fdsnws/event/1/" target="_blank" rel="noopener">USGS FDSN Event API</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>DYFI is self-reported and voluntary. Responses are biased toward people with
+  internet access, smartphones and time; rural and low-connectivity areas are
+  under-represented.</li>
+<li>CDI is not a physical measurement. It is a community-scaled intensity derived
+  from reports, and it differs from instrumental shaking, PGA or MMI maps.</li>
+<li>A blank cell means no reports, not no shaking.</li>
+<li>The 10 km grid smooths local variation; two adjacent barangays can feel very
+  different shaking.</li>
+<li>The maximum distance may include reports from people travelling or submitting
+  from elsewhere; it is not a felt-radius boundary.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day27_newtool">← Day 27 · New tool</a><a href="#day29_raster">Day 29 · Raster →</a></div>
+</section>
+<section class="detail" id="day29_raster" data-title="The cone, one pixel at a time" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 29 · Raster</div>
+    <h1>The cone, one pixel at a time</h1>
+    <p class="dek">Raster maps hide their own construction. A smooth hillshade or a flood mask looks continuous, but underneath it is a grid of decisions: each cell has one elevation, one class, one value. This day makes the grid visible.</p>
+  </div>
+  <div class="hero"><img src="day29_raster/day29_raster.png" alt="The cone, one pixel at a time"></div>
+  <div class="actions"><a class="btn" href="day29_raster/day29_raster.png" target="_blank" rel="noopener">Open full image</a><a class="btn" href="day29_raster/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day29_raster/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day29_raster/day29_raster.png</code></p>
+<p><strong>Run:</strong> <code>uv run python -m day29_raster.map</code></p>
+<h2>The story</h2>
+<p>Raster maps hide their own construction. A smooth hillshade or a flood mask looks
+continuous, but underneath it is a grid of decisions: each cell has one elevation,
+one class, one value. This day makes the grid visible.</p>
+<p>The map shows Mayon's elevation surface at 30 m, with contour lines every 250 m.
+A zoom inset takes a 24 × 24 pixel window around the summit and draws every cell
+boundary. At that scale the perfect cone becomes a staircase. The 6 km danger
+zone is only 400 pixels across. This is the resolution at which a hazard map
+decides what is steep, what is high and what is safe.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Elevation:</strong> Copernicus DEM GLO-30, tile <code>N13_00_E123_00</code>, cached as
+  <code>data/mayon_dem.npy</code> from Day 17. 829 × 973 pixels at 30 m.</li>
+<li><strong>Crop:</strong> 123.55–123.82°E, 13.13–13.36°N.</li>
+<li><strong>Summit:</strong> 13.2573°N, 123.6855°E.</li>
+<li><strong>Zone:</strong> 6 km buffer in UTM 51N.</li>
+<li><strong>Licence:</strong> Copernicus DEM, free and open.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load the cached elevation array (no new download).</li>
+<li>Display it with a custom six-stop terrain colormap from deep navy at sea level
+   through pine and olive to cream at the summit. No hillshade is used; the point
+   is the raw raster.</li>
+<li>Add contour lines at 250 m intervals in a faint dark ink so the cone's
+   structure is readable without turning the map back into a hillshade.</li>
+<li>Overlay the 6 km zone as a red dashed circle and label it "400 pixels across".</li>
+<li>Compute the summit's row and column from the geographic bounds, then take a
+   24 × 24 pixel window centred on it.</li>
+<li>Draw the window as an inset with its own local colour stretch, a grid line at
+   every pixel boundary, and contour lines every 100 m. The local stretch is
+   necessary: on the global 0–2,600 m scale the summit window is almost uniform.</li>
+<li>Add a title inside the inset: "summit · 24 × 24 pixels · 720 m" and a note
+   that each square is 30 m.</li>
+<li>Add a horizontal elevation colour bar and compose the title, the pixel-count
+   explanation and the source footer.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>829 × 973 elevation pixels.</li>
+<li>30 m pixel size.</li>
+<li>6 km danger zone = about 400 pixels across.</li>
+<li>Inset: 24 × 24 pixels = 720 m across.</li>
+<li>Contours: 250 m on the main map, 100 m in the inset.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://planetarycomputer.microsoft.com/dataset/cop-dem-glo-30" target="_blank" rel="noopener">Planetary Computer: Copernicus DEM GLO-30</a></li>
+<li><a href="https://dataspace.copernicus.eu/" target="_blank" rel="noopener">Copernicus Data Space</a></li>
+<li><a href="https://www.phivolcs.dost.gov.ph/" target="_blank" rel="noopener">PHIVOLCS</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>Elevation is not hazard. Steepness, ash thickness, lahar channels and
+  evacuation routes are separate datasets.</li>
+<li>The DEM is a surface model with vertical error; 30 m cells smooth the summit
+  and the ravines.</li>
+<li>The inset's local stretch exaggerates tiny differences, so its colours are not
+  comparable to the main map's.</li>
+<li>The "400 pixels across" is a diameter estimate from the 6 km buffer, not a
+  measured hazard boundary.</li>
+<li>Contours are interpolated from the same grid; they do not add information
+  below 30 m resolution.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day28_feeling">← Day 28 · Senses: Feeling</a><a href="#day30_penpaper">Day 30 · Pen &amp; paper →</a></div>
+</section>
+<section class="detail" id="day30_penpaper" data-title="Mayon, a map to draw by hand" hidden>
+  <a class="back" href="#gallery">← All maps</a>
+  <div class="detail-head">
+    <div class="kicker">Day 30 · Pen &amp; paper</div>
+    <h1>Mayon, a map to draw by hand</h1>
+    <p class="dek">The final day asks you to close the laptop and draw. This folder contains the part a script can do: a printable tracing sheet.</p>
+  </div>
+  <div class="hero"><img src="day30_penpaper/day30_penpaper.png" alt="Mayon, a map to draw by hand"></div>
+  <div class="actions"><a class="btn" href="day30_penpaper/day30_penpaper.png" target="_blank" rel="noopener">Open full image</a><a class="btn btn--accent" href="day30_penpaper/day30_penpaper.pdf" target="_blank" rel="noopener">Download printable PDF</a><a class="btn" href="day30_penpaper/README.md" target="_blank" rel="noopener">README.md</a><a class="btn" href="day30_penpaper/map.py" target="_blank" rel="noopener">Python source</a></div>
+  <div class="prose"><p><strong>Output:</strong> <code>day30_penpaper/day30_penpaper.pdf</code> (A4) and
+<code>day30_penpaper/day30_penpaper.png</code>
+<strong>Run:</strong> <code>uv run python -m day30_penpaper.map</code></p>
+<h2>The story</h2>
+<p>The final day asks you to close the laptop and draw. This folder contains the
+part a script can do: a printable tracing sheet. It is deliberately sparse — a
+coastline, the primary roads, the towns, the 6 km danger zone and a scale bar,
+all in black line work on white A4.</p>
+<p>The rest is yours. Trace the coast, ink the roads, mark the ash plume, add the
+evacuation centres, write the names you know. Photograph the result. That is the
+map this series cannot make for you.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Land:</strong> Natural Earth 1:10m coastline (<code>data/ph_land.gpkg</code>), clipped to the
+  Mayon area.</li>
+<li><strong>Roads:</strong> OSM primary, secondary and tertiary highways around Mayon
+  (<code>data/mayon_places.gpkg</code>), clipped to the land so ferry routes and lines
+  across water disappear.</li>
+<li><strong>Towns:</strong> OSM <code>place=city|town</code> nodes around the volcano.</li>
+<li><strong>Zone:</strong> 6 km buffer around the summit (13.2573°N, 123.6855°E).</li>
+<li><strong>Page:</strong> A4 portrait.</li>
+<li><strong>Licence:</strong> OSM data © OpenStreetMap contributors, ODbL; Natural Earth public
+  domain.</li>
+</ul>
+<h2>Process</h2>
+<ol>
+<li>Load the cached Mayon land, road and place layers; project to UTM 51N.</li>
+<li>Draw land as an outline only, roads as thin grey-black lines clipped to the
+   land polygon, and the 6 km zone as a dashed circle.</li>
+<li>Place town names in a small serif face at their OSM coordinates; mark the
+   summit with a triangle and a two-line elevation label.</li>
+<li>Add a 10 km scale bar in the lower-left.</li>
+<li>Add a double rule border and a centred title (<code>MAYON — a map to draw by
+   hand</code>) with three short instructions.</li>
+<li>Save the figure as a vector PDF for printing and a PNG preview.</li>
+<li>The PDF is the deliverable; the PNG exists so the day has a viewable image in
+   the repo.</li>
+</ol>
+<h2>Numbers on the map</h2>
+<ul>
+<li>A4 portrait, 210 × 297 mm.</li>
+<li>10 km scale bar.</li>
+<li>6 km danger-zone radius.</li>
+<li>Mayon summit: 2,462 m.</li>
+</ul>
+<h2>Data links</h2>
+<p>External sources used for this map (the local caches live in <code>data/</code>):</p>
+<ul>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap copyright</a></li>
+<li><a href="https://overpass-api.de/" target="_blank" rel="noopener">Overpass API</a></li>
+<li><a href="https://www.phivolcs.dost.gov.ph/" target="_blank" rel="noopener">PHIVOLCS</a></li>
+</ul>
+<h2>What this map does not say</h2>
+<ul>
+<li>This is a base sheet, not the finished day. The analogue map is the one you
+  draw on it.</li>
+<li>The roads are a simplified primary network; smaller streets and footpaths are
+  omitted to leave room for hand annotation.</li>
+<li>The zone circle is a schematic buffer, not the official hazard polygon.</li>
+<li>The coastline is Natural Earth 1:10m, so small coves and reclaimed land are
+  generalised.</li>
+<li>The sheet has no legend, no north arrow beyond the page orientation, and no
+  data attribution inside the drawing area; the footer carries the source.</li>
+</ul></div>
+  <div class="detail-foot"><a href="#day29_raster">← Day 29 · Raster</a><span></span></div>
+</section>
+
+<footer class="site">
+  <div class="kicker" style="margin-bottom:3px">Primary sources</div>
+  <div class="src">
+    <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
+    <a href="https://earthquake.usgs.gov/fdsnws/event/1/">USGS earthquakes</a>
+    <a href="https://earthquake.usgs.gov/data/dyfi/">USGS DYFI</a>
+    <a href="https://www.ncei.noaa.gov/products/international-best-track-archive">NOAA IBTrACS</a>
+    <a href="https://www.usgs.gov/landsat-missions/landsat-9">NASA/USGS Landsat 9</a>
+    <a href="https://dataspace.copernicus.eu/">ESA Copernicus</a>
+    <a href="https://www.naturalearthdata.com/">Natural Earth</a>
+    <a href="https://www.phivolcs.dost.gov.ph/">PHIVOLCS</a>
+    <a href="https://www.pagasa.dost.gov.ph/">PAGASA</a>
+  </div>
+  Built for <a href="https://30daymapchallenge.com/2026">#30DayMapChallenge</a> ·
+  <a href="README.md">Project README</a>. Every detail page lists the exact
+  data links for that map.
+</footer>
+
+</main>
+<script>
+const gallery = document.getElementById('gallery');
+const details = Array.from(document.querySelectorAll('.detail'));
+const baseTitle = document.title;
+function render(){
+  const id = location.hash.replace('#','');
+  if(!id || id === 'gallery'){
+    gallery.hidden = false;
+    details.forEach(d => d.hidden = true);
+    document.title = baseTitle;
+    window.scrollTo({top:0,behavior:'instant'});
+    return;
+  }
+  const target = document.getElementById(id);
+  if(!target || !target.classList.contains('detail')){
+    location.hash = 'gallery';
+    return;
+  }
+  gallery.hidden = true;
+  details.forEach(d => d.hidden = d !== target);
+  document.title = target.dataset.title + ' · 30 Day Map Challenge 2026';
+  window.scrollTo({top:0,behavior:'instant'});
+}
+window.addEventListener('hashchange', render);
+render();
+</script>
+</body>
+</html>
