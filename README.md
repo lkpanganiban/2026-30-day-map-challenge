@@ -10,12 +10,18 @@
 </p>
 
 <p align="center">
+  <a href="https://www.lkpanganiban.com/2026-30-day-map-challenge/"><img alt="Live gallery" src="https://img.shields.io/badge/live-gallery-e63946?style=flat-square&logo=github&logoColor=white"></a>
   <img alt="30 maps" src="https://img.shields.io/badge/maps-30-e63946?style=flat-square">
   <img alt="Python 3.11+" src="https://img.shields.io/badge/Python-3.11%2B-3776AB?style=flat-square&logo=python&logoColor=white">
   <img alt="Open data" src="https://img.shields.io/badge/data-open%20sources-2ea44f?style=flat-square">
   <img alt="30 READMEs" src="https://img.shields.io/badge/READMEs-30-6e40c9?style=flat-square">
   <img alt="Static site" src="https://img.shields.io/badge/gallery-static%20site-58c7f3?style=flat-square">
   <img alt="Challenge 2026" src="https://img.shields.io/badge/%2330DayMapChallenge-2026-e63946?style=flat-square">
+</p>
+
+<p align="center">
+  🔗 <b>Live gallery:</b>
+  <a href="https://www.lkpanganiban.com/2026-30-day-map-challenge/">www.lkpanganiban.com/2026-30-day-map-challenge</a>
 </p>
 
 ---
@@ -92,9 +98,9 @@ by hand.
 ## 🖼️ All thirty maps
 
 <div align="center">
-  <a href="index.html"><img src="assets/gallery.png" alt="Mosaic of all thirty maps" width="100%"></a>
+  <a href="https://www.lkpanganiban.com/2026-30-day-map-challenge/"><img src="assets/gallery.png" alt="Mosaic of all thirty maps" width="100%"></a>
   <br>
-  <sub>The whole month on one page. Open <code>index.html</code> in a browser for the interactive gallery.</sub>
+  <sub>The whole month on one page. <a href="https://www.lkpanganiban.com/2026-30-day-map-challenge/">Open the live gallery</a> — click any map for its story, data and process.</sub>
 </div>
 
 ## 🧭 How the series was made
@@ -198,22 +204,30 @@ Every download is cached in `data/`, so re-renders are offline and fast. First
 runs need network access to Overpass, USGS, IBTrACS, Natural Earth and the
 Microsoft Planetary Computer.
 
-## 🌐 Static site & hosting
+## 🌐 Live site & hosting
+
+**Live:** [www.lkpanganiban.com/2026-30-day-map-challenge](https://www.lkpanganiban.com/2026-30-day-map-challenge/)
 
 `index.html` is a single-file, hash-routed gallery: a dashboard of all 30 maps
 and a detail view containing each day's rendered README, data links and source
 script link. It has no runtime build step.
 
-To host on GitHub Pages:
+The site is deployed with GitHub Pages from the `main` branch root; `.nojekyll`
+stops Pages from running Jekyll over the map folders. To redeploy after changing
+a map or README:
 
-1. Push the repository.
-2. Open **Settings → Pages**.
-3. Choose **Deploy from a branch** and select the branch root (`/`).
-4. `index.html` becomes the site. The included `.nojekyll` file stops Pages from
-   running Jekyll over the map folders.
+```bash
+uv run python build_site.py
+git add -A && git commit -m "Update gallery"
+git push
+```
 
-Interactive days (`index.html#day13_interactions`, `#day27_newtool`) need network
-access for map tiles/Plotly; the static previews are checked in.
+GitHub Pages rebuilds automatically. To recreate the same setup elsewhere:
+push the repository, open **Settings → Pages**, choose **Deploy from a branch**,
+and select the branch root (`/`).
+
+Interactive days (`#day13_interactions`, `#day27_newtool`) need network access
+for map tiles/Plotly; the static previews are checked in.
 
 ## 📡 Data & sources
 
